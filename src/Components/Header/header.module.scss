@@ -1,0 +1,72 @@
+@use '../../variables' as gv;
+
+$font-weights:(
+    '400': 400,
+    '500': 500,
+    '600': 600,
+    '700': 700,
+);
+
+
+.header{
+    padding: 5px 0;
+    background: gv.$color_blue;
+    #{&}_flex{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .logo_flex{
+        display: flex;
+        align-items: center;
+    }
+
+    #{&}_logo{
+        color: white;
+    }
+
+    .png{
+        width: 50px;
+    }
+
+    #{&}_navbar .navbar_item{
+        display: flex;
+        gap: 20px;
+    }
+    
+    a{
+        color: white;
+        font-size: 1.5rem;
+        font-weight: map-get($font-weights, '500');
+        padding: 0px;
+        position: relative;
+
+
+        &:after{
+            content: '';
+            position: absolute;
+            background: white;
+            height: 2px;
+            width: 0%;
+            left: 0;
+            bottom: -1px;
+            transition: 0.2s all;
+        }    
+
+        &:hover:after{
+           width: 100%;
+        }
+    }  
+
+    #{&}_login{
+        padding: 2px 15px;
+        color: white;
+        border: none;
+        background: none;
+        font-weight: map-get($font-weights, '600' );
+        font-size: 1.5rem;
+        cursor: pointer;
+    }
+
+}
