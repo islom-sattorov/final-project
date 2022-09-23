@@ -3,7 +3,7 @@ import './App.scss'
 function App() {
 
   return (
-    <div>Test</div>
+    <h1>Test</h1>
   )
 }
 
