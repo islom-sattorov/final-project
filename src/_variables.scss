@@ -1,8 +1,0 @@
-$color-blue: #0066CC;
-
-
-@mixin tablet{
-    @media (max-width: 768px){
-        @content;
-    }
-}

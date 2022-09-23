@@ -1,10 +1,9 @@
 import './App.scss'
-import Header from './Components/Header/Header'
 
 function App() {
 
   return (
-    <Header />
+    <h1>Test</h1>
   )
 }
 
