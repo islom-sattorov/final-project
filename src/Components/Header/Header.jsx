@@ -6,7 +6,7 @@ const Header = () => {
         <header className={styles.header}>
             <div className="container">
                 <div className={styles.header_flex}>
-                    <div className={styles.logo_flex}>
+                    <div className={styles.header_logo_flex}>
                         <img className={styles.png} src={logo} />
                         <h1 className={styles.header_logo}>Trust Wallet</h1>
                     </div>
