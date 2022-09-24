@@ -8,3 +8,10 @@ $hr-color: #5c6168;
 // Font families
 $primary-font: 'Cormorant Infant', serif;
 $secondary-font: 'Josefin Sans', sans-serif;
+
+// Mixins 
+@mixin flex($just, $align) {
+    display: flex;
+    justify-content: $just;
+    align-items: $align;
+}
