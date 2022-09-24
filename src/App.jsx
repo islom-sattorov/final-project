@@ -4,6 +4,7 @@ import Header from './Components/Header/Header'
 import MainInfo from './Components/Info/MainInfo'
 import Main from './Components/Main/Main'
 import Menu from './Components/Menu/Menu'
+import Testimonial from './Components/Testimonial/Testimonial'
 
 function App() {
 
@@ -14,6 +15,7 @@ function App() {
       <MainInfo />
       <Certs />
       <Menu />
+      <Testimonial />
     </>
   )
 }

@@ -1,0 +1,16 @@
+@import '../../styles/variables';
+
+.carousel_container{
+    background: #f1f1f1;
+    display: flex;
+    flex-wrap: nowrap;
+    overflow: hidden;
+
+    #{&}_item{
+        @include flex(center, center);
+        height: 20rem;
+        min-width: 100%;
+        width: 100%;
+        transition: 1s cubic-bezier(0.39, 0.575, 0.565, 1);
+    }
+}

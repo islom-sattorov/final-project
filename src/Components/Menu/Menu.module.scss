@@ -2,6 +2,7 @@
 
 .section{
     padding: 14rem 4rem 20rem 4rem;
+    max-width: 500px;
 
     #{&}_flex{
         display: flex;

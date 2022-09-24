@@ -13,9 +13,6 @@ const Menu = () => {
                         <img className={style.section_pic} src={special} alt='special' />
                         <button className={style.section_btn}>See all dishes</button>
                     </div>
-                    <div>
-                        <h2>test</h2>
-                    </div>
                 </div>
             </div>
         </section>

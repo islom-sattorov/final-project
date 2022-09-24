@@ -1,0 +1,41 @@
+@import '../../styles/variables';
+
+.section{
+    background: $secondary;
+    padding: 14.5rem;
+
+    #{&}_test{
+        font-size: 1.5rem;
+        font-weight: 400;
+        font-family: $secondary-font;
+        padding: 1rem;
+        border-top: 1px solid $primary;
+        border-bottom: 1px solid $primary;
+        border-left: 1px solid transparent;
+        border-right: 1px solid transparent;
+        line-height: 22px;
+        color: #fff;
+        transition: 0.2s all;
+        &:hover{
+            border-left: 1px solid $primary;
+            border-right: 1px solid $primary;
+        }
+    }
+
+    #{&}_title{
+        font-family: $primary-font;
+        font-weight: 400;
+        font-size: 4rem;
+        line-height: 56px;
+        color: #fff;
+        padding: 1rem 0 0 0;
+    }
+
+    #{&}_subtitle{
+        font-family: $secondary-font;
+        color: #fff;
+        font-size: 2rem;
+        line-height: 30px;
+        padding: 0 0 8rem 0;
+    }
+}
