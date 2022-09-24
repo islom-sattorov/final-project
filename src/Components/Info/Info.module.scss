@@ -1,0 +1,22 @@
+@import '../../styles/variables';
+
+.section_flex{
+        @include flex(center, center);
+        gap: 2rem;
+}
+
+    .section_title{
+        font-weight: 400;
+        font-size: 3rem;
+        color: $secondary;
+        font-family: $primary-font;
+        padding: 1rem 0;
+    }
+
+    .section_subtitle{
+        padding: 1rem 0;
+        font-weight: 400;
+        font-size: 2rem;
+        color: $secondary-text;
+        font-family: $secondary-font;
+    }
