@@ -1,0 +1,43 @@
+@import '../../styles/variables';
+@import '../../styles/breakpoints';
+
+.header{
+    background: $secondary;
+    padding: 1.4rem 0;
+    border-bottom: 1px solid $hr-color;
+    
+
+    #{&}_flex{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    #{&}_phone{
+        color: white;
+        font-size: 2rem;
+        font-weight: 400;
+        text-align: center;
+        padding: 2rem 6rem;
+        border: 2px solid $primary;
+        margin: 0 1.5rem;
+    }
+
+    #{&}_logo{
+        max-width: 100%;
+        max-height: 200px;
+    }
+
+    #{&}_btn{
+       @extend .header_phone;
+       color: $secondary;
+       padding: 2rem 8.5rem;
+       background: $primary;
+       transition: 0.2s all;
+
+       &:hover{
+        background: none;
+        color: white;
+       }
+    }
+}
