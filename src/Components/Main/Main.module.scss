@@ -1,0 +1,55 @@
+@import '../../styles/variables';
+
+.main{
+    border: 1px dotted $hr-color;
+    padding: 7rem 0 0 0;
+    background: $secondary;
+
+    #{&}_flex{
+        @include flex(space-between, center);
+    }
+
+    #{&}_text{
+        @include flex(space-between, flex-start);
+        flex-direction: column;
+        gap: 2rem;
+    }
+
+    #{&}_title{
+        color: white;
+        font-weight: 400;
+        font-size: 10rem;
+        font-family: $primary-font;
+        line-height: 10rem
+    }
+
+    #{&}_subtitle{
+        @extend .main_title;
+        font-size: 2rem;
+        font-family: $secondary-font;
+        line-height: 3.5rem;
+        letter-spacing: 0.2px;
+    }
+
+    #{&}_btn{
+        font-weight: 400;
+        font-size: 2.2rem;
+        text-align: center;
+        color: $primary;
+        border: 2px solid $primary;
+        padding: 2rem 6rem;
+        background: none;
+        transition: 0.2s all;
+
+        &:hover{
+            border-left: 2px solid  transparent;
+            border-right: 2px solid transparent;
+        }
+    }
+
+    #{&}_pic{
+        justify-self: flex-end;
+        border-radius: 626px 626px 0 0;
+    }
+
+}
