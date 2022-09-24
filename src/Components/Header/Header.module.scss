@@ -42,3 +42,36 @@
        }
     }
 }
+
+.navbar{
+    padding: 2.5rem 0;
+    background: $secondary;
+
+    #{&}_flex{
+        display: flex;
+        justify-content: space-between;
+    }
+
+    #{&}_items{
+        display: flex;
+        gap: 6rem;
+        margin: 0 1.5rem;
+    }
+
+    #{&}_item{
+        font-size: 2rem;
+        font-weight: 400;
+        color: white;
+        transition: 0.2s all;
+
+        &:hover{
+            color: $primary;
+        }
+    }
+
+    #{&}_icons{
+        display: flex;
+        gap: 2rem;
+    }
+
+}
