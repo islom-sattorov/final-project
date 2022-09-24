@@ -4,7 +4,7 @@ import Header from './Components/Header/Header'
 import MainInfo from './Components/Info/MainInfo'
 import Main from './Components/Main/Main'
 import Menu from './Components/Menu/Menu'
-import Services from './Components/Service/Services'
+import Services from './Components/Services/Services'
 import Testimonial from './Components/Testimonial/Testimonial'
 
 function App() {
