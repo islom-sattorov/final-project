@@ -1,5 +1,6 @@
 import './App.scss'
 import Header from './Components/Header/Header'
+import MainInfo from './Components/Info/MainInfo'
 import Main from './Components/Main/Main'
 
 function App() {
@@ -8,6 +9,7 @@ function App() {
     <>
       <Header />
       <Main />
+      <MainInfo />
     </>
   )
 }

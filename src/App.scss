@@ -1,0 +1,9 @@
+@import './styles/variables';
+.container_flex{
+    @include flex(space-between, center);
+}
+
+.info_section{
+    padding: 6rem 0 10rem 0;
+    background: $secondary-second;
+}
