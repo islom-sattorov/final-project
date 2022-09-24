@@ -14,8 +14,8 @@ function App() {
       <Main />
       <MainInfo />
       <Certs />
-      <Menu />
       <Testimonial />
+      <Menu />
     </>
   )
 }
