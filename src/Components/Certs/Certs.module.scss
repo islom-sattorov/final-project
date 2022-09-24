@@ -1,0 +1,42 @@
+@import '../../styles/variables';
+
+.section{
+    background: $secondary-second;
+    padding: 0rem 4rem 12rem 4rem;
+
+    #{&}_flex{
+        @include flex(center, center);
+        gap: 4.5rem;
+    }
+
+    #{&}_pic{
+        max-width: 80rem;
+        max-height: 80rem;
+        border: 1px solid $primary;
+    }
+
+    #{&}_text{
+        @include flex(space-between, flex-start);
+        flex-direction: column;
+    }
+
+    #{&}_title{
+        font-weight: 400;
+        font-size: 4rem;
+        font-family: $primary-font;
+        color: $secondary;
+    }
+
+    #{&}_subtitle{
+        font-weight: 400;
+        font-size: 2rem;
+        color: $secondary-text;
+        font-family: $secondary-font;
+        line-height: 3rem;
+    }
+
+    #{&}_text_flex{
+        display: flex;
+        padding: 4rem 0;
+    }
+}
