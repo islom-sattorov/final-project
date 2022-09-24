@@ -16,6 +16,8 @@
         line-height: 22px;
         color: #fff;
         transition: 0.2s all;
+        text-transform: uppercase;
+        letter-spacing: 3px;
         &:hover{
             border-left: 1px solid $primary;
             border-right: 1px solid $primary;

@@ -1,0 +1,47 @@
+@import '../../styles/variables';
+
+.flex_container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.dishes_container{
+    max-width: 320px;
+}
+
+.pic{
+    border: 1px solid $primary;
+}
+
+.title{
+    font-weight: 700;
+    font-size: 3rem;
+    line-height: 42px;
+    letter-spacing: 0.2px;
+    color: $secondary;
+    font-family: $primary-font;
+    padding: 1rem 0;
+}
+
+.subtitle{
+    padding: 1rem 0 6rem 0;
+    font-weight: 400;
+    font-size: 2rem;
+    line-height: 30px;
+    letter-spacing: 0.2px;
+    color: $secondary-text;
+}
+
+.dishes_btn{
+    background: none;
+    border: 2px solid $primary;
+    padding: 2rem 6rem;
+    color: $primary;
+    font-weight: 400;
+    text-align: center;
+    font-size: 2.2rem;
+    margin: 0 auto;
+    display: block;
+    margin: 0 auto 14rem auto;
+}
