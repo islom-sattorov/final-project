@@ -2,7 +2,6 @@
 
 .section{
     background: $secondary-second;
-    padding: 0rem 4rem 12rem 4rem;
 
     #{&}_flex{
         @include flex(center, center);
@@ -18,6 +17,7 @@
     #{&}_text{
         @include flex(space-between, flex-start);
         flex-direction: column;
+        max-height: 300px;
     }
 
     #{&}_title{
@@ -37,6 +37,7 @@
 
     #{&}_text_flex{
         display: flex;
+        gap: 20px;
         padding: 4rem 0;
     }
 }
