@@ -1,9 +1,9 @@
 import logo from '../../assets/logo.svg'
-import fb from './fb.png'
+import fb from './fb.svg'
 import style from './Header.module.scss'
-import inst from './inst.png'
-import pinterest from './pinterest.png'
-import twitter from './twitter.png'
+import inst from './inst.svg'
+import pinterest from './pinterest.svg'
+import twitter from './twitter.svg'
 
 const Header = () => {
     return (

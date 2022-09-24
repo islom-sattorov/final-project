@@ -1,6 +1,6 @@
 @import './styles/variables';
 .container_flex{
-    @include flex(space-between, center);
+    @include flex(space-evenly, center);
 }
 
 .info_section{

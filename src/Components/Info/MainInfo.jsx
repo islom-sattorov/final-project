@@ -1,7 +1,7 @@
-import hoursPic from './hours.png'
+import hoursPic from './hours.svg'
 import Info from './Info'
-import locationPic from './location.png'
-import reserve from './reserve.png'
+import locationPic from './location.svg'
+import reserve from './reserve.svg'
 
 const MainInfo = () => {
     return (

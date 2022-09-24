@@ -8,7 +8,7 @@ const Main = () => {
                 <div className={style.main_flex}>
                     <div className={style.main_text}>
                         <h2 className={style.main_title}>Welcome to
-                            <br />Restaurant</h2>
+                            <br />28 Monkeys</h2>
                         <p className={style.main_subtitle}>The people, food and the prime locations make the perfect
                             <br /> place good friends & family to come together and have great time.</p>
                         <button className={style.main_btn}>View Menu</button>
