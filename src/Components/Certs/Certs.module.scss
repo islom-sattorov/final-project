@@ -2,6 +2,7 @@
 
 .section{
     background: $secondary-second;
+    padding: 0rem 4rem 12rem 4rem;
 
     #{&}_flex{
         @include flex(center, center);

@@ -1,0 +1,67 @@
+@import '../../styles/variables';
+
+.section{
+    padding: 14rem 4rem 20rem 4rem;
+    max-width: 500px;
+
+    #{&}_flex{
+        display: flex;
+        gap: 5.5rem;
+    }
+
+    #{&}_special{
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 2rem;
+    }
+
+    #{&}_menu{
+        padding: 1rem 1rem;
+        border-top: 1px solid $primary;
+        border-left: 1px solid transparent;
+        border-right: 1px solid transparent;
+        border-bottom: 1px solid $primary;
+        color: $secondary;
+        font-size: 1.5rem;
+        font-weight: 400;
+        font-family: $secondary-font;
+        letter-spacing: 3px;
+        transition: 0.2s all;
+
+        &:hover{
+            border-left: 1px solid $primary;
+            border-right: 1px solid $primary;
+        }
+    }
+
+    #{&}_title{
+        font-family: $primary-font;
+        padding: 1.2rem 0;
+        color: $secondary;
+        font-size: 4rem;
+        font-weight: 400;
+    }
+
+    #{&}_subtitle{
+        font-weight: 400;
+        font-size: 2rem;
+        color: $secondary-text;
+    }
+
+    #{&}_btn{
+        border: 1px solid $primary;
+        padding: 2rem 6rem;
+        color: $primary;
+        background: none;
+        font-size: 2.2rem;
+        font-weight: 400;
+        font-family: $secondary-font;
+        transition: 0.2s all;
+
+        &:hover{
+            background: $primary;
+            color: white;
+        }
+    }
+}
