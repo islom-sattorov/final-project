@@ -29,10 +29,10 @@ const Header = () => {
                             <a className={style.navbar_item} href='#'><li>Contact Us</li></a>
                         </ul>
                         <div className={style.navbar_icons}>
-                            <img src={inst} alt='inst' />
-                            <img src={fb} alt='fb' />
-                            <img src={twitter} alt='twitter' />
-                            <img src={pinterest} alt='pinterest' />
+                            <a href='#'><img src={inst} alt='inst' /></a>
+                            <a href='#'><img src={fb} alt='fb' /></a>
+                            <a href='#'><img src={twitter} alt='twitter' /></a>
+                            <a href='#'><img src={pinterest} alt='pinterest' /></a>
                         </div>
                     </div>
                 </div>
