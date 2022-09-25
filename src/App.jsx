@@ -1,6 +1,7 @@
 import './App.scss'
 import Blog from './Components/Blog/Blog'
 import Certs from './Components/Certs/Certs'
+import Form from './Components/Form/Form'
 import Header from './Components/Header/Header'
 import MainInfo from './Components/Info/MainInfo'
 import Main from './Components/Main/Main'
@@ -20,6 +21,7 @@ function App() {
       <Menu />
       <Services />
       <Blog />
+      <Form />
     </>
   )
 }
