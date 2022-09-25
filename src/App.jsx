@@ -1,6 +1,7 @@
 import './App.scss'
 import Blog from './Components/Blog/Blog'
 import Certs from './Components/Certs/Certs'
+import Footer from './Components/Footer/Footer'
 import Form from './Components/Form/Form'
 import Header from './Components/Header/Header'
 import MainInfo from './Components/Info/MainInfo'
@@ -22,6 +23,7 @@ function App() {
       <Services />
       <Blog />
       <Form />
+      <Footer />
     </>
   )
 }
