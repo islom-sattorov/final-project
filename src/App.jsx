@@ -1,4 +1,5 @@
 import './App.scss'
+import Blog from './Components/Blog/Blog'
 import Certs from './Components/Certs/Certs'
 import Header from './Components/Header/Header'
 import MainInfo from './Components/Info/MainInfo'
@@ -18,6 +19,7 @@ function App() {
       <Testimonial />
       <Menu />
       <Services />
+      <Blog />
     </>
   )
 }
