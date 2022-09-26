@@ -26,4 +26,81 @@
         @include flex(center, center);
         gap: 2rem;
     }
+
+    // FOOTER MAIN
+
+    #{&}_main_container{
+        @include flex(space-between, center);
+        padding: 1rem 0;
+    }
+
+    #{&}_main_span{
+        font-weight: 400;
+        font-size: 1.5rem;
+        font-family: $secondary-font;
+        color: #fff;
+        line-height: 21px;
+        letter-spacing: 3px;
+        border-inline: 1px solid transparent;
+        border-top: 1px solid $primary;
+        border-bottom: 1px solid $primary;
+        transition: 0.2s;
+        padding: 1rem 1rem;
+        text-transform: uppercase;
+
+        &:hover{
+            border-inline: 1px solid $primary;
+        }
+    }
+
+    #{&}_main_title{
+        color: #fff;
+        font-weight: 400;
+        font-size: 2rem;
+        line-height: 30px;
+        letter-spacing: 0.2px;
+        font-family: $secondary-font;
+        padding: 3rem 0 0 0;
+    }
+
+    #{&}_main_link{
+        color: $primary;
+        font-weight: 400;
+        font-size: 1.9rem;
+        line-height: 30px;
+        letter-spacing: 0.2px;
+        padding: 1rem 0;
+    }
+
+    #{&}_main_subtitle{
+        color: #fff;
+        font-weight: 400;
+        font-size: 2rem;
+        line-height: 30px;
+        letter-spacing: 0.2px;
+    }
+
+    input{
+        width: 500px;
+        padding: 2rem 3rem;
+        background: none;
+        border: 1px solid #555;
+
+        &::placeholder{
+            color: #fff;
+            font-family: $secondary-font;
+            font-size: 2rem;
+        }
+    }
+
+    #{&}_main_day{
+        color: $primary;
+    }
+
+    p{
+        margin: 2rem 0 0 0;
+        color: #fff;
+        font-size: 1.5rem;
+    }
+
 }
