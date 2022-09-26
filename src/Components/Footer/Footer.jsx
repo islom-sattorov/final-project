@@ -4,6 +4,7 @@ import inst from '../Header/inst.svg';
 import pinterest from '../Header/pinterest.svg';
 import twitter from '../Header/twitter.svg';
 import style from './Footer.module.scss';
+import FooterBot from './FooterBot';
 import FooterMain from './FooterMain';
 
 const Footer = () => {
@@ -21,6 +22,7 @@ const Footer = () => {
                     </div>
                 </div>
                 <FooterMain />
+                <FooterBot />
             </div>
         </footer>
     )
