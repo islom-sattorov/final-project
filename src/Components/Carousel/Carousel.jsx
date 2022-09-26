@@ -1,50 +1,70 @@
-import { useEffect, useState } from 'react';
+import React from "react";
+import Slider from "react-slick";
+import "slick-carousel/slick/slick-theme.css";
+import "slick-carousel/slick/slick.css";
 import style from './Carousel.module.scss';
-
-const data = ['1', '2', '3', '4'];
+import Client from './Client';
+import pic from './pic122.png';
 
 const Carousel = () => {
-    const [currentIndex, setCurrentIndex] = useState(0)
-
-
-    const carouselInfiniteScroll = () => {
-        if (currentIndex === data.length - 1) {
-            return setCurrentIndex(0)
-        }
-        return setCurrentIndex(currentIndex + 1)
-    }
-
-    useEffect(() => {
-        const interval = setInterval(() => { carouselInfiniteScroll() }, 3000)
-        // 
-        return () => clearInterval(interval);
-    })
-
-
+    const settings = {
+        dots: true,
+        infinite: true,
+        speed: 500,
+        slidesToShow: 1,
+        slidesToScroll: 1
+    };
     return (
-        <>
-            <div className={style.carousel_container}>
-
-                {data.map((item, idx) => {
-                    return <h1 className={style.carousel_item}
-                        style={{ transform: `translate(-${currentIndex * 100}%)` }}
-                        key={idx}
-                    >{item}</h1>
-                })}
-                {/* <div className={style.carousel_item}>
-                    <h1>Item 1</h1>
-                </div>
-
-                <div className={style.carousel_item}>
-                    <h1>Item 2</h1>
-                </div>
-
-                <div className={style.carousel_item}>
-                    <h1>Item 3</h1>
-                </div> */}
-
+        <Slider {...settings}>
+            <div className={style.car}>
+                <Client
+                    pic={pic}
+                    name='Jack Sparrow'
+                    country='Salt Lake City'
+                    description='I have visited this fantastic restaurant on several occasions, food is absolutely outstanding & attention to detail is in league of its own.'
+                />
             </div>
-        </>
+            <div>
+                <Client
+                    pic={pic}
+                    name='Natasha D'
+                    country='Newyork'
+                    description='They known for its fabulous taste and food. Anywhere you go your hunger is satisfied. The best chicken & burgers those are yummy.'
+                />
+            </div>
+            <div>
+                <Client
+                    pic={pic}
+                    name='Natasha D'
+                    country='Newyork'
+                    description='They known for its fabulous taste and food. Anywhere you go your hunger is satisfied. The best chicken & burgers those are yummy.'
+                />
+            </div>
+            <div>
+                <Client
+                    pic={pic}
+                    name='Natasha D'
+                    country='Newyork'
+                    description='They known for its fabulous taste and food. Anywhere you go your hunger is satisfied. The best chicken & burgers those are yummy.'
+                />
+            </div>
+            <div>
+                <Client
+                    pic={pic}
+                    name='Natasha D'
+                    country='Newyork'
+                    description='They known for its fabulous taste and food. Anywhere you go your hunger is satisfied. The best chicken & burgers those are yummy.'
+                />
+            </div>
+            <div>
+                <Client
+                    pic={pic}
+                    name='Natasha D'
+                    country='Newyork'
+                    description='They known for its fabulous taste and food. Anywhere you go your hunger is satisfied. The best chicken & burgers those are yummy.'
+                />
+            </div>
+        </Slider>
     )
 }
 
