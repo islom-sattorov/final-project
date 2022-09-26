@@ -2,4 +2,8 @@
 
 - HTML Semantic
 - SCSS (Modules, Partials, Variables, Extends, Media Query)
-- REACT (Components, props,)
+- REACT (Components, props)
+
+## Libraries
+
+- React Slick (Slider)
