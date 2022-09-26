@@ -4,6 +4,7 @@ import inst from '../Header/inst.svg';
 import pinterest from '../Header/pinterest.svg';
 import twitter from '../Header/twitter.svg';
 import style from './Footer.module.scss';
+import FooterMain from './FooterMain';
 
 const Footer = () => {
     return (
@@ -19,6 +20,7 @@ const Footer = () => {
                         <a href='#'><img src={twitter} alt='twitter' /></a>
                     </div>
                 </div>
+                <FooterMain />
             </div>
         </footer>
     )
