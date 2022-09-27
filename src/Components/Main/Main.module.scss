@@ -13,6 +13,7 @@
         @include flex(space-between, flex-start);
         flex-direction: column;
         gap: 2rem;
+        padding: 0 0 0 2rem;
     }
 
     #{&}_title{
@@ -50,6 +51,7 @@
     #{&}_pic{
         justify-self: flex-end;
         border-radius: 626px 626px 0 0;
+        padding: 0 1rem 0 0;
     }
 
 }

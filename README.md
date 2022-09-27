@@ -6,5 +6,4 @@
 - Redux (redux, react-redux, redux ToolKit)
 
 ## Libraries
-
 - React Slick (Slider)
