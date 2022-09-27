@@ -1,4 +1,5 @@
 @import '../../styles/variables';
+@import '../../styles/breakpoints';
 
 .carousel_container{
     background: #f1f1f1;
@@ -19,12 +20,15 @@
 .client{
     background: #343942;
     padding: 5rem 2rem;
-    width: 1000px;
+    width: 100%;
     margin: 0 auto;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: flex-start;
+
+    @include breakpoint(1100px){
+    }
 
     #{&}_title{
         color: #fff;
@@ -56,5 +60,9 @@
         line-height: 37px;
         letter-spacing: 0.25px;
         width: 80rem;
+
+        @include breakpoint(1100px){
+            width: 80%;
+        }
     }
 }
