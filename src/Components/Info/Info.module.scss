@@ -1,8 +1,15 @@
 @import '../../styles/variables';
+@import '../../styles/breakpoints';
 
 .section_flex{
         @include flex(flex-start, center);
         gap: 2rem;
+
+        @include breakpoint(1000px){
+            align-items: center;
+            justify-content: flex-start;
+            width: 400px;
+        }
 }
 
     .section_title{
