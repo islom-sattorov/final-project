@@ -15,56 +15,60 @@ const Carousel = () => {
         slidesToScroll: 1
     };
     return (
-        <Slider {...settings}>
-            <div className={style.car}>
-                <Client
-                    pic={pic}
-                    name='Jack Sparrow'
-                    country='Salt Lake City'
-                    description='I have visited this fantastic restaurant on several occasions, food is absolutely outstanding & attention to detail is in league of its own.'
-                />
+        <>
+            <div className="container">
+                <Slider {...settings}>
+                    <div className={style.car}>
+                        <Client
+                            pic={pic}
+                            name='Jack Sparrow'
+                            country='Salt Lake City'
+                            description='I have visited this fantastic restaurant on several occasions, food is absolutely outstanding & attention to detail is in league of its own.'
+                        />
+                    </div>
+                    <div>
+                        <Client
+                            pic={pic}
+                            name='Natasha D'
+                            country='Newyork'
+                            description='They known for its fabulous taste and food. Anywhere you go your hunger is satisfied. The best chicken & burgers those are yummy.'
+                        />
+                    </div>
+                    <div>
+                        <Client
+                            pic={pic}
+                            name='Natasha D'
+                            country='Newyork'
+                            description='They known for its fabulous taste and food. Anywhere you go your hunger is satisfied. The best chicken & burgers those are yummy.'
+                        />
+                    </div>
+                    <div>
+                        <Client
+                            pic={pic}
+                            name='Natasha D'
+                            country='Newyork'
+                            description='They known for its fabulous taste and food. Anywhere you go your hunger is satisfied. The best chicken & burgers those are yummy.'
+                        />
+                    </div>
+                    <div>
+                        <Client
+                            pic={pic}
+                            name='Natasha D'
+                            country='Newyork'
+                            description='They known for its fabulous taste and food. Anywhere you go your hunger is satisfied. The best chicken & burgers those are yummy.'
+                        />
+                    </div>
+                    <div>
+                        <Client
+                            pic={pic}
+                            name='Natasha D'
+                            country='Newyork'
+                            description='They known for its fabulous taste and food. Anywhere you go your hunger is satisfied. The best chicken & burgers those are yummy.'
+                        />
+                    </div>
+                </Slider>
             </div>
-            <div>
-                <Client
-                    pic={pic}
-                    name='Natasha D'
-                    country='Newyork'
-                    description='They known for its fabulous taste and food. Anywhere you go your hunger is satisfied. The best chicken & burgers those are yummy.'
-                />
-            </div>
-            <div>
-                <Client
-                    pic={pic}
-                    name='Natasha D'
-                    country='Newyork'
-                    description='They known for its fabulous taste and food. Anywhere you go your hunger is satisfied. The best chicken & burgers those are yummy.'
-                />
-            </div>
-            <div>
-                <Client
-                    pic={pic}
-                    name='Natasha D'
-                    country='Newyork'
-                    description='They known for its fabulous taste and food. Anywhere you go your hunger is satisfied. The best chicken & burgers those are yummy.'
-                />
-            </div>
-            <div>
-                <Client
-                    pic={pic}
-                    name='Natasha D'
-                    country='Newyork'
-                    description='They known for its fabulous taste and food. Anywhere you go your hunger is satisfied. The best chicken & burgers those are yummy.'
-                />
-            </div>
-            <div>
-                <Client
-                    pic={pic}
-                    name='Natasha D'
-                    country='Newyork'
-                    description='They known for its fabulous taste and food. Anywhere you go your hunger is satisfied. The best chicken & burgers those are yummy.'
-                />
-            </div>
-        </Slider>
+        </>
     )
 }
 
