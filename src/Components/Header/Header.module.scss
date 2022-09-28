@@ -19,9 +19,11 @@
         font-weight: 400;
         text-align: center;
         padding: 2rem 6rem;
+        width: 20%;
         border: 2px solid $primary;
         margin: 0 1.5rem;
         background: none;
+        text-align: center;
 
         @include breakpoint(560px){
             width: 170px;
