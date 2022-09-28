@@ -74,7 +74,7 @@ const BlogPage = () => {
                         {renderedBlogs}
                     </div>
                 </div>
-                {login ? <button className={style.modal_btn} onClick={handleOpen}>Open</button> : <></>}
+                {login ? <button className={style.modal_btn} onClick={handleOpen}>Add</button> : <></>}
             </section>
             <Modal
                 open={open}
