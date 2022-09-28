@@ -1,0 +1,40 @@
+@import '../../styles/variables';
+
+.blog_page{
+    padding: 1rem 4rem;
+
+ #{&}_grid{
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    gap: 2rem;
+ }
+
+ #{&}_item{
+    @include flex(flex-start, flex-start);
+    flex-direction: column;
+    padding: 0 2rem;
+ }
+
+ #{&}_pic{
+    width: 300px;
+ }
+
+ #{&}_title{
+    font-weight: 400;
+    font-family: $primary-font;
+    font-size: 3rem;
+    line-height: 39px;
+    letter-spacing: 0.2px;
+    color: $secondary;
+    padding: 1rem 0;
+ }
+
+ #{&}_content{
+    font-weight: 400;
+    font-family: $secondary-font;
+    font-size: 2rem;
+    line-height: 30px;
+    letter-spacing: 0.2px;
+    color: $secondary-text;
+ }
+}

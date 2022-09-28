@@ -1,6 +1,3 @@
-import Box from '@mui/material/Box'
-import Modal from '@mui/material/Modal'
-import Typography from '@mui/material/Typography'
 import { useDispatch, useSelector } from 'react-redux'
 import { NavLink } from 'react-router-dom'
 import { Link } from 'react-scroll'
@@ -57,7 +54,7 @@ const Header = () => {
                                 <li>About Us</li></Link>
                             <a className={style.navbar_item} href='#'><li>Our Menu</li></a>
                             <a className={style.navbar_item} href='#'><li>Pages</li></a>
-                            <a className={style.navbar_item} href='#'><li>Blog</li></a>
+                            <NavLink className={style.navbar_item} to='/blog'><li>Blog</li></NavLink>
                             <a className={style.navbar_item} href='#'><li>Contact Us</li></a>
                         </ul>
                         <div className={style.navbar_icons}>
@@ -69,20 +66,20 @@ const Header = () => {
                     </div>
                 </div>
             </nav>
-            <Modal
-                // open={login}
-                // onClose={open}
-                aria-labelledby="modal-modal-title"
-                aria-describedby="modal-modal-description">
-                <Box sx={boxStyle}>
-                    <Typography id="modal-modal-title" variant="h6" component="h2">
-                        Text in a modal
-                    </Typography>
-                    <Typography id="modal-modal-description" sx={{ mt: 2 }}>
-                        Duis mollis, est non commodo luctus, nisi erat porttitor ligula.
-                    </Typography>
-                </Box>
-            </Modal>
+            {/* <Modal */}
+            {/* open={login} */}
+            {/* onClose={open} */}
+            {/* aria-labelledby="modal-modal-title" */}
+            {/* aria-describedby="modal-modal-description"> */}
+            {/* <Box sx={boxStyle}> */}
+            {/* <Typography id="modal-modal-title" variant="h6" component="h2"> */}
+            {/* Text in a modal */}
+            {/* </Typography> */}
+            {/* <Typography id="modal-modal-description" sx={{ mt: 2 }}> */}
+            {/* Duis mollis, est non commodo luctus, nisi erat porttitor ligula. */}
+            {/* </Typography> */}
+            {/* </Box> */}
+            {/* </Modal> */}
         </>
     )
 }
