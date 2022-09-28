@@ -11,6 +11,7 @@ const BlogPage = () => {
         return (
             <BlogItems
                 key={idx}
+                category={item.category}
                 pic={item.pic}
                 title={item.title}
                 content={item.content}

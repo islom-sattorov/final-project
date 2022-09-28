@@ -1,6 +1,13 @@
+import { useDispatch, useSelector } from 'react-redux';
+import { selectAllBlogs } from '../../features/blog/blogSlice';
+import BlogItems from '../BlogPage/BlogItems';
 import style from './Blog.module.scss';
 
 const Blog = () => {
+    const blogs = useSelector(selectAllBlogs);
+    const dispatch = useDispatch();
+
+
     return (
         <section className={style.section}>
             <div className='container'>
@@ -13,7 +20,18 @@ const Blog = () => {
                         </p>
                     </div>
                     <div className={style.section_blog}>
-                        <h1>test</h1>
+                        <BlogItems
+                            // pic={blogs[0].pic}
+                            category={blogs[0].category}
+                            title={blogs[0].title}
+                            content={blogs[0].content}
+                        />
+                        <BlogItems
+                            // pic={blogs[1].pic}
+                            category={blogs[1].category}
+                            title={blogs[1].title}
+                            content={blogs[1].content}
+                        />
                     </div>
                 </div>
             </div>
