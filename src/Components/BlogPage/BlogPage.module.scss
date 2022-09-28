@@ -2,6 +2,7 @@
 
 .blog_page{
     padding: 10rem 4rem;
+    position: relative;
 
  #{&}_grid{
     display: grid;
@@ -56,4 +57,34 @@
     letter-spacing: 0.2px;
     color: $secondary-text;
  }
+
 }
+
+.modal_btn{
+   position: absolute;
+   top: 20px;
+   left: 15px;
+}
+
+.add_form{
+   display: grid;
+   grid-template-columns: 1fr;
+   gap: 20px;
+ }
+
+.add_label{
+   font-size: 3rem;
+}
+
+.add_btn{
+   background: none;
+   border-radius: 5px;
+   padding: 1rem 2rem;
+   color: $secondary;
+   border: 1px solid $primary;
+}
+
+
+
+
+

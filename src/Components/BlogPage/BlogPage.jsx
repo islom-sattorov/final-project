@@ -64,13 +64,6 @@ const BlogPage = () => {
             />
         )
     })
-
-    console.log(title)
-    console.log(content)
-
-
-
-
     return (
         <>
             <section className={style.blog_page}>
@@ -79,8 +72,8 @@ const BlogPage = () => {
                         {renderedBlogs}
                     </div>
                 </div>
+                <button className={style.modal_btn} onClick={handleOpen}>Open</button>
             </section>
-            <button onClick={handleOpen}>Open</button>
             <Modal
                 open={open}
                 onClose={handleClose}
@@ -88,8 +81,8 @@ const BlogPage = () => {
                 aria-describedby="modal-modal-description"
             >
                 <Box sx={styleBox}>
-                    <form>
-                        <label htmlFor='blogTitle'>Blog Title:</label>
+                    <form className={style.add_form}>
+                        <label className={style.add_label} htmlFor='blogTitle'>Blog Title:</label>
                         <TextField
                             type='text'
                             value={title}
@@ -118,7 +111,7 @@ const BlogPage = () => {
                             label="Picture"
                             variant="outlined"
                             onChange={onPicChanged} />
-                        <button type='button' onClick={onSaveBlogClicked}>Save Blog</button>
+                        <button className={style.add_btn} type='button' onClick={onSaveBlogClicked}>Save Blog</button>
                     </form>
                 </Box>
             </Modal>
