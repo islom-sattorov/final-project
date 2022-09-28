@@ -1,12 +1,10 @@
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { selectAllBlogs } from '../../features/blog/blogSlice';
 import BlogItems from '../BlogPage/BlogItems';
 import style from './Blog.module.scss';
 
 const Blog = () => {
     const blogs = useSelector(selectAllBlogs);
-    const dispatch = useDispatch();
-
 
     return (
         <section className={style.section}>
