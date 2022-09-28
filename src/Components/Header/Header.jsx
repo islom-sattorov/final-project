@@ -1,3 +1,4 @@
+import { NavLink } from 'react-router-dom'
 import logo from '../../assets/logo.svg'
 import fb from './fb.svg'
 import style from './Header.module.scss'
@@ -22,7 +23,7 @@ const Header = () => {
                 <div className='container'>
                     <div className={style.navbar_flex}>
                         <ul className={style.navbar_items}>
-                            <a className={style.navbar_item} href='#'><li>Home</li></a>
+                            <NavLink className={style.navbar_item} to='/'><li>Home</li></NavLink>
                             <a className={style.navbar_item} href='#'><li>About Us</li></a>
                             <a className={style.navbar_item} href='#'><li>Our Menu</li></a>
                             <a className={style.navbar_item} href='#'><li>Pages</li></a>
