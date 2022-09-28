@@ -1,6 +1,8 @@
+import { useDispatch, useSelector } from 'react-redux'
 import { NavLink } from 'react-router-dom'
 import { Link } from 'react-scroll'
 import logo from '../../assets/logo.svg'
+import { loginToggle } from '../../features/login/loginSlice'
 import fb from './fb.svg'
 import style from './Header.module.scss'
 import inst from './inst.svg'
@@ -9,12 +11,20 @@ import twitter from './twitter.svg'
 
 
 const Header = () => {
+    const login = useSelector((state) => state.login.loginStatus);
+    const dispatch = useDispatch();
+
     return (
         <>
             <header className={style.header}>
                 <div className="container">
                     <div className={style.header_flex}>
-                        <a className={style.header_phone} href="tel:123456789">Call - 123 456 789</a>
+                        {/* <a className={style.header_phone} href="tel:123456789">Call - 123 456 789</a> */}
+                        <button
+                            onClick={() => dispatch(loginToggle())}
+                            className={style.header_phone}>
+                            {login ? `Logout` : 'Login'}
+                        </button>
                         <img className={style.header_logo} src={logo} alt="logo" />
                         <button className={style.header_btn}>Reservation</button>
                     </div>
