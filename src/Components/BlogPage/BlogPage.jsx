@@ -23,6 +23,8 @@ const BlogPage = () => {
     const blogs = useSelector(selectAllBlogs);
     const dispatch = useDispatch();
 
+    const login = useSelector((state) => state.login.loginStatus);
+
     const [title, setTitle] = useState('');
     const [content, setContent] = useState('');
     const [category, setCategory] = useState('');
@@ -72,7 +74,7 @@ const BlogPage = () => {
                         {renderedBlogs}
                     </div>
                 </div>
-                <button className={style.modal_btn} onClick={handleOpen}>Open</button>
+                {login ? <button className={style.modal_btn} onClick={handleOpen}>Open</button> : <></>}
             </section>
             <Modal
                 open={open}
