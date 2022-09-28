@@ -1,4 +1,5 @@
 import { NavLink } from 'react-router-dom'
+import { Link } from 'react-scroll'
 import logo from '../../assets/logo.svg'
 import fb from './fb.svg'
 import style from './Header.module.scss'
@@ -24,7 +25,12 @@ const Header = () => {
                     <div className={style.navbar_flex}>
                         <ul className={style.navbar_items}>
                             <NavLink className={style.navbar_item} to='/'><li>Home</li></NavLink>
-                            <a className={style.navbar_item} href='#'><li>About Us</li></a>
+                            <Link to='about'
+                                spy={true}
+                                smooth={true}
+                                duration={700}
+                                className={style.navbar_item}>
+                                <li>About Us</li></Link>
                             <a className={style.navbar_item} href='#'><li>Our Menu</li></a>
                             <a className={style.navbar_item} href='#'><li>Pages</li></a>
                             <a className={style.navbar_item} href='#'><li>Blog</li></a>

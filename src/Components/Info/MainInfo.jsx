@@ -5,7 +5,7 @@ import reserve from './reserve.svg'
 
 const MainInfo = () => {
     return (
-        <section className='info_section'>
+        <section id='about' className='info_section'>
             <div className='container'>
                 <div className='container_flex'>
                     <Info
