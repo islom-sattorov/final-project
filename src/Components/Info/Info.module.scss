@@ -27,3 +27,9 @@
         color: $secondary-text;
         font-family: $secondary-font;
     }
+
+    .section_icons{
+        @include breakpoint (800px){
+            width: 70px;
+        }
+    }
