@@ -1,4 +1,4 @@
-import { TextField } from '@mui/material';
+import { MenuItem, TextField } from '@mui/material';
 import Box from '@mui/material/Box';
 import Modal from '@mui/material/Modal';
 import { useState } from 'react';
@@ -19,6 +19,21 @@ const styleBox = {
     p: 4,
 }
 
+const categories = [
+    {
+        value: 'Cooking',
+        label: 'Cooking'
+    },
+    {
+        value: 'Delicious',
+        label: 'Delicious',
+    },
+    {
+        value: 'Tips',
+        label: 'Tips',
+    },
+]
+
 const BlogPage = () => {
     const blogs = useSelector(selectAllBlogs);
     const dispatch = useDispatch();
@@ -27,8 +42,8 @@ const BlogPage = () => {
 
     const [title, setTitle] = useState('');
     const [content, setContent] = useState('');
-    const [category, setCategory] = useState('');
     const [pic, setPic] = useState('');
+    const [category, setCategory] = useState('Cooking')
 
     const [open, setOpen] = useState(false)
 
@@ -102,12 +117,18 @@ const BlogPage = () => {
                             variant="outlined"
                             onChange={onContentChanged} />
                         <TextField
-                            type='text'
+                            id="outlined-select-category"
+                            select
+                            label="Select"
                             value={category}
-                            id="blogCategory"
-                            label="Category"
-                            variant="outlined"
-                            onChange={onCategoryChanged} />
+                            onChange={onCategoryChanged}
+                        >
+                            {categories.map((option) => (
+                                <MenuItem key={option.value} value={option.value}>
+                                    {option.label}
+                                </MenuItem>
+                            ))}
+                        </TextField>
                         <TextField
                             type='text'
                             value={pic}
