@@ -3,6 +3,7 @@ import Box from '@mui/material/Box';
 import Modal from '@mui/material/Modal';
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { selectAllAuthors } from '../../features/authors/authorsSlice';
 import { blogAdded, selectAllBlogs } from '../../features/blog/blogSlice';
 import BlogItems from './BlogItems';
 import style from './BlogPage.module.scss';
@@ -36,6 +37,9 @@ const categories = [
 
 const BlogPage = () => {
     const blogs = useSelector(selectAllBlogs);
+    const authors = useSelector(selectAllAuthors);
+
+
     const dispatch = useDispatch();
 
     const login = useSelector((state) => state.login.loginStatus);
@@ -44,7 +48,7 @@ const BlogPage = () => {
     const [content, setContent] = useState('');
     const [pic, setPic] = useState('');
     const [category, setCategory] = useState('Cooking')
-
+    const [authorId, setAuthorId] = useState('');
     const [open, setOpen] = useState(false)
 
     const handleOpen = () => setOpen(true)
@@ -54,21 +58,28 @@ const BlogPage = () => {
     const onContentChanged = e => setContent(e.target.value);
     const onCategoryChanged = e => setCategory(e.target.value);
     const onPicChanged = e => setPic(e.target.value);
+    const onAuthorChanged = e => setAuthorId(e.target.value);
+
+
 
     const onSaveBlogClicked = () => {
-        if (title && content && category && pic) {
+        if (title && content && category && pic && authorId) {
             dispatch(
-                blogAdded(title, content, category, pic)
+                blogAdded(title, content, category, pic, authorId)
             )
 
             setTitle('');
             setContent('');
             setCategory('');
             setPic('');
-
+            setAuthorId('');
             setOpen(false)
         }
     }
+
+    const canSave = Boolean(title) && Boolean(content) && Boolean(authorId);
+
+
 
     const renderedBlogs = blogs.map((item, idx) => {
         return (
@@ -78,6 +89,7 @@ const BlogPage = () => {
                 pic={item.pic}
                 title={item.title}
                 content={item.content}
+                autId={item.authorId}
             />
         )
     })
@@ -130,13 +142,26 @@ const BlogPage = () => {
                             ))}
                         </TextField>
                         <TextField
+                            id="outlined-select-author"
+                            select
+                            label="Select"
+                            value={authorId}
+                            onChange={onAuthorChanged}
+                        >
+                            {authors.map((author, idx) => (
+                                <MenuItem key={idx} value={author.name}>
+                                    {author.name}
+                                </MenuItem>
+                            ))}
+                        </TextField>
+                        <TextField
                             type='text'
                             value={pic}
                             id="blogPic"
                             label="Picture"
                             variant="outlined"
                             onChange={onPicChanged} />
-                        <button className={style.add_btn} type='button' onClick={onSaveBlogClicked}>Save Blog</button>
+                        <button disabled={!canSave} className={style.add_btn} type='button' onClick={onSaveBlogClicked}>Save Blog</button>
                     </form>
                 </Box>
             </Modal>
