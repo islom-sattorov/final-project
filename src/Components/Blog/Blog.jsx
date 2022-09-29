@@ -19,14 +19,14 @@ const Blog = () => {
                     </div>
                     <div className={style.section_blog}>
                         <BlogItems
-                            // pic={blogs[0].pic}
                             category={blogs[0].category}
+                            // pic={blogs[0].pic}
                             title={blogs[0].title}
                             content={blogs[0].content}
                         />
                         <BlogItems
-                            // pic={blogs[1].pic}
                             category={blogs[1].category}
+                            // pic={blogs[0].pic}
                             title={blogs[1].title}
                             content={blogs[1].content}
                         />

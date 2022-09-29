@@ -1,4 +1,4 @@
-import { TextField } from '@mui/material';
+import { MenuItem, TextField } from '@mui/material';
 import Box from '@mui/material/Box';
 import Modal from '@mui/material/Modal';
 import { useState } from 'react';
@@ -19,14 +19,31 @@ const styleBox = {
     p: 4,
 }
 
+const categories = [
+    {
+        value: 'Cooking',
+        label: 'Cooking'
+    },
+    {
+        value: 'Delicious',
+        label: 'Delicious',
+    },
+    {
+        value: 'Tips',
+        label: 'Tips',
+    },
+]
+
 const BlogPage = () => {
     const blogs = useSelector(selectAllBlogs);
     const dispatch = useDispatch();
 
+    const login = useSelector((state) => state.login.loginStatus);
+
     const [title, setTitle] = useState('');
     const [content, setContent] = useState('');
-    const [category, setCategory] = useState('');
     const [pic, setPic] = useState('');
+    const [category, setCategory] = useState('Cooking')
 
     const [open, setOpen] = useState(false)
 
@@ -64,23 +81,18 @@ const BlogPage = () => {
             />
         )
     })
-
-    console.log(title)
-    console.log(content)
-
-
-
-
     return (
         <>
             <section className={style.blog_page}>
                 <div className="container">
+                    <h2
+                        className={style.blog_page_title}>Blog</h2>
                     <div className={style.blog_page_grid}>
                         {renderedBlogs}
                     </div>
                 </div>
+                {login ? <button className={style.modal_btn} onClick={handleOpen}>Add</button> : <></>}
             </section>
-            <button onClick={handleOpen}>Open</button>
             <Modal
                 open={open}
                 onClose={handleClose}
@@ -88,8 +100,8 @@ const BlogPage = () => {
                 aria-describedby="modal-modal-description"
             >
                 <Box sx={styleBox}>
-                    <form>
-                        <label htmlFor='blogTitle'>Blog Title:</label>
+                    <form className={style.add_form}>
+                        <label className={style.add_label} htmlFor='blogTitle'>Blog Title:</label>
                         <TextField
                             type='text'
                             value={title}
@@ -105,12 +117,18 @@ const BlogPage = () => {
                             variant="outlined"
                             onChange={onContentChanged} />
                         <TextField
-                            type='text'
+                            id="outlined-select-category"
+                            select
+                            label="Select"
                             value={category}
-                            id="blogCategory"
-                            label="Category"
-                            variant="outlined"
-                            onChange={onCategoryChanged} />
+                            onChange={onCategoryChanged}
+                        >
+                            {categories.map((option) => (
+                                <MenuItem key={option.value} value={option.value}>
+                                    {option.label}
+                                </MenuItem>
+                            ))}
+                        </TextField>
                         <TextField
                             type='text'
                             value={pic}
@@ -118,7 +136,7 @@ const BlogPage = () => {
                             label="Picture"
                             variant="outlined"
                             onChange={onPicChanged} />
-                        <button type='button' onClick={onSaveBlogClicked}>Save Blog</button>
+                        <button className={style.add_btn} type='button' onClick={onSaveBlogClicked}>Save Blog</button>
                     </form>
                 </Box>
             </Modal>
