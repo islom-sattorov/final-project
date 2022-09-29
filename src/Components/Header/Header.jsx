@@ -73,10 +73,10 @@ const Header = () => {
                             <a className={style.navbar_item} href='#'><li>Contact Us</li></a>
                         </ul>
                         <div className={style.navbar_icons}>
-                            <a href='#'><img src={inst} alt='inst' /></a>
-                            <a href='#'><img src={fb} alt='fb' /></a>
-                            <a href='#'><img src={twitter} alt='twitter' /></a>
-                            <a href='#'><img src={pinterest} alt='pinterest' /></a>
+                            <a href='https://www.instagram.com' target='_blank'><img src={inst} alt='inst' /></a>
+                            <a href='https://www.facebook.com/' target='_blank'><img src={fb} alt='fb' /></a>
+                            <a href='https://twitter.com' target='_blank'><img src={twitter} alt='twitter' /></a>
+                            <a href='https://www.pinterest.com/' target='_blank'><img src={pinterest} alt='pinterest' /></a>
                         </div>
                     </div>
                 </div>

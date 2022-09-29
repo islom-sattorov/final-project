@@ -15,10 +15,10 @@ const Footer = () => {
                     <span className={style.footer_span}>#28Monkeys</span>
                     <img src={logo} className={style.footer_pic} />
                     <div className={style.footer_icons}>
-                        <a href='#'><img src={inst} alt='inst' /></a>
-                        <a href='#'><img src={fb} alt='fb' /></a>
-                        <a href='#'><img src={pinterest} alt='pinterest' /></a>
-                        <a href='#'><img src={twitter} alt='twitter' /></a>
+                        <a href='https://www.instagram.com' target='_blank'><img src={inst} alt='inst' /></a>
+                        <a href='https://www.facebook.com/' target='_blank'><img src={fb} alt='fb' /></a>
+                        <a href='https://twitter.com' target='_blank'><img src={twitter} alt='twitter' /></a>
+                        <a href='https://www.pinterest.com/' target='_blank'><img src={pinterest} alt='pinterest' /></a>
                     </div>
                 </div>
                 <FooterMain />
