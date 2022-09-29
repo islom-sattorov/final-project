@@ -1,3 +1,7 @@
+import Box from '@mui/material/Box'
+import Modal from '@mui/material/Modal'
+import TextField from '@mui/material/TextField'
+import { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { NavLink } from 'react-router-dom'
 import { Link } from 'react-scroll'
@@ -25,6 +29,14 @@ const boxStyle = {
 const Header = () => {
     const login = useSelector((state) => state.login.loginStatus);
     const dispatch = useDispatch();
+
+    const [open, setOpen] = useState(false)
+
+    const handleOpen = () => setOpen(true)
+
+    const handleClose = () => setOpen(false)
+
+
     return (
         <>
             <header className={style.header}>
@@ -32,7 +44,10 @@ const Header = () => {
                     <div className={style.header_flex}>
                         {/* <a className={style.header_phone} href="tel:123456789">Call - 123 456 789</a> */}
                         <button
-                            onClick={() => dispatch(loginToggle())}
+                            onClick={() => {
+                                dispatch(loginToggle())
+                                handleOpen()
+                            }}
                             className={style.header_phone}>
                             {login ? `Logout` : 'Login'}
                         </button>
@@ -66,20 +81,31 @@ const Header = () => {
                     </div>
                 </div>
             </nav>
-            {/* <Modal */}
-            {/* open={login} */}
-            {/* onClose={open} */}
-            {/* aria-labelledby="modal-modal-title" */}
-            {/* aria-describedby="modal-modal-description"> */}
-            {/* <Box sx={boxStyle}> */}
-            {/* <Typography id="modal-modal-title" variant="h6" component="h2"> */}
-            {/* Text in a modal */}
-            {/* </Typography> */}
-            {/* <Typography id="modal-modal-description" sx={{ mt: 2 }}> */}
-            {/* Duis mollis, est non commodo luctus, nisi erat porttitor ligula. */}
-            {/* </Typography> */}
-            {/* </Box> */}
-            {/* </Modal> */}
+            <Modal
+                open={open}
+                onClose={handleClose}
+                aria-labelledby="modal-modal-title"
+                aria-describedby="modal-modal-description">
+                <Box sx={boxStyle}>
+                    <form className={style.modal_form}>
+                        <label className={style.modal_label}>Login</label>
+                        <TextField
+                            type='text'
+                            // value={content}
+                            id="Name"
+                            label="Name"
+                            variant="outlined"
+                        />
+                        <TextField
+                            type='password'
+                            // value={content}
+                            id="password"
+                            label="password"
+                            variant="outlined" />
+                        <button type='button' className={style.modal_btn}>Send</button>
+                    </form>
+                </Box>
+            </Modal>
         </>
     )
 }

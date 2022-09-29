@@ -112,3 +112,21 @@
     }
 
 }
+
+.modal_form{
+    display: grid;
+    gap: 20px;
+    grid-template-columns: 1fr;
+}
+
+.modal_label{
+    font-size: 3rem;
+}
+
+.modal_btn{
+    border: 1px solid $primary;
+    background: none;
+    padding: 1rem 2rem;
+    border-radius: 5px;
+    cursor: pointer;
+}
