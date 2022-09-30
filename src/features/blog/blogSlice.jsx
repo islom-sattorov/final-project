@@ -25,7 +25,7 @@ const blogSlice = createSlice({
             reducer(state, action) {
                 state.unshift(action.payload)
             },
-            prepare(title, content, category, pic, authorId) {
+            prepare(title, content, category, pic,) {
                 return {
                     payload: {
                         id: nanoid(),
@@ -33,7 +33,6 @@ const blogSlice = createSlice({
                         title,
                         content,
                         category,
-                        authorId,
                     }
                 }
             }

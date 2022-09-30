@@ -3,7 +3,6 @@ import Box from '@mui/material/Box';
 import Modal from '@mui/material/Modal';
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { selectAllAuthors } from '../../features/authors/authorsSlice';
 import { blogAdded, selectAllBlogs } from '../../features/blog/blogSlice';
 import BlogItems from './BlogItems';
 import style from './BlogPage.module.scss';
@@ -36,19 +35,15 @@ const categories = [
 ]
 
 const BlogPage = () => {
-    const blogs = useSelector(selectAllBlogs);
-    const authors = useSelector(selectAllAuthors);
-
-
-    const dispatch = useDispatch();
-
     const login = useSelector((state) => state.login.loginStatus);
+
+    const blogs = useSelector(selectAllBlogs);
+    const dispatch = useDispatch();
 
     const [title, setTitle] = useState('');
     const [content, setContent] = useState('');
     const [pic, setPic] = useState('');
-    const [category, setCategory] = useState('Cooking')
-    const [authorId, setAuthorId] = useState('');
+    const [category, setCategory] = useState('')
     const [open, setOpen] = useState(false)
 
     const handleOpen = () => setOpen(true)
@@ -58,27 +53,23 @@ const BlogPage = () => {
     const onContentChanged = e => setContent(e.target.value);
     const onCategoryChanged = e => setCategory(e.target.value);
     const onPicChanged = e => setPic(e.target.value);
-    const onAuthorChanged = e => setAuthorId(e.target.value);
 
 
 
     const onSaveBlogClicked = () => {
-        if (title && content && category && pic && authorId) {
+        if (title && content && category && pic) {
             dispatch(
-                blogAdded(title, content, category, pic, authorId)
+                blogAdded(title, content, category, pic)
             )
 
             setTitle('');
             setContent('');
-            setCategory('');
             setPic('');
-            setAuthorId('');
             setOpen(false)
         }
     }
 
-    const canSave = Boolean(title) && Boolean(content) && Boolean(authorId);
-
+    const canSave = Boolean(title) && Boolean(content) && Boolean(category);
 
 
     const renderedBlogs = blogs.map((item, idx) => {
@@ -89,7 +80,6 @@ const BlogPage = () => {
                 pic={item.pic}
                 title={item.title}
                 content={item.content}
-                autId={item.authorId}
             />
         )
     })
@@ -138,19 +128,6 @@ const BlogPage = () => {
                             {categories.map((option) => (
                                 <MenuItem key={option.value} value={option.value}>
                                     {option.label}
-                                </MenuItem>
-                            ))}
-                        </TextField>
-                        <TextField
-                            id="outlined-select-author"
-                            select
-                            label="Select"
-                            value={authorId}
-                            onChange={onAuthorChanged}
-                        >
-                            {authors.map((author, idx) => (
-                                <MenuItem key={idx} value={author.name}>
-                                    {author.name}
                                 </MenuItem>
                             ))}
                         </TextField>

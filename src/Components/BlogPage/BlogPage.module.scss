@@ -90,6 +90,12 @@
    border: 1px solid $primary;
 }
 
+:disabled{
+   background: gray;
+   color: white;
+   opacity: 0.5;
+}
+
 
 
 
