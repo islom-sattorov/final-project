@@ -23,7 +23,7 @@ const ReactionButtons = ({ blog }) => {
     })
 
     return (
-        <div>{reactionButtons}</div>
+        <div className='reaction-btn-container'> {reactionButtons}</div>
     )
 }
 
