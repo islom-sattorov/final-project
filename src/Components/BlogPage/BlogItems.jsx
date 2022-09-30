@@ -9,8 +9,15 @@ const BlogItems = ({ pic, category, title, content, timestamp, item }) => {
         const timePeriod = formatDistanceToNow(date)
         timeAgo = `${timePeriod} ago`
     }
+
+    const onDeleteClick = () => {
+        console.log(1)
+    }
+
+
     return (
         <article className={style.blog_page_item}>
+            <button onClick={onDeleteClick} className={style.blog_page_delete}>X</button>
             <img className={style.blog_page_pic} src={pic} />
             <span className={style.blog_page_category}>{category}</span>
             <h3 className={style.blog_page_title}>{title}</h3>
