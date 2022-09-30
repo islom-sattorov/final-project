@@ -35,16 +35,15 @@ const categories = [
 ]
 
 const BlogPage = () => {
+    const login = useSelector((state) => state.login.loginStatus);
+
     const blogs = useSelector(selectAllBlogs);
     const dispatch = useDispatch();
-
-    const login = useSelector((state) => state.login.loginStatus);
 
     const [title, setTitle] = useState('');
     const [content, setContent] = useState('');
     const [pic, setPic] = useState('');
-    const [category, setCategory] = useState('Cooking')
-
+    const [category, setCategory] = useState('')
     const [open, setOpen] = useState(false)
 
     const handleOpen = () => setOpen(true)
@@ -55,6 +54,7 @@ const BlogPage = () => {
     const onCategoryChanged = e => setCategory(e.target.value);
     const onPicChanged = e => setPic(e.target.value);
 
+
     const onSaveBlogClicked = () => {
         if (title && content && category && pic) {
             dispatch(
@@ -63,12 +63,13 @@ const BlogPage = () => {
 
             setTitle('');
             setContent('');
-            setCategory('');
             setPic('');
-
             setOpen(false)
         }
     }
+
+    const canSave = Boolean(title) && Boolean(content) && Boolean(category);
+
 
     const renderedBlogs = blogs.map((item, idx) => {
         return (
@@ -78,6 +79,7 @@ const BlogPage = () => {
                 pic={item.pic}
                 title={item.title}
                 content={item.content}
+                timestamp={item.date}
             />
         )
     })
@@ -91,7 +93,7 @@ const BlogPage = () => {
                         {renderedBlogs}
                     </div>
                 </div>
-                {login ? <button className={style.modal_btn} onClick={handleOpen}>Add</button> : <></>}
+                {login ? <button className={style.modal_btn} onClick={handleOpen}>+</button> : <></>}
             </section>
             <Modal
                 open={open}
@@ -136,7 +138,7 @@ const BlogPage = () => {
                             label="Picture"
                             variant="outlined"
                             onChange={onPicChanged} />
-                        <button className={style.add_btn} type='button' onClick={onSaveBlogClicked}>Save Blog</button>
+                        <button disabled={!canSave} className={style.add_btn} type='button' onClick={onSaveBlogClicked}>Save Blog</button>
                     </form>
                 </Box>
             </Modal>

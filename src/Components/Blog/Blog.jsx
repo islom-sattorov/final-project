@@ -1,10 +1,18 @@
 import { useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
 import { selectAllBlogs } from '../../features/blog/blogSlice';
 import BlogItems from '../BlogPage/BlogItems';
 import style from './Blog.module.scss';
 
 const Blog = () => {
     const blogs = useSelector(selectAllBlogs);
+
+    const handleClick = () => {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth',
+        })
+    }
 
     return (
         <section className={style.section}>
@@ -31,6 +39,7 @@ const Blog = () => {
                             content={blogs[1].content}
                         />
                     </div>
+                    <Link style={{ color: 'red' }} to='/blog' onClick={handleClick}>See more</Link>
                 </div>
             </div>
         </section>
