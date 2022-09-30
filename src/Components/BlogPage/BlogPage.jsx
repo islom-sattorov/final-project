@@ -7,6 +7,7 @@ import { blogAdded, selectAllBlogs } from '../../features/blog/blogSlice';
 import BlogItems from './BlogItems';
 import style from './BlogPage.module.scss';
 
+
 const styleBox = {
     position: 'absolute',
     top: '50%',
@@ -80,6 +81,7 @@ const BlogPage = () => {
                 title={item.title}
                 content={item.content}
                 timestamp={item.date}
+                item={item}
             />
         )
     })

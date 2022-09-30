@@ -9,6 +9,10 @@ const initialState = [
         title: 'The Legend Of Us Cuisine: The Story Of Hungry People',
         content: 'Capitalize on low-hanging fruit to identify a ballpark value added matrix economically and the creative activity to beta test override the food quality.',
         date: sub(new Date(), { minutes: 10 }).toISOString(),
+        reactions: {
+            like: 0,
+            dislike: 0,
+        }
     },
     {
         id: 2,
@@ -17,6 +21,10 @@ const initialState = [
         title: 'The Most Popular Delicious Food of Mediterranean Cuisine',
         content: 'Strategies on low-hanging fruit to identify a ballpark value added matrix economically and the creative activity to beta test override the food quality.',
         date: sub(new Date(), { minutes: 5 }).toISOString(),
+        reactions: {
+            like: 0,
+            dislike: 0,
+        }
     }
 ]
 
@@ -28,7 +36,7 @@ const blogSlice = createSlice({
             reducer(state, action) {
                 state.unshift(action.payload)
             },
-            prepare(title, content, category, pic,) {
+            prepare(title, content, category, pic) {
                 return {
                     payload: {
                         id: nanoid(),
@@ -37,8 +45,19 @@ const blogSlice = createSlice({
                         content,
                         date: new Date().toISOString(),
                         category,
+                        reactions: {
+                            like: 0,
+                            dislike: 0,
+                        }
                     }
                 }
+            }
+        },
+        reactionAdded(state, action) {
+            const { blogId, reaction } = action.payload;
+            const existingBlog = state.find(blog => blog.id === blogId)
+            if (existingBlog) {
+                existingBlog.reactions[reaction]++
             }
         }
     }
@@ -46,6 +65,6 @@ const blogSlice = createSlice({
 
 export const selectAllBlogs = (state) => state.blog;
 
-export const { blogAdded } = blogSlice.actions;
+export const { blogAdded, reactionAdded } = blogSlice.actions;
 
 export default blogSlice.reducer
