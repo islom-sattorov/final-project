@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import style from './Main.module.scss'
 import pic from './pic.jpg'
 
@@ -11,7 +12,7 @@ const Main = () => {
                             <br />28 Monkeys</h2>
                         <p className={style.main_subtitle}>The people, food and the prime locations make the perfect
                             <br /> place good friends & family to come together and have great time.</p>
-                        <button className={style.main_btn}>View Menu</button>
+                        <Link className={style.main_btn} to='/menu'>View Menu</Link>
                     </div>
                     <img className={style.main_pic} src={pic} alt='pic' />
                 </div>

@@ -2,6 +2,7 @@ import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { selectAllBlogs } from '../../features/blog/blogSlice';
 import style from './Blog.module.scss';
+import BlogPreview from './BlogPreview';
 
 const Blog = () => {
     const blogs = useSelector(selectAllBlogs);
@@ -25,23 +26,23 @@ const Blog = () => {
                         </p>
                     </div>
                     <div className={style.section_blog}>
-                        {/* <BlogItems
+                        <BlogPreview
+                            pic={blogs[0].pic}
                             category={blogs[0].category}
-                            // pic={blogs[0].pic}
                             title={blogs[0].title}
-                            content={blogs[0].content}
+                            cont={blogs[0].content}
                         />
-                        <BlogItems
+                        <BlogPreview
+                            pic={blogs[1].pic}
                             category={blogs[1].category}
-                            // pic={blogs[0].pic}
                             title={blogs[1].title}
-                            content={blogs[1].content}
-                        /> */}
+                            cont={blogs[1].content}
+                        />
                     </div>
-                    <Link style={{ color: 'red' }} to='/blog' onClick={handleClick}>See more</Link>
+                    <Link style={{ fontSize: '3rem', color: '#000', padding: '0 0 4rem 0' }} to='/blog' onClick={handleClick}>See more</Link>
                 </div>
             </div>
-        </section>
+        </section >
     )
 }
 

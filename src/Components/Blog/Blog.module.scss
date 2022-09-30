@@ -58,6 +58,64 @@
         padding: 0 0 15rem 0;
         display: grid;
         grid-template-columns: repeat(2, 1fr);
+        gap: 2rem;
+        justify-content: center;
+        align-items: center;
+    }
+}
+
+.preview{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 2rem;
+    height: 40rem;
+    padding: 0 1rem;
+
+    #{&}_pic{
+        width: 100px;
+        align-self: center;
+        justify-self: center;
+    }
+
+   
+ #{&}_category{
+    font-weight: 400;
+    font-family: $secondary-font;
+    font-size: 1.5rem;
+    line-height: 22px;
+    letter-spacing: 3px;
+    color: $secondary;
+    border-top: 1px solid $primary;
+    border-bottom: 1px solid $primary;
+    border-inline: 1px solid transparent;
+    text-transform: uppercase;
+    padding: 0.5rem 1rem;
+    transition: 0.2s all;
+    margin: 1rem 0 0 0;
+ 
+  &:hover{
+    border-inline: 1px solid $primary;
+  }
+  }
+
+    #{&}_title{
+        font-weight: 400;
+        font-size: 2.8rem;
+        line-height: 39px;
+        letter-spacing: 0.2px;
+        color: $secondary-font;
+        font-family: $primary-font;
+    }
+
+    #{&}_content{
+        font-weight: 400;
+        font-family: $secondary-font;
+        font-size: 2rem;
+        line-height: 30px;
+        letter-spacing: 0.2px;
+        color: $secondary-text;
     }
 }
 

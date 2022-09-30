@@ -1,11 +1,11 @@
 import { formatDistanceToNow, parseISO } from 'date-fns';
-import { useDispatch } from 'react-redux';
 import { removeItem } from '../../features/blog/blogSlice';
 import ReactionButtons from '../../features/blog/ReactionButtons';
 import style from './BlogPage.module.scss';
 
+
 const BlogItems = ({ pic, category, title, content, timestamp, item, id }) => {
-    const dispatch = useDispatch()
+
 
     let timeAgo = '';
     if (timestamp) {
