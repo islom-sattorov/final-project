@@ -48,10 +48,10 @@
     #{&}_btn{
        @extend .header_phone;
        color: $secondary;
-       padding: 2rem 8.5rem;
        background: $primary;
        transition: 0.2s all;
        font-family: $secondary-font;
+       margin: 0 1rem 0 0;
 
        @include breakpoint(560px){
         width: 170px;
@@ -81,7 +81,11 @@
     #{&}_items{
         display: flex;
         gap: 6rem;
-        margin: 0 1.5rem;
+        margin: 0 1rem;
+
+        @include breakpoint(1000px){
+            gap:3rem;
+        }
 
         @include lg{
             gap: 4rem;
