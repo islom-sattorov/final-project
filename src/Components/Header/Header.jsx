@@ -45,7 +45,8 @@ const Header = () => {
             dispatch(statusToggle())
             handleClose();
         } else {
-            console.log('Error')
+            handleClose();
+            alert('This user doesnt exist');
         }
     }
 
@@ -55,14 +56,6 @@ const Header = () => {
                 <div className="container">
                     <div className={style.header_flex}>
                         {/* <a className={style.header_phone} href="tel:123456789">Call - 123 456 789</a> */}
-                        {/* <button
-                            onClick={handleOpen}
-                            onDoubleClick={() => {
-                                dispatch(statusToggle())
-                            }}
-                            className={style.header_phone}>
-                            {login.status ? 'Logout' : 'Login'}
-                        </button> */}
                         {!login.status ?
                             <button
                                 onClick={handleOpen}
