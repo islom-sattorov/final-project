@@ -9,7 +9,7 @@ import FooterMain from './FooterMain';
 
 const Footer = () => {
     return (
-        <footer className={style.footer}>
+        <footer id='footer' className={style.footer}>
             <div className='container'>
                 <div className={style.footer_flex}>
                     <span className={style.footer_span}>#28Monkeys</span>
