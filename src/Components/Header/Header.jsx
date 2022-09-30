@@ -6,13 +6,12 @@ import { useDispatch, useSelector } from 'react-redux'
 import { NavLink } from 'react-router-dom'
 import { Link } from 'react-scroll'
 import logo from '../../assets/logo.svg'
-import { loginToggle } from '../../features/login/loginSlice'
+import { statusFalse, statusToggle } from '../../features/login/loginSlice'
 import fb from './fb.svg'
 import style from './Header.module.scss'
 import inst from './inst.svg'
 import pinterest from './pinterest.svg'
 import twitter from './twitter.svg'
-
 
 const boxStyle = {
     position: 'absolute',
@@ -30,12 +29,25 @@ const Header = () => {
     const login = useSelector((state) => state.login.loginStatus);
     const dispatch = useDispatch();
 
+
+    const [userName, setUserName] = useState('');
+    const [password, setPassword] = useState('');
+
     const [open, setOpen] = useState(false)
-
     const handleOpen = () => setOpen(true)
-
     const handleClose = () => setOpen(false)
 
+    const onUserNameChanged = (e) => setUserName(e.target.value);
+    const onPasswordChanged = (e) => setPassword(e.target.value);
+
+    const onSubmitClicked = () => {
+        if (userName == login.username && password == login.password) {
+            dispatch(statusToggle())
+            handleClose();
+        } else {
+            console.log('Error')
+        }
+    }
 
     return (
         <>
@@ -43,14 +55,24 @@ const Header = () => {
                 <div className="container">
                     <div className={style.header_flex}>
                         {/* <a className={style.header_phone} href="tel:123456789">Call - 123 456 789</a> */}
-                        <button
-                            onClick={() => {
-                                dispatch(loginToggle())
-                                handleOpen()
+                        {/* <button
+                            onClick={handleOpen}
+                            onDoubleClick={() => {
+                                dispatch(statusToggle())
                             }}
                             className={style.header_phone}>
-                            {login ? `Logout` : 'Login'}
-                        </button>
+                            {login.status ? 'Logout' : 'Login'}
+                        </button> */}
+                        {!login.status ?
+                            <button
+                                onClick={handleOpen}
+                                className={style.header_phone}>Login</button> :
+                            <button
+                                className={style.header_phone}
+                                onClick={() => {
+                                    dispatch(statusFalse())
+                                }}>Logout</button>
+                        }
                         <img className={style.header_logo} src={logo} alt="logo" />
                         <button className={style.header_btn}>Reservation</button>
                     </div>
@@ -67,7 +89,7 @@ const Header = () => {
                                 duration={700}
                                 className={style.navbar_item}>
                                 <li>About Us</li></Link>
-                            <a className={style.navbar_item} href='#'><li>Our Menu</li></a>
+                            <NavLink className={style.navbar_item} to='/menu'><li>Our Menu</li></NavLink>
                             <a className={style.navbar_item} href='#'><li>Pages</li></a>
                             <NavLink className={style.navbar_item} to='/blog'><li>Blog</li></NavLink>
                             <a className={style.navbar_item} href='#'><li>Contact Us</li></a>
@@ -87,22 +109,30 @@ const Header = () => {
                 aria-labelledby="modal-modal-title"
                 aria-describedby="modal-modal-description">
                 <Box sx={boxStyle}>
-                    <form className={style.modal_form}>
-                        <label className={style.modal_label}>Login</label>
+                    <form onSubmit={() => { return false }} className={style.modal_form}>
+                        <label htmlFor='username' className={style.modal_label}>UserName</label>
                         <TextField
                             type='text'
                             // value={content}
-                            id="Name"
-                            label="Name"
+                            id="username"
+                            label="Username"
+                            name='username'
                             variant="outlined"
+                            required
+                            onChange={onUserNameChanged}
                         />
+                        <label htmlFor='password'></label>
                         <TextField
                             type='password'
                             // value={content}
                             id="password"
+                            name='password'
                             label="password"
-                            variant="outlined" />
-                        <button type='button' className={style.modal_btn}>Send</button>
+                            variant="outlined"
+                            required
+                            onChange={onPasswordChanged}
+                        />
+                        <button type='button' onClick={onSubmitClicked} className={style.modal_btn}>Send</button>
                     </form>
                 </Box>
             </Modal>
