@@ -14,8 +14,18 @@
     @include flex(flex-start, flex-start);
     flex-direction: column;
     padding: 0 2rem;
+    position: relative;
+    
  }
 
+ #{&}_delete{
+   position: absolute;
+   right: 10px;
+   background: none;
+   border: none;
+   font-size: 3rem;
+ }
+ 
  #{&}_category{
    font-weight: 400;
    font-family: $secondary-font;
@@ -29,6 +39,7 @@
    text-transform: uppercase;
    padding: 0.5rem 1rem;
    transition: 0.2s all;
+   margin: 1rem 0 0 0;
 
  &:hover{
    border-inline: 1px solid $primary;
