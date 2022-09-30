@@ -59,12 +59,18 @@ const blogSlice = createSlice({
             if (existingBlog) {
                 existingBlog.reactions[reaction]++
             }
+        },
+        removeItem(state, action) {
+            const itemId = action.payload;
+            state = [...state.filter((item) => {
+                item.id !== itemId
+            })]
         }
     }
 })
 
 export const selectAllBlogs = (state) => state.blog;
 
-export const { blogAdded, reactionAdded } = blogSlice.actions;
+export const { blogAdded, reactionAdded, removeItem } = blogSlice.actions;
 
 export default blogSlice.reducer

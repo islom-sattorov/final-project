@@ -82,6 +82,7 @@ const BlogPage = () => {
                 content={item.content}
                 timestamp={item.date}
                 item={item}
+                id={item.id}
             />
         )
     })
