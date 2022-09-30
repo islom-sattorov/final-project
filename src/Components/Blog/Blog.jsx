@@ -1,7 +1,6 @@
 import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { selectAllBlogs } from '../../features/blog/blogSlice';
-import BlogItems from '../BlogPage/BlogItems';
 import style from './Blog.module.scss';
 
 const Blog = () => {
@@ -26,7 +25,7 @@ const Blog = () => {
                         </p>
                     </div>
                     <div className={style.section_blog}>
-                        <BlogItems
+                        {/* <BlogItems
                             category={blogs[0].category}
                             // pic={blogs[0].pic}
                             title={blogs[0].title}
@@ -37,7 +36,7 @@ const Blog = () => {
                             // pic={blogs[0].pic}
                             title={blogs[1].title}
                             content={blogs[1].content}
-                        />
+                        /> */}
                     </div>
                     <Link style={{ color: 'red' }} to='/blog' onClick={handleClick}>See more</Link>
                 </div>
