@@ -55,7 +55,6 @@ const BlogPage = () => {
     const onPicChanged = e => setPic(e.target.value);
 
 
-
     const onSaveBlogClicked = () => {
         if (title && content && category && pic) {
             dispatch(
@@ -80,6 +79,7 @@ const BlogPage = () => {
                 pic={item.pic}
                 title={item.title}
                 content={item.content}
+                timestamp={item.date}
             />
         )
     })
