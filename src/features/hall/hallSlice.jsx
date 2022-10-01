@@ -31,11 +31,16 @@ const hallSlice = createSlice({
     name: 'hall',
     initialState,
     reducers: {
-
+        reserveTable: (state, actions) => {
+            state.reserve = true
+            console.log(state.reserve)
+        }
     }
 })
 
 
 export const selectAllHall = (state) => state.hall;
+
+export const { reserveTable } = hallSlice.actions;
 
 export default hallSlice.reducer
