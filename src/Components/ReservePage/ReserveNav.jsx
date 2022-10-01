@@ -6,11 +6,11 @@ const ReserveNav = () => {
         <section className={style.reserve}>
             <div className="container">
                 <h1 className={style.reserve_text}>Reservation</h1>
-                <nav>
-                    <ul>
-                        <NavLink to='reservation/hall'><li>Hall</li></NavLink>
-                        <NavLink to='reservation/2ndFloor'><li>2nd-floor</li></NavLink>
-                        <NavLink to='reservation/terrace'><li>Terrace</li></NavLink>
+                <nav className={style.reserve_navbar}>
+                    <ul className={style.reserve_item}>
+                        <NavLink className={style.reserve_link} to='reservation/hall'><li>Hall</li></NavLink>
+                        <NavLink className={style.reserve_link} to='reservation/2ndFloor'><li>2nd-floor</li></NavLink>
+                        <NavLink className={style.reserve_link} to='reservation/terrace'><li>Terrace</li></NavLink>
                     </ul>
                 </nav>
             </div>
