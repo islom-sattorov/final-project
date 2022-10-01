@@ -3,12 +3,24 @@
 @import '../../styles/variables';
 
 .reserve{
-    border: 1px solid red;
     padding: 4rem 0;
 
 
     #{&}_text{
         text-align: center;
-        color: red;
+        font-size: 4rem;
+        font-family: $primary-font;
+    }
+
+    #{&}_item{
+        display: flex;
+        justify-content: center;
+        padding: 4rem 0 0 0 ;
+        gap: 3rem;
+    }
+
+    #{&}_link{
+        font-size: 1.9rem;
+        color: $secondary;
     }
 }
