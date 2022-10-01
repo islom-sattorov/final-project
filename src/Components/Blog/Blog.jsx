@@ -42,7 +42,7 @@ const Blog = () => {
                     <Link style={{ fontSize: '3rem', color: '#000', padding: '0 0 4rem 0' }} to='/blog' onClick={handleClick}>See more</Link>
                 </div>
             </div>
-        </section >
+        </section>
     )
 }
 

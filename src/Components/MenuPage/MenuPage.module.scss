@@ -1,0 +1,40 @@
+@import '../../styles/base';
+@import '../../styles/variables';
+@import '../../styles/breakpoints'; 
+
+.menulist{
+    padding: 2rem 2rem;
+
+    #{&}_grid{
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        justify-content: center;
+        align-items: center;
+        gap: 2rem;
+    }
+
+    #{&}_items{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 300px;
+    }
+
+
+    #{&}_text{
+        text-align: center;
+        font-family: $primary-font;
+        font-size: 5rem;
+        padding: 0 0 2rem 0;
+    }
+
+    #{&}_name{
+        font-size: 3rem;
+    }
+
+    #{&}_pic{
+        width: 200px;
+        padding: 2rem;
+    }
+}

@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom"
 import Dish from "./Dish"
 import style from './Dish.module.scss'
 import pic1 from './pic1.png'
@@ -30,7 +31,7 @@ const Dishes = () => {
                     subtitle='Burgers may be made from ingredients like beans.'
                 />
             </div>
-            <button className={style.dishes_btn}>See all dishes</button>
+            <Link className={style.dishes_btn} to='/menu'>See all dishes</Link>
         </>
     )
 }
