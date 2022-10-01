@@ -17,7 +17,7 @@ const HeaderNavBar = () => {
                             className={style.navbar_item}>
                             <li>About Us</li></Link>
                         <NavLink className={style.navbar_item} to='/menu'><li>Our Menu</li></NavLink>
-                        <NavLink className={style.navbar_item} href='#'><li>Reservation</li></NavLink>
+                        <NavLink className={style.navbar_item} to='/reservation'><li>Reservation</li></NavLink>
                         <NavLink className={style.navbar_item} to='/blog'><li>Blog</li></NavLink>
                         <Link
                             className={style.navbar_item}
