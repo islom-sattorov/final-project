@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
+import { Link } from 'react-router-dom'
 import logo from '../../assets/logo.svg'
 import { statusFalse, statusToggle } from '../../features/login/loginSlice'
 import style from './Header.module.scss'
@@ -60,7 +61,7 @@ const Header = () => {
                     <div className={style.header_flex}>
                         {loginButtons}
                         <img className={style.header_logo} src={logo} alt="logo" />
-                        <button className={style.header_btn}>Reservation</button>
+                        <Link to='/reservation' className={style.header_btn}>Reservation</Link>
                     </div>
                 </div>
             </header>

@@ -1,0 +1,14 @@
+@import '../../styles/base';
+@import '../../styles/breakpoints';
+@import '../../styles/variables';
+
+.reserve{
+    border: 1px solid red;
+    padding: 4rem 0;
+
+
+    #{&}_text{
+        text-align: center;
+        color: red;
+    }
+}
