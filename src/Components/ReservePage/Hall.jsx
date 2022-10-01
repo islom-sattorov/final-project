@@ -2,8 +2,8 @@ import { TextField } from '@mui/material';
 import Box from '@mui/material/Box';
 import Modal from '@mui/material/Modal';
 import { useState } from "react";
-import { useSelector } from "react-redux";
-import { selectAllHall } from "../../features/hall/hallSlice";
+import { useDispatch, useSelector } from "react-redux";
+import { reserveTable, selectAllHall } from "../../features/hall/hallSlice";
 import style from './ReservePage.module.scss';
 
 
@@ -21,6 +21,7 @@ const styleBox = {
 
 const Hall = () => {
     const hall = useSelector(selectAllHall);
+    const dispatch = useDispatch();
 
     const [open, setOpen] = useState(false);
     const handleOpen = () => setOpen(true);
@@ -29,9 +30,11 @@ const Hall = () => {
     const renderedHall = hall.map((item, idx) => {
         return (
             <button
+                key={item.id}
                 onClick={() => {
                     if (!item.reserve) {
-                        handleOpen();
+                        // handleOpen();
+                        dispatch(reserveTable);
                     } else {
                         alert('This table already reserved')
                     }
@@ -44,7 +47,7 @@ const Hall = () => {
         <>
             <section className={style.hall}>
                 <div className="container">
-                    <h1>hall</h1>
+                    <h1>Hall</h1>
                     <div className={style.hall_item}>
                         {renderedHall}
                     </div>
