@@ -1,14 +1,12 @@
+import LinearProgress from "@mui/material/LinearProgress";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getMenu } from "../../features/menu/menuSlice";
 import style from './MenuPage.module.scss';
 
 const MenuPage = () => {
-    const dispatch = useDispatch();
-
     const { menus, loading } = useSelector((state) => state.menu)
-
-
+    const dispatch = useDispatch();
 
     const renderedItems = menus.map((item, idx) => {
         return (
@@ -20,15 +18,12 @@ const MenuPage = () => {
         )
     })
 
-
-
-
     useEffect(() => {
         dispatch(getMenu())
     }, [])
 
     if (loading) {
-        return <h2>Loading...</h2>
+        return <LinearProgress color="success" />
     }
 
     return (
