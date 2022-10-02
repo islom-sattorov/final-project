@@ -12,7 +12,7 @@ const MenuPage = () => {
         return (
             <div key={idx} className={style.menulist_items}>
                 <h2 className={style.menulist_name} >{item.menuname}</h2>
-                <img className={style.menulist_pic} src={item.images[0]} />
+                <img className={style.menulist_pic} src={item.images[1]} />
                 <p className={style.menulist_content}>{item.description}</p>
             </div>
         )

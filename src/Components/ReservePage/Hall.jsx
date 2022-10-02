@@ -33,7 +33,7 @@ const Hall = () => {
                 key={item.id}
                 onClick={() => {
                     if (!item.reserve) {
-                        // handleOpen();
+                        handleOpen();
                         dispatch(reserveTable);
                     } else {
                         alert('This table already reserved')
@@ -61,11 +61,13 @@ const Hall = () => {
                     aria-describedby="modal-modal-description"
                 >
                     <Box sx={styleBox}>
-                        <h2>Reservation Form</h2>
-                        <TextField label='name' type='text' />
-                        <TextField type='date' />
-                        <TextField label='persons' type='number' />
-                        <button type='button'>Confirm</button>
+                        <div className={style.modal_reserve}>
+                            <h2>Reservation Form</h2>
+                            <TextField label='name' type='text' />
+                            <TextField type='time' />
+                            <TextField label='persons' type='number' />
+                            <button type='button'>Confirm</button>
+                        </div>
                     </Box>
                 </Modal>
             </div>

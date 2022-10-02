@@ -110,3 +110,19 @@
 }
 
 }
+
+.modal_reserve{
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+
+    h2{
+        font-size: 3rem;
+    }
+
+    button{
+        border: 1px solid $primary;
+        background: none;
+        padding: 1rem 2rem;
+    }
+}
