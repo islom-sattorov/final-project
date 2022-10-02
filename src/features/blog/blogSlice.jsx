@@ -61,15 +61,11 @@ const blogSlice = createSlice({
             }
         },
         removeItem(state, action) {
-            const itemId = action.payload;
-            state = [{
-                ...state.filter((item) => {
-                    item.id !== itemId
-                })
-            }]
+            return state = state.filter(({ id }) => id !== action.payload)
         }
     }
-})
+}
+)
 
 export const selectAllBlogs = (state) => state.blog;
 

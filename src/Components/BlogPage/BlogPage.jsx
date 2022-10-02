@@ -72,7 +72,6 @@ const BlogPage = () => {
 
     const canSave = Boolean(title) && Boolean(content) && Boolean(category);
 
-
     const renderedBlogs = blogs.map((item, idx) => {
         return (
             <BlogItems
