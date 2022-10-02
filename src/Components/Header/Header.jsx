@@ -60,17 +60,17 @@ const Header = () => {
                 dispatch(statusFalse())
             }}>Logout</button>
 
-    console.log(login.status)
-    console.log(showAlert)
+    const alertButtons = !login.status && showAlert ?
+        <></> : login.status && !showAlert ?
+            <></> : login.status && showAlert ?
+                <div className={style.alert_success}>
+                    <Alert severity='success'>Success</Alert>
+                </div> :
+                <></>
 
     return (
         <>
-            {!login.status && showAlert ?
-                <></> : login.status && !showAlert ?
-                    <></> : login.status && showAlert ?
-                        <Alert severity='success'>Success</Alert> :
-                        <></>
-            }
+            {alertButtons}
             <header className={style.header}>
                 <div className="container">
                     <div className={style.header_flex}>

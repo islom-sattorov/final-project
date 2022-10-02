@@ -3,6 +3,7 @@ import blogReducer from '../features/blog/blogSlice';
 import hallReducer from '../features/hall/hallSlice';
 import loginReducer from '../features/login/loginSlice';
 import menuReducer from '../features/menu/menuSlice';
+import terraceReducer from "../features/terrace/terraceSlice";
 
 export const store = configureStore({
     reducer: {
@@ -10,5 +11,6 @@ export const store = configureStore({
         blog: blogReducer,
         hall: hallReducer,
         menu: menuReducer,
+        terrace: terraceReducer,
     }
 })

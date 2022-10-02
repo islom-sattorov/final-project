@@ -9,7 +9,6 @@ const ReserveNav = () => {
                 <nav className={style.reserve_navbar}>
                     <ul className={style.reserve_item}>
                         <NavLink className={style.reserve_link} to='reservation/hall'><li>Hall</li></NavLink>
-                        <NavLink className={style.reserve_link} to='reservation/2ndFloor'><li>2nd-floor</li></NavLink>
                         <NavLink className={style.reserve_link} to='reservation/terrace'><li>Terrace</li></NavLink>
                     </ul>
                 </nav>

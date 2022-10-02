@@ -16,7 +16,7 @@
     #{&}_item{
         display: flex;
         justify-content: center;
-        padding: 4rem 0 0 0 ;
+        padding: 4rem 0 ;
         gap: 3rem;
     }
 
@@ -65,4 +65,48 @@
             color: red;
         }
     }
+}
+
+.terrace{
+    @extend .reserve;
+
+
+#{&}_grid{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 3rem;
+}
+
+
+#{&}_reserved{
+    background: #e8ecf2;
+    color: black;
+    border-radius: 9999px;
+    border: 4px solid #e8ecf2;
+    border: none;
+    width: 200px;
+    height: 200px;
+    font-family: $primary-font;
+    font-size: 4rem;
+    box-shadow: -5px -5px 10px rgba(255, 255, 255, 0.8), 5px 5px 10px rgba(0, 0, 0, 0.2);
+    transition: 0.2s all;
+
+    &:hover{
+        // color: rgb(211,24,24);
+        color: $primary;
+        box-shadow: -1px -1px 5px rgba(255, 255, 255, 0.6), 1px 1px 5px rgba(0, 0, 0, 0.3),
+        inset -2px -2px 5px rgba(255,255,255,1),
+        inset 2px 2px 4px rgba(0,0,0,0.3);
+    }
+}
+
+#{&}_not_reserved{
+    @extend .terrace_reserved;
+    color: rgb(184, 27, 27);
+
+    &:hover{
+        color: red;
+    }
+}
+
 }

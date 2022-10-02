@@ -26,7 +26,6 @@ const Hall = () => {
     const [open, setOpen] = useState(false);
     const handleOpen = () => setOpen(true);
     const handleClose = () => setOpen(false);
-    const [test, setTest] = useState(false);
 
     const renderedHall = hall.map((item, idx) => {
         return (
