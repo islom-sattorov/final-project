@@ -6,21 +6,38 @@ const initialState = {
     error: '',
 }
 
-export const fetchMenu = createAsyncThunk('menu/fetchMenu', async () => {
+
+export const getMenu = createAsyncThunk('menu/getMenu', async () => {
     try {
         const url = 'https://foodbukka.herokuapp.com/api/v1/menu';
-        const request = await fetch(url);
+        const request = await fetch(url)
         const requestJson = await request.json();
-        const menuFetch = await requestJson.Result()
+        const menuData = await requestJson.Result;
+        return menuData
     }
-    catch (err) {
-        console.log(err)
+    catch (e) {
+        console.log(e)
     }
 })
 
 
 
-const menuSlice = createSlice({
-    name: 'menu',
+const menuSlice = createSlice(({
+    name: 'menus',
     initialState,
-});
+    extraReducers: {
+        [getMenu.pending]: (state, action) => {
+            state.loading = true
+        },
+        [getMenu.fulfilled]: (state, action) => {
+            state.loading = false
+            state.menus = action.payload
+        },
+        [getMenu.rejected]: (state, action) => {
+            state.loading = false
+        },
+    },
+}));
+
+
+export default menuSlice.reducer;
