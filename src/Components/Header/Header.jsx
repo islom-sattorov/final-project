@@ -1,3 +1,4 @@
+import Alert from '@mui/material/Alert'
 import { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
@@ -25,6 +26,7 @@ const Header = () => {
 
     const [userName, setUserName] = useState('');
     const [password, setPassword] = useState('');
+    const [showAlert, setShowAlert] = useState(true);
 
     const [open, setOpen] = useState(false)
     const handleOpen = () => setOpen(true)
@@ -37,9 +39,14 @@ const Header = () => {
         if (userName.trim() == login.username && password.trim() == login.password) {
             dispatch(statusToggle())
             handleClose();
+            const timeId = setTimeout(() => {
+                setShowAlert(false)
+            }, 3000)
+            return () => {
+                clearTimeout(timeId)
+            }
         } else {
             handleClose();
-            alert('This user doesnt exist');
         }
     }
 
@@ -53,9 +60,17 @@ const Header = () => {
                 dispatch(statusFalse())
             }}>Logout</button>
 
+    console.log(login.status)
+    console.log(showAlert)
 
     return (
         <>
+            {!login.status && showAlert ?
+                <></> : login.status && !showAlert ?
+                    <></> : login.status && showAlert ?
+                        <Alert severity='success'>Success</Alert> :
+                        <></>
+            }
             <header className={style.header}>
                 <div className="container">
                     <div className={style.header_flex}>

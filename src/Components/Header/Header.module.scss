@@ -136,3 +136,12 @@
     border-radius: 5px;
     cursor: pointer;
 }
+
+.alert_success{
+    position: absolute;
+    width: 100%;   
+}
+
+.alert_error{
+    @extend .alert_success;
+}
