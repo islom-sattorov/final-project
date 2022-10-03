@@ -43,13 +43,26 @@ const Hall = () => {
     const onCreditCardNumberChanged = e => setCreditCardNumber(e.target.value);
 
     const onSaveBtnClicked = () => {
-        dispatch(reserveTable({ id: idElem, name, person, time, reserve: res }));
-        handleClose();
-        setName('');
-        setPerson('');
-        setTime('');
-        setIdElem(0);
+        if (name, person, time, creditCardName, creditCardNumber, idElem, res) {
+            dispatch(reserveTable({ id: idElem, name, person, time, reserve: res }));
+            handleClose();
+            setName('');
+            setPerson('');
+            setTime('');
+            setIdElem(0);
+        } else {
+            return
+        }
     };
+
+    const canSave =
+        Boolean(name) &&
+        Boolean(person) &&
+        Boolean(time) &&
+        Boolean(creditCardName) &&
+        Boolean(creditCardNumber) &&
+        Boolean(idElem)
+    Boolean(res);
 
     const renderedHall = hall.map((item, idx) => {
         return (
@@ -102,7 +115,7 @@ const Hall = () => {
                             />
                             <TextField onChange={onCreditCardNameChanged} label='Credit card' type='number' />
                             <TextField onChange={onCreditCardNumberChanged} label='Card owner' type='text' />
-                            <button onClick={onSaveBtnClicked} type='button'>Confirm</button>
+                            <button disabled={!canSave} onClick={onSaveBtnClicked} type='button'>Confirm</button>
                         </div>
                     </Box>
                 </Modal>
