@@ -1,26 +1,114 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = [
-    { id: 1, reserve: false },
-    { id: 2, reserve: true },
-    { id: 3, reserve: false },
-    { id: 4, reserve: false },
-    { id: 5, reserve: false },
-    { id: 6, reserve: true },
-    { id: 7, reserve: true },
-    { id: 8, reserve: true },
-    { id: 9, reserve: false },
-    { id: 10, reserve: true },
-    { id: 11, reserve: false },
-    { id: 12, reserve: true },
+    {
+        id: 1,
+        reserve: false,
+        name: '',
+        persons: '',
+        time: '',
+    },
+    {
+        id: 2,
+        reserve: false,
+        name: '',
+        persons: '',
+        time: '',
+    },
+    {
+        id: 3,
+        reserve: false,
+        name: '',
+        persons: '',
+        time: '',
+    },
+    {
+        id: 4,
+        reserve: true,
+        name: 'islom',
+        persons: '2',
+        time: '12:00',
+    },
+    {
+        id: 5,
+        reserve: false,
+        name: '',
+        persons: '',
+        time: '',
+    },
+    {
+        id: 6,
+        reserve: false,
+        name: '',
+        persons: '',
+        time: '',
+    },
+    {
+        id: 7,
+        reserve: true,
+        name: 'islom',
+        persons: '2',
+        time: '12:00',
+    },
+    {
+        id: 8,
+        reserve: false,
+        name: '',
+        persons: '',
+        time: '',
+    },
+    {
+        id: 9,
+        reserve: false,
+        name: '',
+        persons: '',
+        time: '',
+    },
+    {
+        id: 10,
+        reserve: false,
+        name: '',
+        persons: '',
+        time: '',
+    },
+    {
+        id: 11,
+        reserve: true,
+        name: 'islom',
+        persons: '2',
+        time: '12:00',
+    },
+    {
+        id: 12,
+        reserve: false,
+        name: '',
+        persons: '',
+        time: '',
+    },
 ]
 
 const terraceSlice = createSlice({
     name: 'terrace',
     initialState,
-    reducers: {}
+    reducers: {
+        reserveTable: (state, action) => {
+            const { id, name, person, time, reserve } = action.payload;
+            state = state.map((item) => {
+                if (item.id == id) {
+                    item.name = name;
+                    item.persons = person,
+                        item.time = time
+                    item.reserve = reserve
+                } else {
+                    return item
+                }
+            })
+        }
+    }
 })
 
 export const selectAllTerrace = (state) => state.terrace
+
+export const { reserveTable } = terraceSlice.actions;
 
 export default terraceSlice.reducer
