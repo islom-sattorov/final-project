@@ -13,7 +13,7 @@ const Footer = () => {
             <div className='container'>
                 <div className={style.footer_flex}>
                     <span className={style.footer_span}>#28Monkeys</span>
-                    <img src={logo} className={style.footer_pic} />
+                    <img src={logo} className={style.footer_pic} alt='logo' />
                     <div className={style.footer_icons}>
                         <a href='https://www.instagram.com' target='_blank'><img src={inst} alt='inst' /></a>
                         <a href='https://www.facebook.com/' target='_blank'><img src={fb} alt='fb' /></a>

@@ -19,15 +19,15 @@ const Services = () => {
                     </div>
                     <div className={style.section_icons}>
                         <div className={style.section_icons_items}>
-                            <img src={icon1} />
+                            <img src={icon1} alt='services' />
                             <h3 className={style.section_icons_text}>Opened 24/7</h3>
                         </div>
                         <div className={style.section_icons_items}>
-                            <img src={icon2} />
+                            <img src={icon2} alt='services' />
                             <h3 className={style.section_icons_text}>Opened 24/7</h3>
                         </div>
                         <div className={style.section_icons_items}>
-                            <img src={icon3} />
+                            <img src={icon3} alt='services' />
                             <h3 className={style.section_icons_text}>Opened 24/7</h3>
                         </div>
                     </div>
