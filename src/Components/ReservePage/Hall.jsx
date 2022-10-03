@@ -1,11 +1,8 @@
-import { TextField } from '@mui/material';
-import Box from '@mui/material/Box';
-import Modal from '@mui/material/Modal';
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { selectAllBoxStyle } from '../../features/boxStyle/boxStyleSlice';
 import { reserveTable, selectAllHall } from "../../features/hall/hallSlice";
-import CreditCard from './CreditCard';
+import HallModal from "./HallModal";
 import style from './ReservePage.module.scss';
 
 
@@ -25,7 +22,7 @@ const Hall = () => {
     const [creditCardName, setCreditCardName] = useState('')
     const [creditCardNumber, setCreditCardNumber] = useState('');
     const [idElem, setIdElem] = useState(0);
-    const [res, setRes] = useState(true)
+    const [reserve, setReserve] = useState(true)
 
     const onNameChanged = e => setName(e.target.value);
     const onPersonChanged = e => setPerson(e.target.value);
@@ -34,8 +31,8 @@ const Hall = () => {
     const onCreditCardNumberChanged = e => setCreditCardNumber(e.target.value);
 
     const onSaveBtnClicked = () => {
-        if (name, person, time, creditCardName, creditCardNumber, idElem, res) {
-            dispatch(reserveTable({ id: idElem, name, person, time, reserve: res }));
+        if (name, person, time, creditCardName, creditCardNumber, idElem, reserve) {
+            dispatch(reserveTable({ id: idElem, name, person, time, reserve }));
             handleClose();
             setName('');
             setPerson('');
@@ -51,11 +48,7 @@ const Hall = () => {
     const canSave =
         Boolean(name) &&
         Boolean(person) &&
-        Boolean(time) &&
-        Boolean(creditCardName) &&
-        Boolean(creditCardNumber) &&
-        Boolean(idElem)
-    Boolean(res);
+        Boolean(time);
 
     const renderedHall = hall.map((item, idx) => {
         return (
@@ -89,30 +82,20 @@ const Hall = () => {
                     </div>
                 </div>
             </section>
-            <div>
-                <Modal
-                    open={open}
-                    onClose={handleClose}
-                    aria-labelledby="modal-modal-title"
-                    aria-describedby="modal-modal-description"
-                >
-                    <Box sx={boxStyle}>
-                        <div className={style.modal_reserve}>
-                            <h2>Reservation Form</h2>
-                            <TextField onChange={onNameChanged} label='name' type='text' />
-                            <TextField onChange={onTimeChanged} type='time' />
-                            <TextField onChange={onPersonChanged} label='persons' type='number' />
-                            <CreditCard
-                                name={creditCardName}
-                                number={creditCardNumber}
-                            />
-                            <TextField onChange={onCreditCardNumberChanged} label='Credit card' type='number' />
-                            <TextField onChange={onCreditCardNameChanged} label='Card owner' type='text' />
-                            <button disabled={!canSave} onClick={onSaveBtnClicked} type='button'>Confirm</button>
-                        </div>
-                    </Box>
-                </Modal>
-            </div>
+            <HallModal
+                open={open}
+                close={handleClose}
+                bxs={boxStyle}
+                nameChange={onNameChanged}
+                timeChange={onTimeChanged}
+                personChange={onPersonChanged}
+                creditName={creditCardName}
+                creditNumber={creditCardNumber}
+                creditNameChange={onCreditCardNameChanged}
+                creditNumberChange={onCreditCardNumberChanged}
+                save={!canSave}
+                saveClicked={onSaveBtnClicked}
+            />
         </>
     )
 }
