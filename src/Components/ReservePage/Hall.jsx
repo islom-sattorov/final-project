@@ -4,8 +4,8 @@ import Modal from '@mui/material/Modal';
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { reserveTable, selectAllHall } from "../../features/hall/hallSlice";
+import CreditCard from './CreditCard';
 import style from './ReservePage.module.scss';
-
 
 const styleBox = {
     position: 'absolute',
@@ -66,6 +66,7 @@ const Hall = () => {
                             <TextField label='name' type='text' />
                             <TextField type='time' />
                             <TextField label='persons' type='number' />
+                            <CreditCard />
                             <button type='button'>Confirm</button>
                         </div>
                     </Box>

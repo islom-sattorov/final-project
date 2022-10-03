@@ -1,6 +1,8 @@
 @import '../../styles/base';
 @import '../../styles/breakpoints';
 @import '../../styles/variables';
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300;400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Exo:wght@500&display=swap');
 
 .reserve{
     padding: 4rem 0;
@@ -126,3 +128,77 @@
         padding: 1rem 2rem;
     }
 }
+
+.card{
+    font-family: 'Montserrat', sans-serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 330px;
+    height: 180px;
+    background: linear-gradient(-25deg, black, #444, black);
+    border-radius: 15px;
+    color: white;
+    position: relative;
+    overflow: hidden;
+    text-shadow: 0 2px 0 black;
+    padding: 1.5rem 2rem;
+    box-shadow: 0 10px 50px -10px black;
+}
+
+// .card::before{
+//     content: '';
+//     display: block;
+//     position: absolute;
+//     width: 600px;
+//     height: 600px;
+//     border-radius: 100%;
+//     box-shadow: 0 0 50px rgba(38, 38, 38, .95) inset;
+//     top: 1rem;
+//     left: 50%;
+//     transform: translateX(-50%);
+// }
+
+
+.card_top, .card_bottom{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.card_top{
+    transform: rotate(90deg);
+    width: 50px;
+    height: 50px;
+}
+
+.card_main_text{
+    font-size: 1.2rem;
+    z-index: 1;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.card_center{
+    z-index: 1;
+}
+
+.card_center img{
+    width: 20px;
+    padding-left: 2rem;
+}
+
+.card_bottom_left, .card_bottom_right{
+    display: flex;
+    flex-direction: column;
+}
+
+.card_bottom_left{
+    gap: .7rem;
+}
+
+.card_number{
+    font-weight: 500;
+    font-family: 'Exo', sans-serif;
+}
+
+
