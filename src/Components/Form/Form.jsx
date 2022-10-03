@@ -14,7 +14,6 @@ const Form = () => {
                         <form>
                             <div className={style.section_input_one}>
                                 <input type='text' name='name' placeholder='Name' />
-                                <input type='email' name='email' placeholder='Email' />
                             </div>
                             <div className={style.section_input_two}>
                                 <input type='number' name='persons' placeholder='Persons' />
