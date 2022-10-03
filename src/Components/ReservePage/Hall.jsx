@@ -27,6 +27,22 @@ const Hall = () => {
     const handleOpen = () => setOpen(true);
     const handleClose = () => setOpen(false);
 
+    const [name, setName] = useState('');
+    const [person, setPerson] = useState('');
+    const [time, setTime] = useState('');
+
+    const onNameChanged = e => setName(e.target.value);
+    const onPersonChanged = e => setPerson(e.target.value);
+    const onTimeChanged = e => setTime(e.target.value);
+
+    const onSaveBtnClicked = () => {
+        dispatch(reserveTable({ id: 1, name, person, time }));
+        handleClose();
+        setName('');
+        setPerson('');
+        setTime('');
+    };
+
     const renderedHall = hall.map((item, idx) => {
         return (
             <button
@@ -34,7 +50,6 @@ const Hall = () => {
                 onClick={() => {
                     if (!item.reserve) {
                         handleOpen();
-                        dispatch(reserveTable);
                     } else {
                         alert('This table already reserved')
                     }
@@ -63,11 +78,11 @@ const Hall = () => {
                     <Box sx={styleBox}>
                         <div className={style.modal_reserve}>
                             <h2>Reservation Form</h2>
-                            <TextField label='name' type='text' />
-                            <TextField type='time' />
-                            <TextField label='persons' type='number' />
+                            <TextField onChange={onNameChanged} label='name' type='text' />
+                            <TextField onChange={onTimeChanged} type='time' />
+                            <TextField onChange={onPersonChanged} label='persons' type='number' />
                             <CreditCard />
-                            <button type='button'>Confirm</button>
+                            <button onClick={onSaveBtnClicked} type='button'>Confirm</button>
                         </div>
                     </Box>
                 </Modal>
