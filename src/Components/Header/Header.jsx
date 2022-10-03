@@ -14,7 +14,6 @@ const Header = () => {
     const boxStyle = useSelector(selectAllBoxStyle);
     const dispatch = useDispatch();
 
-
     const [userName, setUserName] = useState('');
     const [password, setPassword] = useState('');
     const [showAlert, setShowAlert] = useState(true);

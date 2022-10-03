@@ -18,6 +18,6 @@ const boxStyleSlice = createSlice({
     reducers: {}
 })
 
-export const selectAllBoxStyle = ((state) => state.boxStyle)
+export const selectAllBoxStyle = ((state) => state.boxStyle);
 
 export default boxStyleSlice.reducer;
