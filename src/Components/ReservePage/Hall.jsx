@@ -49,6 +49,8 @@ const Hall = () => {
             setName('');
             setPerson('');
             setTime('');
+            setCreditCardName('');
+            setCreditCardNumber('');
             setIdElem(0);
         } else {
             return
@@ -113,8 +115,8 @@ const Hall = () => {
                                 name={creditCardName}
                                 number={creditCardNumber}
                             />
-                            <TextField onChange={onCreditCardNameChanged} label='Credit card' type='number' />
-                            <TextField onChange={onCreditCardNumberChanged} label='Card owner' type='text' />
+                            <TextField onChange={onCreditCardNumberChanged} label='Credit card' type='number' />
+                            <TextField onChange={onCreditCardNameChanged} label='Card owner' type='text' />
                             <button disabled={!canSave} onClick={onSaveBtnClicked} type='button'>Confirm</button>
                         </div>
                     </Box>

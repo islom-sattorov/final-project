@@ -66,6 +66,7 @@
         border-radius: 626px 626px 0 0;
         padding: 0 1rem 0 0;
         max-width: 90%;
+        transform: rotateY(180deg);
 
         @include breakpoint(1280px){
             width: 600px;
