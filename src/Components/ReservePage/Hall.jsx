@@ -22,6 +22,7 @@ const styleBox = {
 const Hall = () => {
     const hall = useSelector(selectAllHall);
     const dispatch = useDispatch();
+    const login = useSelector((state) => state.login.loginStatus.status);
 
     const [open, setOpen] = useState(false);
     const handleOpen = () => setOpen(true);
@@ -51,7 +52,13 @@ const Hall = () => {
                     if (!item.reserve) {
                         handleOpen();
                     } else {
-                        alert('This table already reserved')
+                        login && item.reserve ?
+                            alert(
+                                `Name: ${item.name}
+                                 Persons: ${item.persons}
+                                 Time:  ${item.time}`
+                            ) :
+                            alert('This table already reserved')
                     }
                 }}
                 className={item.reserve ? style.hall_not_reserved : style.hall_reserved}>{item.id}</button>
