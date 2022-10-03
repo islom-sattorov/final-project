@@ -31,17 +31,24 @@ const Hall = () => {
     const [name, setName] = useState('');
     const [person, setPerson] = useState('');
     const [time, setTime] = useState('');
+    const [creditCardName, setCreditCardName] = useState('')
+    const [creditCardNumber, setCreditCardNumber] = useState('');
+    const [idElem, setIdElem] = useState(0);
+    const [res, setRes] = useState(true)
 
     const onNameChanged = e => setName(e.target.value);
     const onPersonChanged = e => setPerson(e.target.value);
     const onTimeChanged = e => setTime(e.target.value);
+    const onCreditCardNameChanged = e => setCreditCardName(e.target.value);
+    const onCreditCardNumberChanged = e => setCreditCardNumber(e.target.value);
 
     const onSaveBtnClicked = () => {
-        dispatch(reserveTable({ id: 1, name, person, time }));
+        dispatch(reserveTable({ id: idElem, name, person, time, reserve: res }));
         handleClose();
         setName('');
         setPerson('');
         setTime('');
+        setIdElem(0);
     };
 
     const renderedHall = hall.map((item, idx) => {
@@ -51,6 +58,7 @@ const Hall = () => {
                 onClick={() => {
                     if (!item.reserve) {
                         handleOpen();
+                        setIdElem(idx + 1);
                     } else {
                         login && item.reserve ?
                             alert(
@@ -88,7 +96,12 @@ const Hall = () => {
                             <TextField onChange={onNameChanged} label='name' type='text' />
                             <TextField onChange={onTimeChanged} type='time' />
                             <TextField onChange={onPersonChanged} label='persons' type='number' />
-                            <CreditCard />
+                            <CreditCard
+                                name={creditCardName}
+                                number={creditCardNumber}
+                            />
+                            <TextField onChange={onCreditCardNameChanged} label='Credit card' type='number' />
+                            <TextField onChange={onCreditCardNumberChanged} label='Card owner' type='text' />
                             <button onClick={onSaveBtnClicked} type='button'>Confirm</button>
                         </div>
                     </Box>

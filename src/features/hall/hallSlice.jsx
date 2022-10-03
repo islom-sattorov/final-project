@@ -176,13 +176,13 @@ const hallSlice = createSlice({
     initialState,
     reducers: {
         reserveTable: (state, action) => {
-            const { id, name, person, time } = action.payload;
+            const { id, name, person, time, reserve } = action.payload;
             state = state.map((item) => {
                 if (item.id == id) {
                     item.name = name;
                     item.persons = person
                     item.time = time
-                    item.reserve = true
+                    item.reserve = reserve
                 } else {
                     return item
                 }
