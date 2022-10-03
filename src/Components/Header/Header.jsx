@@ -22,8 +22,9 @@ const Header = () => {
     const handleOpen = () => setOpen(true)
     const handleClose = () => setOpen(false)
 
-    const onUserNameChanged = (e) => setUserName(e.target.value);
-    const onPasswordChanged = (e) => setPassword(e.target.value);
+    const onUserNameChanged = e => setUserName(e.target.value);
+    const onPasswordChanged = e => setPassword(e.target.value);
+
 
     const onSubmitClicked = () => {
         if (userName.trim() == login.username && password.trim() == login.password) {
