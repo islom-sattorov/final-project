@@ -3,27 +3,17 @@ import { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
 import logo from '../../assets/logo.svg'
+import { selectAllBoxStyle } from '../../features/boxStyle/boxStyleSlice'
 import { statusFalse, statusToggle } from '../../features/login/loginSlice'
 import style from './Header.module.scss'
 import HeaderModal from './HeaderModal'
 import HeaderNavBar from './HeaderNavBar'
 
-const boxStyle = {
-    position: 'absolute',
-    top: '50%',
-    left: '50%',
-    transform: 'translate(-50%, -50%)',
-    width: 400,
-    bgcolor: 'background.paper',
-    border: '2px solid #000',
-    boxShadow: 24,
-    p: 4,
-};
-
 const Header = () => {
     const login = useSelector((state) => state.login.loginStatus);
-    const loginName = useSelector((state) => state.login.loginStatus.username)
+    const boxStyle = useSelector(selectAllBoxStyle);
     const dispatch = useDispatch();
+
 
     const [userName, setUserName] = useState('');
     const [password, setPassword] = useState('');
@@ -59,7 +49,7 @@ const Header = () => {
             className={style.header_phone}
             onClick={() => {
                 dispatch(statusFalse())
-            }}>Welcome {loginName}</button>
+            }}>Welcome {login.username}</button>;
 
     const alertButtons = !login.status && showAlert ?
         <></> : login.status && !showAlert ?
@@ -67,7 +57,7 @@ const Header = () => {
                 <div className={style.alert_success}>
                     <Alert severity='success'>Success</Alert>
                 </div> :
-                <></>
+                <></>;
 
     return (
         <>

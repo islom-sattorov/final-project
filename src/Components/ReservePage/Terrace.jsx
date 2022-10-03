@@ -3,24 +3,14 @@ import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { selectAllBoxStyle } from "../../features/boxStyle/boxStyleSlice";
 import { reserveTable, selectAllTerrace } from "../../features/terrace/terraceSlice";
 import CreditCard from "./CreditCard";
 import style from './ReservePage.module.scss';
 
-const styleBox = {
-    position: 'absolute',
-    top: '50%',
-    left: '50%',
-    transform: 'translate(-50%, -50%)',
-    width: 400,
-    bgcolor: 'background.paper',
-    border: '2px solid #000',
-    boxShadow: 24,
-    p: 4,
-};
-
 
 const Terrace = () => {
+    const boxStyle = useSelector(selectAllBoxStyle);
     const terrace = useSelector(selectAllTerrace);
     const dispatch = useDispatch();
     const login = useSelector((state) => state.login.loginStatus.status);
@@ -105,7 +95,7 @@ const Terrace = () => {
                     aria-labelledby="modal-modal-title"
                     aria-describedby="modal-modal-description"
                 >
-                    <Box sx={styleBox}>
+                    <Box sx={boxStyle}>
                         <div className={style.modal_reserve}>
                             <h2>Reservation Form</h2>
                             <TextField onChange={onNameChanged} label='name' type='text' />

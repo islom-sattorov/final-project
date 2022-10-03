@@ -30,7 +30,7 @@ const HeaderModal = ({
                         required
                         onChange={userChange}
                     />
-                    <label htmlFor='password'></label>
+                    <label className={style.modal_label} htmlFor='password'>Password</label>
                     <TextField
                         type='password'
                         // value={content}

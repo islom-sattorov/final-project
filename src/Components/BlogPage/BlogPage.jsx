@@ -5,21 +5,9 @@ import TextField from '@mui/material/TextField';
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { blogAdded, selectAllBlogs } from '../../features/blog/blogSlice';
+import { selectAllBoxStyle } from '../../features/boxStyle/boxStyleSlice';
 import BlogItems from './BlogItems';
 import style from './BlogPage.module.scss';
-
-
-const styleBox = {
-    position: 'absolute',
-    top: '50%',
-    left: '50%',
-    transform: 'translate(-50%, -50%)',
-    width: 400,
-    bgcolor: 'background.paper',
-    border: '2px solid #000',
-    boxShadow: 24,
-    p: 4,
-}
 
 const categories = [
     {
@@ -38,6 +26,7 @@ const categories = [
 
 const BlogPage = () => {
     const login = useSelector((state) => state.login.loginStatus);
+    const boxStyle = useSelector(selectAllBoxStyle);
 
     const blogs = useSelector(selectAllBlogs);
     const dispatch = useDispatch();
@@ -104,7 +93,7 @@ const BlogPage = () => {
                 aria-labelledby="modal-modal-title"
                 aria-describedby="modal-modal-description"
             >
-                <Box sx={styleBox}>
+                <Box sx={boxStyle}>
                     <form className={style.add_form}>
                         <label className={style.add_label} htmlFor='blogTitle'>Blog Title:</label>
                         <TextField

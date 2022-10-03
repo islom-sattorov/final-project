@@ -1,5 +1,6 @@
 import { configureStore } from "@reduxjs/toolkit";
 import blogReducer from '../features/blog/blogSlice';
+import boxStyleReducer from "../features/boxStyle/boxStyleSlice";
 import hallReducer from '../features/hall/hallSlice';
 import loginReducer from '../features/login/loginSlice';
 import menuReducer from '../features/menu/menuSlice';
@@ -12,5 +13,6 @@ export const store = configureStore({
         hall: hallReducer,
         menu: menuReducer,
         terrace: terraceReducer,
+        boxStyle: boxStyleReducer,
     }
 })
