@@ -22,6 +22,7 @@ const boxStyle = {
 
 const Header = () => {
     const login = useSelector((state) => state.login.loginStatus);
+    const loginName = useSelector((state) => state.login.loginStatus.username)
     const dispatch = useDispatch();
 
     const [userName, setUserName] = useState('');
@@ -58,7 +59,7 @@ const Header = () => {
             className={style.header_phone}
             onClick={() => {
                 dispatch(statusFalse())
-            }}>Logout</button>
+            }}>Welcome {loginName}</button>
 
     const alertButtons = !login.status && showAlert ?
         <></> : login.status && !showAlert ?
