@@ -1,23 +1,36 @@
 import { useState } from 'react';
-import { useSelector } from 'react-redux';
-import { selectAllHall } from "../../features/hall/hallSlice";
+import { useDispatch, useSelector } from 'react-redux';
+import { reserveTable, selectAllHall } from "../../features/hall/hallSlice";
 import style from './Form.module.scss';
 import pic from './pic.png';
 
 
 const Form = () => {
     const hall = useSelector(selectAllHall);
+    const dispatch = useDispatch();
 
     const [name, setName] = useState('');
     const [person, setPerson] = useState('');
     const [time, setTime] = useState('');
+    const [reserve, setReserve] = useState(true)
 
     const onNameChanged = e => setName(e.target.value);
     const onPersonChanged = e => setPerson(e.target.value);
     const onTimeChanged = e => setTime(e.target.value)
 
     const onSaveBtnClicked = () => {
-        console.log(1)
+        const idElement = hall.find((item, idx) => {
+            return item.reserve == false
+        })
+
+        if (name, person, time, idElement, reserve) {
+            dispatch(reserveTable({ id: idElement.id, name, person, time, reserve }));
+            setName('');
+            setPerson('');
+            setTime('');
+        } else {
+            return
+        }
     }
 
     return (
@@ -34,6 +47,7 @@ const Form = () => {
                                 <input
                                     type='text'
                                     name='name'
+                                    value={name}
                                     onChange={onNameChanged}
                                     placeholder='Name' />
                             </div>
@@ -41,13 +55,15 @@ const Form = () => {
                                 <input
                                     type='number'
                                     name='persons'
+                                    value={person}
                                     onChange={onPersonChanged}
                                     placeholder='Persons' />
                                 <input
-                                    type='number'
+                                    type='time'
                                     name='time'
+                                    value={time}
                                     onChange={onTimeChanged}
-                                    placeholder='Timing' />
+                                    placeholder='Time' />
                             </div>
                         </form>
                     </div>
