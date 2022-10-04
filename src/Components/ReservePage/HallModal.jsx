@@ -35,8 +35,8 @@ const HallModal = ({
                         name={creditName}
                         number={creditNumber}
                     />
-                    <TextField onChange={creditNameChange} label='Credit card' type='number' />
-                    <TextField onChange={creditNumberChange} label='Card owner' type='text' />
+                    <TextField onChange={creditNumberChange} label='Credit card' type='number' />
+                    <TextField onChange={creditNameChange} label='Card owner' type='text' />
                     <button disabled={save} onClick={saveClicked} type='button'>Confirm</button>
                 </div>
             </Box>

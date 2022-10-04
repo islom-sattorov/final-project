@@ -3,9 +3,7 @@ import mc from './mc.png';
 import style from './ReservePage.module.scss';
 import wifi from './wifi.svg';
 
-const CreditCard = ({ name, number }) => {
-    const spaceAfterFour = String(number).replace(/.{4}/g, '$&')
-
+const CreditCard = ({ number, name }) => {
     return (
         <section className={style.card}>
             <div className='container'>
@@ -18,7 +16,7 @@ const CreditCard = ({ name, number }) => {
                 </div>
                 <div className={style.card_bottom}>
                     <div className={style.card_bottom_left}>
-                        <div className={style.card_number}>{spaceAfterFour}</div>
+                        <div className={style.card_number}>{number}</div>
                         <div>12/25</div>
                         <div>{name}</div>
                     </div>

@@ -9,9 +9,7 @@ const HeaderNavBar = () => {
             <div className='container'>
                 <div className={style.navbar_flex}>
                     <ul className={style.navbar_items}>
-                        {/* <NavLink className={style.navbar_item} to='/'><li>Home</li></NavLink> */}
                         <NavLink className={({ isActive }) => (isActive ? style.navbar_item_active : style.navbar_item)} to='/'><li>Home</li></NavLink>
-
                         <Link to='about'
                             spy={true}
                             smooth={true}

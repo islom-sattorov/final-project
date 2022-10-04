@@ -30,6 +30,7 @@ const Hall = () => {
     const onCreditCardNameChanged = e => setCreditCardName(e.target.value);
     const onCreditCardNumberChanged = e => setCreditCardNumber(e.target.value);
 
+
     const onSaveBtnClicked = () => {
         if (name, person, time, idElem, reserve) {
             dispatch(reserveTable({ id: idElem, name, person, time, reserve }));
