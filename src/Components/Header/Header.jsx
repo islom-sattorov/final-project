@@ -1,5 +1,5 @@
 import Alert from '@mui/material/Alert'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
 import logo from '../../assets/logo.svg'
@@ -18,12 +18,20 @@ const Header = () => {
     const [password, setPassword] = useState('');
     const [showAlert, setShowAlert] = useState(true);
 
+    const [newUserName, setNewUserName] = useState('');
+    const [newPassword, setNewPassword] = useState('');
+    const [obj, setObj] = useState('');
+    const [localState, setLocalState] = useState('');
+
     const [open, setOpen] = useState(false)
     const handleOpen = () => setOpen(true)
     const handleClose = () => setOpen(false)
 
     const onUserNameChanged = e => setUserName(e.target.value);
     const onPasswordChanged = e => setPassword(e.target.value);
+
+    const onNewUserNameChanged = e => setNewUserName(e.target.value);
+    const onNewPasswordChanged = e => setNewPassword(e.target.value);
 
 
     const onSubmitClicked = () => {
@@ -36,10 +44,30 @@ const Header = () => {
             return () => {
                 clearTimeout(timeId)
             }
+        } else if (userName.trim() == localState.name
+            && password.trim() == localState.password) {
+            dispatch(statusToggle())
+            handleClose();
         } else {
             handleClose();
         }
     }
+
+    if (obj) {
+        window.localStorage.setItem('obj', JSON.stringify(obj))
+    }
+
+
+    const onNewSubmitClicked = () => {
+        setObj({
+            name: newUserName,
+            password: newPassword
+        })
+        handleClose();
+        setNewUserName('');
+        setNewPassword('');
+    }
+
 
     const loginButtons = !login.status ?
         <button
@@ -49,7 +77,7 @@ const Header = () => {
             className={style.header_phone}
             onClick={() => {
                 dispatch(statusFalse())
-            }}>Welcome {login.username}</button>;
+            }}>Logout</button>;
 
     const alertButtons = !login.status && showAlert ?
         <></> : login.status && !showAlert ?
@@ -58,6 +86,12 @@ const Header = () => {
                     <Alert severity='success'>Success</Alert>
                 </div> :
                 <></>;
+
+
+    useEffect(() => {
+        setLocalState(JSON.parse(localStorage.getItem('obj')))
+    }, [newUserName, newPassword])
+
 
     return (
         <>
@@ -79,6 +113,9 @@ const Header = () => {
                 userChange={onUserNameChanged}
                 passwordChange={onPasswordChanged}
                 submit={onSubmitClicked}
+                newUserChange={onNewUserNameChanged}
+                newPasswordChange={onNewPasswordChanged}
+                newSubmit={onNewSubmitClicked}
             />
         </>
     )

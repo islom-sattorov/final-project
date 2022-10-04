@@ -112,7 +112,7 @@ const HeaderModal = ({
                             label="New User"
                             variant="outlined"
                             required
-                        // onChange={passwordChange}
+                            onChange={newUserChange}
                         />
                         <TextField
                             type='password'
@@ -122,9 +122,9 @@ const HeaderModal = ({
                             label="New Password"
                             variant="outlined"
                             required
-                        // onChange={passwordChange}
+                            onChange={newPasswordChange}
                         />
-                        <button className={style.modal_btn}>Submit</button>
+                        <button type='button' onClick={newSubmit} className={style.modal_btn}>Submit</button>
                     </form>
                 </TabPanel>
             </Box>
