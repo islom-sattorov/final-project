@@ -4,7 +4,6 @@ import style from './Dish.module.scss'
 import pic1 from './pic1.png'
 import pic2 from './pic2.png'
 import pic3 from './pic3.png'
-import pic4 from './pic4.png'
 
 const Dishes = () => {
     return (
@@ -25,11 +24,11 @@ const Dishes = () => {
                     title='Fresh Salmon'
                     subtitle='Beat the health blues with our Super Immune Blue Juice Recipe.'
                 />
-                <Dish
+                {/* <Dish
                     pic={pic4}
                     title='Veg Burger'
                     subtitle='Burgers may be made from ingredients like beans.'
-                />
+                /> */}
             </div>
             <Link className={style.dishes_btn} to='/menu'>See all dishes</Link>
         </>

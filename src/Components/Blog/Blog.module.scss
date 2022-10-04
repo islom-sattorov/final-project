@@ -1,11 +1,13 @@
 @import '../../styles/variables';
+@import '../../styles/base';
+@import '../../styles/breakpoints';
 
 .section{
     padding: 14rem 0 0 0;
 
     #{&}_flex{
         @include flex(center, center);
-        flex-direction: column
+        flex-direction: column;
     }
 
     #{&}_text{
@@ -55,12 +57,30 @@
     }
 
     #{&}_blog{
-        padding: 0 0 15rem 0;
+        padding: 0 0 1rem 0;
         display: grid;
         grid-template-columns: repeat(2, 1fr);
         gap: 2rem;
         justify-content: center;
         align-items: center;
+
+
+        @include breakpoint(1000px){
+            flex-direction: column
+        }
+    }
+
+    #{&}_btn{
+        background: none;
+        border: 2px solid $primary;
+        padding: 2rem 6rem;
+        color: $primary;
+        font-weight: 400;
+        text-align: center;
+        font-size: 2.2rem;
+        display: block;
+        width: 104rem;
+        margin: 5rem auto 5rem auto;
     }
 }
 
@@ -71,11 +91,11 @@
     justify-content: center;
     gap: 2rem;
     height: 40rem;
-    padding: 0 1rem;
+    padding: 0 3rem;
 
     #{&}_pic{
         width: 100px;
-        align-self: center;
+        align-self: flex-start;
         justify-self: center;
     }
 
