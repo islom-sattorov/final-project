@@ -25,6 +25,7 @@ const Form = () => {
 
         if (name, person, time, idElement, reserve) {
             dispatch(reserveTable({ id: idElement.id, name, person, time, reserve }));
+            alert(`Your reserved table is ${idElement.id}`)
             setName('');
             setPerson('');
             setTime('');
