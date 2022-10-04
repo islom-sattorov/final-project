@@ -50,7 +50,9 @@ const Form = () => {
                                     name='name'
                                     value={name}
                                     onChange={onNameChanged}
-                                    placeholder='Name' />
+                                    placeholder='Name'
+                                    required
+                                />
                             </div>
                             <div className={style.section_input_two}>
                                 <input
@@ -59,6 +61,12 @@ const Form = () => {
                                     min={1}
                                     max={10}
                                     value={person}
+                                    // onKeyPress={(e) => {
+                                    //     if (!/[0 - 9]/.test(e.key)) {
+                                    //         e.preventDefault();
+                                    //     }
+                                    // }}
+                                    required
                                     onChange={onPersonChanged}
                                     placeholder='Persons' />
                                 <input
@@ -66,7 +74,9 @@ const Form = () => {
                                     name='time'
                                     value={time}
                                     onChange={onTimeChanged}
-                                    placeholder='Time' />
+                                    placeholder='Time'
+                                    required
+                                />
                             </div>
                         </form>
                     </div>
