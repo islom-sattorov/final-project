@@ -50,6 +50,9 @@ const HeaderModal = ({
     userChange,
     passwordChange,
     submit,
+    newUserChange,
+    newPasswordChange,
+    newSubmit,
 }) => {
     const [value, setValue] = useState(0)
     const handleChange = (e, newValue) => {
@@ -62,15 +65,17 @@ const HeaderModal = ({
             aria-labelledby="modal-modal-title"
             aria-describedby="modal-modal-description">
             <Box sx={bxs}>
-                {/* <Box sx={{ borderBottom: 1, borderColor: 'divider' }}> */}
-                <Tabs value={value} onChange={handleChange} aria-label="basic tabs example">
-                    <Tab label="Log In" {...a11yProps(0)} />
-                    <Tab label="Registration" {...a11yProps(1)} />
-                </Tabs>
-                {/* </Box> */}
+                <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
+                    <Tabs value={value} onChange={handleChange} aria-label="basic tabs example">
+                        <Tab label="Log In" {...a11yProps(0)} />
+                        <Tab label="Registration" {...a11yProps(1)} />
+                    </Tabs>
+                </Box>
+                {/* Login */}
                 <TabPanel value={value} index={0}>
                     <form onSubmit={() => { return false }} className={style.modal_form}>
-                        <label htmlFor='username' className={style.modal_label}>UserName</label>
+                        <h2 className={style.modal_label}>Log In</h2>
+                        {/* <label htmlFor='username' className={style.modal_label}>UserName</label> */}
                         <TextField
                             type='text'
                             // value={content}
@@ -81,7 +86,7 @@ const HeaderModal = ({
                             required
                             onChange={userChange}
                         />
-                        <label className={style.modal_label} htmlFor='password'>Password</label>
+                        {/* <label className={style.modal_label} htmlFor='password'>Password</label> */}
                         <TextField
                             type='password'
                             // value={content}
@@ -95,8 +100,32 @@ const HeaderModal = ({
                         <button type='button' onClick={submit} className={style.modal_btn}>Send</button>
                     </form>
                 </TabPanel>
+                {/* Registration */}
                 <TabPanel value={value} index={1}>
-                    <h2>Registration</h2>
+                    <form onSubmit={() => { return false }} className={style.modal_form}>
+                        <h2 className={style.modal_label}>Registration</h2>
+                        <TextField
+                            type='text'
+                            // value={content}
+                            id="newUser"
+                            name='newUser'
+                            label="New User"
+                            variant="outlined"
+                            required
+                        // onChange={passwordChange}
+                        />
+                        <TextField
+                            type='password'
+                            // value={content}
+                            id="newPassword"
+                            name='newPassword'
+                            label="New Password"
+                            variant="outlined"
+                            required
+                        // onChange={passwordChange}
+                        />
+                        <button className={style.modal_btn}>Submit</button>
+                    </form>
                 </TabPanel>
             </Box>
         </Modal>
