@@ -30,7 +30,7 @@ const HallModal = ({
                     <h2>Reservation Form</h2>
                     <TextField onChange={nameChange} label='name' type='text' />
                     <TextField onChange={timeChange} type='time' />
-                    <TextField onChange={personChange} label='persons' type='number' />
+                    <TextField onChange={personChange} label='persons' inputProps={{ min: 1, max: 10 }} type='number' />
                     <CreditCard
                         name={creditName}
                         number={creditNumber}

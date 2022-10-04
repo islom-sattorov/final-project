@@ -56,7 +56,7 @@ const Form = () => {
                                     type='number'
                                     name='persons'
                                     min={1}
-                                    max={12}
+                                    max={10}
                                     value={person}
                                     onChange={onPersonChanged}
                                     placeholder='Persons' />
