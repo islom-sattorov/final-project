@@ -19,7 +19,7 @@ const Form = () => {
     const onTimeChanged = e => setTime(e.target.value)
 
     const onSaveBtnClicked = () => {
-        const idElement = hall.find((item, idx) => {
+        const idElement = hall.find(item => {
             return item.reserve == false
         })
 
@@ -55,6 +55,8 @@ const Form = () => {
                                 <input
                                     type='number'
                                     name='persons'
+                                    min={1}
+                                    max={12}
                                     value={person}
                                     onChange={onPersonChanged}
                                     placeholder='Persons' />
