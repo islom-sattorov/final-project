@@ -24,7 +24,6 @@ const CreditCard = ({ name, number }) => {
                     </div>
                     <div className={style.card_bottom_right}>
                         <img style={{ width: '80px' }} src={mc} alt='masterCard' />
-                        {/* <span >debit</span> */}
                     </div>
                 </div>
             </div>

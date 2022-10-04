@@ -8,8 +8,8 @@ const ReserveNav = () => {
                 <h1 className={style.reserve_text}>Reservation</h1>
                 <nav className={style.reserve_navbar}>
                     <ul className={style.reserve_item}>
-                        <NavLink className={style.reserve_link} to='reservation/hall'><li>Hall</li></NavLink>
-                        <NavLink className={style.reserve_link} to='reservation/terrace'><li>Terrace</li></NavLink>
+                        <NavLink className={({ isActive }) => (isActive ? style.link_active : style.link)} to='reservation/hall'><li>Hall</li></NavLink>
+                        <NavLink className={({ isActive }) => (isActive ? style.link_active : style.link)} to='reservation/terrace'><li>Terrace</li></NavLink>
                     </ul>
                 </nav>
             </div>

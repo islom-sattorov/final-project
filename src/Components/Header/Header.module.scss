@@ -107,7 +107,14 @@
         &:hover{
             color: $primary;
         }
+
     }
+
+    #{&}_item_active{
+        @extend .navbar_item;
+        color: $primary;
+    }
+
 
     #{&}_icons{
         display: flex;

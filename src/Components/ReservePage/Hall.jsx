@@ -76,7 +76,6 @@ const Hall = () => {
         <>
             <section className={style.hall}>
                 <div className="container">
-                    <h1>Hall</h1>
                     <div className={style.hall_item}>
                         {renderedHall}
                     </div>

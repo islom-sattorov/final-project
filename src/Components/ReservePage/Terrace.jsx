@@ -75,7 +75,6 @@ const Terrace = () => {
         <>
             <section className={style.terrace}>
                 <div className="container">
-                    <h1>Terrace</h1>
                     <div className={style.terrace_grid}>
                         {renderedTerrace}
                     </div>
