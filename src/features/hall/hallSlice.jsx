@@ -187,6 +187,20 @@ const hallSlice = createSlice({
                     return item
                 }
             })
+        },
+        removeReserveTable: (state, action) => {
+            const id = action.payload;
+            state = state.map((item) => {
+                if (item.id == id) {
+                    item.name = '';
+                    item.persons = '';
+                    item.time = '';
+                    item.reserve = false;
+                    console.log(item)
+                } else {
+                    return item
+                }
+            })
         }
     }
 })
@@ -194,41 +208,7 @@ const hallSlice = createSlice({
 
 export const selectAllHall = (state) => state.hall;
 
-export const { reserveTable } = hallSlice.actions;
+export const { reserveTable, removeReserveTable } = hallSlice.actions;
 
 export default hallSlice.reducer
 
-
-
-
-
-
-
-
-
-
-
-
-
-// const hallSlice = createSlice({
-//     name: 'hall',
-//     initialState,
-//     reducers: {
-//         reserveTable(state, action) {
-//             state = state.map((item) => {
-//                 if (item.id == action.payload.id) {
-//                     item.name = action.payload.val;
-//                     item.reserve = true;
-//                 }
-//             })
-//         },
-//         prepare(id, val) {
-//             return {
-//                 payload: {
-//                     id,
-//                     val,
-//                 }
-//             }
-//         }
-//     }
-// })

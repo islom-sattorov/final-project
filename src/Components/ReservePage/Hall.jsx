@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { selectAllBoxStyle } from '../../features/boxStyle/boxStyleSlice';
-import { reserveTable, selectAllHall } from "../../features/hall/hallSlice";
+import { removeReserveTable, reserveTable, selectAllHall } from "../../features/hall/hallSlice";
 import HallModal from "./HallModal";
 import style from './ReservePage.module.scss';
 
@@ -63,12 +63,17 @@ const Hall = () => {
                         setIdElem(idx + 1);
                     } else {
                         login && item.reserve ?
-                            alert(
+                            console.log(
                                 `Name: ${item.name}
                                  Persons: ${item.persons}
                                  Time:  ${item.time}`
                             ) :
                             alert('This table already reserved')
+                    }
+                }}
+                onDoubleClick={() => {
+                    if (item.reserve && login) {
+                        dispatch(removeReserveTable(idx + 1))
                     }
                 }}
                 className={item.reserve ? style.hall_not_reserved : style.hall_reserved}>{item.id}</button>
