@@ -11,6 +11,11 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
+
+        @include breakpoint(800px){
+            flex-direction: column;
+            gap: 2rem;
+        }
     }
 
     #{&}_phone{
@@ -25,6 +30,16 @@
         background: none;
         text-align: center;
         cursor: pointer;
+
+        @include breakpoint(800px){
+            order: 2;
+            text-align: start;
+            background: $primary;
+            color: #000;
+            font-family: $secondary-font;
+            border: none;
+            width: 80%;
+        }
 
         @include breakpoint(560px){
             width: 170px;
@@ -41,6 +56,17 @@
             max-width: 180px;
         }
 
+        @include breakpoint(800px){
+            order: 1;
+            align-self: flex-start;
+            margin: 0 0 0 10rem;
+        }
+
+        @include breakpoint(500px){
+            margin: 0;
+            align-self: center;
+        }
+
         @include md{
             max-width: 100px
         }
@@ -53,6 +79,10 @@
        transition: 0.2s all;
        font-family: $secondary-font;
        margin: 0 1rem 0 0;
+
+       @include breakpoint(800px){
+        margin: 0;
+       }
 
        @include breakpoint(560px){
         width: 170px;
