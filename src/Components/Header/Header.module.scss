@@ -73,10 +73,12 @@
 
 
 
+
     #{&}_flex{
         display: flex;
         justify-content: space-between;
         align-items: center;
+
     }
 
     #{&}_items{
@@ -87,6 +89,10 @@
 
         @include breakpoint(1000px){
             gap:3rem;
+        }
+
+        @include breakpoint(800px){
+            display: none;
         }
 
         @include lg{
@@ -119,6 +125,10 @@
     #{&}_icons{
         display: flex;
         gap: 2rem;
+        @include breakpoint(800px){
+            display: none;
+        }
+
         @include breakpoint(560px){
             display: none;
         }
@@ -151,4 +161,19 @@
 
 .alert_error{
     @extend .alert_success;
+}
+
+
+.burger_flex{
+    width: 600px;
+    display: flex;
+    flex-direction: row;
+    gap: 2rem;
+    margin: 0 0px 0 80px;
+    align-items: center;
+}
+
+.burger_hide{
+    display: none;
+    border: 1px solid pink;
 }

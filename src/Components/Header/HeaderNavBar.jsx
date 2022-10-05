@@ -1,5 +1,6 @@
 import { NavLink } from 'react-router-dom';
 import { Link } from 'react-scroll';
+import BurgerNav from './BurgerNav';
 import style from './Header.module.scss';
 import HeaderIcons from './HeaderIcons';
 
@@ -7,7 +8,7 @@ const HeaderNavBar = () => {
     return (
         <nav className={style.navbar}>
             <div className='container'>
-                <div className={style.navbar_flex}>
+                <nav className={style.navbar_flex}>
                     <ul className={style.navbar_items}>
                         <NavLink className={({ isActive }) => (isActive ? style.navbar_item_active : style.navbar_item)} to='/'><li>Home</li></NavLink>
                         <Link to='about'
@@ -27,8 +28,9 @@ const HeaderNavBar = () => {
                             to='footer'
                         ><li>Contact Us</li></Link>
                     </ul>
+                    <BurgerNav />
                     <HeaderIcons />
-                </div>
+                </nav>
             </div>
         </nav>
     )

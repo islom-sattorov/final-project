@@ -1,4 +1,5 @@
 @import '../../styles/variables';
+@import '../../styles/breakpoints';
 
 .footer{
     padding: 10rem 0;
@@ -6,6 +7,7 @@
 
     #{&}_flex{
         @include flex(space-between, center);
+        padding: 0 2rem;
     }
 
     #{&}_span{
@@ -30,8 +32,13 @@
     // FOOTER MAIN
 
     #{&}_main_container{
+        border: 1px solid red;
         @include flex(space-between, center);
-        padding: 1rem 0;
+        padding: 1rem 2rem;
+
+        @include breakpoint(800px){
+            flex-direction: column;
+        }
     }
 
     #{&}_main_span{
