@@ -17,8 +17,9 @@
             gap: 2rem;
         }
 
-        @include breakpoint(660px){
+        @include breakpoint(800px){
             flex-direction: column;
+            gap: 4rem;
         }
     }
 
@@ -32,9 +33,14 @@
             min-height: 60rem;
         }
 
-        @include breakpoint(660px){
-            max-width: 100%;
-            max-height: 100%;
+        @include breakpoint(800px){
+            max-width: 60rem;
+            height: 60rem;
+        }
+
+        @include breakpoint(430px){
+            max-width: 50rem;
+            height: 30rem
         }
     }
 
@@ -48,10 +54,18 @@
             align-items: center;
         }
 
-        @include breakpoint(660px){
-            padding: 0 2rem;
+        @include breakpoint(801px){
+            margin: 4rem 0 0 0 ;
             height: 200px;
+            width: 420px;
         }
+
+        @include breakpoint(450px){
+            height: 200px;
+            width: 350px;
+        }
+
+    
     }
 
     #{&}_title{

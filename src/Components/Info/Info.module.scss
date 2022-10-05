@@ -1,6 +1,26 @@
 @import '../../styles/variables';
 @import '../../styles/breakpoints';
 
+
+.container_flex{
+    @include flex(space-evenly, center);
+
+    @include breakpoint(1000px){
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 2rem;
+    }
+}
+
+.info_section{
+    padding: 6rem 0 10rem 0;
+    background: $secondary-second;
+    @include breakpoint(1000px){
+        padding: 2rem 0 2rem 0;
+    }
+}
+
 .section_flex{
         @include flex(flex-start, center);
         gap: 2rem;

@@ -1,13 +1,14 @@
-import hoursPic from './hours.svg'
-import Info from './Info'
-import locationPic from './location.svg'
-import reserve from './reserve.svg'
+import hoursPic from './hours.svg';
+import Info from './Info';
+import style from './Info.module.scss';
+import locationPic from './location.svg';
+import reserve from './reserve.svg';
 
 const MainInfo = () => {
     return (
-        <section id='about' className='info_section'>
+        <section id='about' className={style.info_section}>
             <div className='container'>
-                <div className='container_flex'>
+                <div className={style.container_flex}>
                     <Info
                         img={locationPic}
                         title='Locate Us'
