@@ -16,6 +16,10 @@
             flex-direction: column;
             gap: 2rem;
         }
+
+        @include breakpoint(400px){
+            margin: 0 0 0 200px;
+        }
     }
 
     #{&}_phone{
@@ -30,6 +34,7 @@
         background: none;
         text-align: center;
         cursor: pointer;
+        transition: 0.2s all;
 
         @include breakpoint(800px){
             order: 2;
@@ -45,6 +50,10 @@
             width: 170px;
             font-size: 1.5rem;
             padding: 1rem 2rem;
+        }
+
+        @include breakpoint(300px){
+            width: 100px;
         }
     }
 
@@ -62,7 +71,7 @@
             margin: 0 0 0 10rem;
         }
 
-        @include breakpoint(500px){
+        @include breakpoint(560px){
             margin: 0;
             align-self: center;
         }
@@ -90,6 +99,10 @@
         padding: 1rem 2rem;
     }
 
+    @include breakpoint(300px){
+        width: 100px;
+    }
+
        &:hover{
         background: none;
         color: white;
@@ -101,8 +114,9 @@
     padding: 2.5rem 2rem;
     background: $secondary;
 
-
-
+    @include breakpoint(550px){
+        padding: 0;
+    }
 
     #{&}_flex{
         display: flex;
@@ -195,15 +209,22 @@
 
 
 .burger_flex{
-    width: 600px;
+    width: 500px;
     display: flex;
     flex-direction: row;
     gap: 2rem;
-    margin: 0 0px 0 80px;
+    margin: 0 50px 0 60px;
+    padding: 5px 0 0px 0;
     align-items: center;
+
+    @include breakpoint(550px){
+        flex-direction: column;
+        margin: 0 0 0 60px;
+        align-items: flex-start;
+        position: inherit;
+    }
 }
 
 .burger_hide{
     display: none;
-    border: 1px solid pink;
 }
