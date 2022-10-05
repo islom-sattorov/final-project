@@ -91,7 +91,9 @@
     justify-content: center;
     gap: 2rem;
     height: 40rem;
-    padding: 0 3rem;
+    margin: 2rem 2rem;
+    padding: 0 5rem;
+    border: 5px solid $primary;
 
     #{&}_pic{
         width: 100px;
