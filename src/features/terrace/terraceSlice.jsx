@@ -103,12 +103,26 @@ const terraceSlice = createSlice({
                     return item
                 }
             })
+        },
+        removeReserveTable: (state, action) => {
+            const id = action.payload;
+            state = state.map((item) => {
+                if (item.id == id) {
+                    item.name = '';
+                    item.persons = '';
+                    item.time = '';
+                    item.reserve = false;
+                    console.log(item)
+                } else {
+                    return item
+                }
+            })
         }
     }
 })
 
 export const selectAllTerrace = (state) => state.terrace
 
-export const { reserveTable } = terraceSlice.actions;
+export const { reserveTable, removeReserveTable } = terraceSlice.actions;
 
 export default terraceSlice.reducer
