@@ -184,10 +184,12 @@
     display: grid;
     gap: 20px;
     grid-template-columns: 1fr;
+    // border: 1px solid red;
+    width: 300px;
 }
 
 .modal_label{
-    font-size: 3rem;
+    font-size: 2rem;
 }
 
 .modal_btn{
@@ -196,7 +198,9 @@
     padding: 1rem 2rem;
     border-radius: 5px;
     cursor: pointer;
+    font-size: 18px;
 }
+
 
 .alert_success{
     position: absolute;

@@ -19,6 +19,17 @@
         flex-direction: column;
         gap: 2rem;
         padding: 0 0 0 2rem;
+
+        @include breakpoint(800px){
+            padding: 0 0 0 8rem;
+        }
+
+        @include breakpoint(500px){
+            justify-content: center;
+            align-items: center;
+            margin: 0 auto;
+            padding: 0;
+        }
     }
 
     #{&}_title{
@@ -39,6 +50,10 @@
         font-family: $secondary-font;
         line-height: 3.5rem;
         letter-spacing: 0.2px;
+
+        @include breakpoint(500px){
+            text-align: center;
+        }
     }
 
     #{&}_btn{
@@ -53,6 +68,10 @@
 
         @include breakpoint(1100px){
             font-size: 1.8rem;
+        }
+
+        @include breakpoint(500px){
+            width: 50rem;
         }
 
         &:hover{
