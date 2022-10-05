@@ -80,6 +80,14 @@
             font-family: $primary-font;
             font-size: 2rem;
         }
+
+        &:invalid:required{
+            border: 1px solid red;
+        }
+
+        &:valid{
+            border: 1px solid green;
+        }
     }
 
     input[type=number]::-webkit-inner-spin-button {

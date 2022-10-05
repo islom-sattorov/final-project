@@ -3,7 +3,7 @@ import mc from './mc.png';
 import style from './ReservePage.module.scss';
 import wifi from './wifi.svg';
 
-const CreditCard = ({ number, name }) => {
+const CreditCard = ({ number, name, year }) => {
     return (
         <section className={style.card}>
             <div className='container'>
@@ -17,7 +17,7 @@ const CreditCard = ({ number, name }) => {
                 <div className={style.card_bottom}>
                     <div className={style.card_bottom_left}>
                         <div className={style.card_number}>{number}</div>
-                        <div>12/25</div>
+                        <div>{year}</div>
                         <div>{name}</div>
                     </div>
                     <div className={style.card_bottom_right}>

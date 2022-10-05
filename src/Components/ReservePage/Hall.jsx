@@ -21,11 +21,13 @@ const Hall = () => {
     const [time, setTime] = useState('');
     const [creditCardName, setCreditCardName] = useState('')
     const [creditCardNumber, setCreditCardNumber] = useState('');
+    const [creditYear, setCreditYear] = useState('');
     const [idElem, setIdElem] = useState(0);
     const [reserve, setReserve] = useState(true)
 
     const onNameChanged = e => setName(e.target.value);
     const onPersonChanged = e => setPerson(e.target.value);
+    const onCreditYearChanged = e => setCreditYear(e.target.value)
     const onTimeChanged = e => setTime(e.target.value);
     const onCreditCardNameChanged = e => setCreditCardName(e.target.value);
     const onCreditCardNumberChanged = e => setCreditCardNumber(e.target.value);
@@ -95,6 +97,8 @@ const Hall = () => {
                 creditNumberChange={onCreditCardNumberChanged}
                 save={!canSave}
                 saveClicked={onSaveBtnClicked}
+                year={creditYear}
+                yearChange={onCreditYearChanged}
             />
         </>
     )
