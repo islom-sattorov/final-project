@@ -14,6 +14,8 @@ export default defineConfig({
                 "@mui/material/Modal",
                 "@mui/material/TextField",
                 "@mui/material/LinearProgress",
+                "@mui/material/Tab",
+                "@mui/material/Tabs",
             ]
         }
     }
