@@ -28,14 +28,17 @@ const BlogPage = () => {
     const login = useSelector((state) => state.login.loginStatus);
     const boxStyle = useSelector(selectAllBoxStyle);
 
+
     const blogs = useSelector(selectAllBlogs);
     const dispatch = useDispatch();
+
 
     const [title, setTitle] = useState('');
     const [content, setContent] = useState('');
     const [pic, setPic] = useState('');
     const [category, setCategory] = useState('')
     const [open, setOpen] = useState(false)
+
 
     const handleOpen = () => setOpen(true)
     const handleClose = () => setOpen(false)
@@ -46,10 +49,11 @@ const BlogPage = () => {
     const onPicChanged = e => setPic(e.target.value);
 
 
+
     const onSaveBlogClicked = () => {
         if (title && content && category && pic) {
             dispatch(
-                blogAdded(title, content, category, pic)
+                blogAdded(title, content, category, pic, authorId)
             )
 
             setTitle('');
@@ -60,6 +64,9 @@ const BlogPage = () => {
     }
 
     const canSave = Boolean(title) && Boolean(content) && Boolean(category);
+
+
+
 
     const renderedBlogs = blogs.map((item, idx) => {
         return (

@@ -4,10 +4,11 @@ import { removeItem } from '../../features/blog/blogSlice';
 import ReactionButtons from '../../features/blog/ReactionButtons';
 import style from './BlogPage.module.scss';
 
-
-const BlogItems = ({ pic, category, title, content, timestamp, item, id }) => {
+const BlogItems = ({ pic, category, title, content, timestamp, item, id, authorId }) => {
     const login = useSelector((state) => state.login.loginStatus);
     const dispatch = useDispatch();
+
+
 
     let timeAgo = '';
     if (timestamp) {
@@ -29,6 +30,7 @@ const BlogItems = ({ pic, category, title, content, timestamp, item, id }) => {
             <span className={style.blog_page_category}>{category}</span>
             <h3 className={style.blog_page_title}>{title}</h3>
             <p className={style.blog_page_content}>{content}</p>
+            <p className={style.blog_page_content}>{authorId}</p>
             <span className={style.blog_page_category} title={timestamp}>
                 &nbsp; <i>{timeAgo}</i></span>
             <ReactionButtons blog={item} />
