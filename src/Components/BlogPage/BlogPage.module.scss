@@ -1,4 +1,5 @@
 @import '../../styles/variables';
+@import '../../styles/breakpoints';
 
 .blog_page{
     padding: 4rem 4rem;
@@ -8,6 +9,14 @@
     display: grid;
     grid-template-columns: repeat(2,1fr);
     gap: 2rem;
+
+    @include breakpoint(800px){
+      display: grid;
+      grid-template-columns: 1fr;
+      justify-content: center;
+      align-items: center;
+      gap: 4rem;
+   }
  }
 
  #{&}_item{
@@ -15,15 +24,28 @@
     flex-direction: column;
     padding: 0 2rem;
     position: relative;
+
+    @include breakpoint(800px){
+      max-width: 600px;
+   }
     
  }
 
  #{&}_delete{
    position: absolute;
-   right: 10px;
+   right: 50px;
    background: none;
    border: none;
    font-size: 3rem;
+   transition: 0.2s all;
+   border: 2px solid transparent;
+   padding: 5px;
+   border-radius: 15px;
+
+   &:hover{
+      transform: rotateY(180deg);
+      border: 2px solid red;
+   }
  }
  
  #{&}_category{
@@ -57,7 +79,21 @@
     line-height: 39px;
     letter-spacing: 0.2px;
     color: $secondary;
-    padding: 1rem 0;
+    padding: 2rem 4rem;
+
+    @include breakpoint(800px){
+      padding: 1rem 0;
+   }
+ }
+
+ #{&}_title_main{
+   @extend .blog_page_title;
+
+   @include breakpoint(800px){
+   text-align: center;
+   font-size: 4rem;
+   padding: 0;
+}
  }
 
  #{&}_content{
@@ -72,21 +108,32 @@
 }
 
 .modal_btn{
-   position: absolute;
-   top: 20px;
-   left: 15px;
+   position: fixed;
+   top: 306px;
+   left: 10px;
    background: none;
    border-radius: 5px;
-   padding: 1rem 2rem;
+   padding: 0rem 2rem;
    color: $secondary;
    border: 1px solid $primary;
    font-size: 2rem;
+
+   @include breakpoint(800px){
+      position: static;
+      margin: 20px auto;
+      left: 0;
+      top: 0;
+      padding: 0%;
+      width: 100%;
+      font-size: 3rem;
+   }
 }
 
 .add_form{
    display: grid;
    grid-template-columns: 1fr;
    gap: 20px;
+   position: relative;
  }
 
 .add_label{

@@ -99,7 +99,7 @@ const BlogPage = () => {
             <section className={style.blog_page}>
                 <div className="container">
                     <h2
-                        className={style.blog_page_title}>Blog</h2>
+                        className={style.blog_page_title_main}>Blog</h2>
                     <div className={style.blog_page_grid}>
                         {renderedBlogs}
                     </div>
