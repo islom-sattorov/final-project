@@ -25,7 +25,11 @@ const Header = () => {
 
     const [open, setOpen] = useState(false)
     const handleOpen = () => setOpen(true)
-    const handleClose = () => setOpen(false)
+    const handleClose = () => {
+        setNewUserName('');
+        setNewPassword('');
+        setOpen(false)
+    }
 
     const onUserNameChanged = e => setUserName(e.target.value);
     const onPasswordChanged = e => setPassword(e.target.value);
@@ -56,14 +60,16 @@ const Header = () => {
 
 
     const onNewSubmitClicked = () => {
-        setObj({
-            name: newUserName,
-            password: newPassword
-        })
-        handleClose();
-        dispatch(addNotification({ type: true, message: 'Registration was successful' }))
-        setNewUserName('');
-        setNewPassword('');
+        if (newUserName && newPassword && newUserName.length >= 4 && newPassword.length >= 4) {
+            setObj({
+                name: newUserName,
+                password: newPassword
+            })
+            handleClose();
+            dispatch(addNotification({ type: true, message: 'Registration was successful' }))
+            setNewUserName('');
+            setNewPassword('');
+        }
     }
 
 
@@ -103,7 +109,9 @@ const Header = () => {
                 userChange={onUserNameChanged}
                 passwordChange={onPasswordChanged}
                 submit={onSubmitClicked}
+                newUser={newUserName}
                 newUserChange={onNewUserNameChanged}
+                newPassword={newPassword}
                 newPasswordChange={onNewPasswordChanged}
                 newSubmit={onNewSubmitClicked}
             />

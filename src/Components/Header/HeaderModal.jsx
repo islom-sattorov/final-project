@@ -50,14 +50,22 @@ const HeaderModal = ({
     userChange,
     passwordChange,
     submit,
+    newUser,
     newUserChange,
+    newPassword,
     newPasswordChange,
     newSubmit,
 }) => {
     const [value, setValue] = useState(0)
+    const [validation, setValidation] = useState({
+        username: false,
+        password: false,
+    })
+
     const handleChange = (e, newValue) => {
         setValue(newValue)
     }
+
     return (
         <Modal
             open={open}
@@ -105,8 +113,13 @@ const HeaderModal = ({
                     <form onSubmit={() => { return false }} className={style.modal_form}>
                         <h2 className={style.modal_label}>Registration</h2>
                         <TextField
+                            error={validation.username && newUser === "" && newUser.length < 4}
+                            helperText={validation.username && newUser === "" ? "field is required" : validation.username && newUser.length < 4 ? 'Username must contain more than 4 character' : ''}
+                            onBlur={() => setValidation(prev => ({ ...prev, username: true }))}
+                            onFocus={() => setValidation(prev => ({ ...prev, username: false }))}
+                            color={newUser !== '' && newUser.length >= 4 ? 'success' : ''}
                             type='text'
-                            // value={content}
+                            value={newUser}
                             id="newUser"
                             name='newUser'
                             label="New User"
@@ -115,8 +128,13 @@ const HeaderModal = ({
                             onChange={newUserChange}
                         />
                         <TextField
+                            error={validation.password && newPassword === "" && newPassword.length < 4}
+                            helperText={validation.password && newPassword === "" ? "field is required" : validation.password && newPassword.length < 4 ? 'Password must contain more than 4 character' : ''}
+                            onBlur={() => setValidation(prev => ({ ...prev, password: true }))}
+                            onFocus={() => setValidation(prev => ({ ...prev, password: false }))}
+                            color={newPassword !== '' && newPassword.length >= 4 ? 'success' : ''}
                             type='password'
-                            // value={content}
+                            value={newPassword}
                             id="newPassword"
                             name='newPassword'
                             label="New Password"
