@@ -32,7 +32,6 @@
     // FOOTER MAIN
 
     #{&}_main_container{
-        border: 1px solid red;
         @include flex(space-between, center);
         padding: 1rem 2rem;
 
