@@ -40,8 +40,10 @@ const HallModal = ({
     open,
     close,
     bxs,
+    name,
     nameChange,
     timeChange,
+    persons,
     personChange,
     creditName,
     creditNumber,
@@ -53,6 +55,12 @@ const HallModal = ({
     yearChange,
 }) => {
     const [card, setCard] = useState('Master');
+    const [validation, setValidation] = useState({
+        name: false,
+        persons: false,
+    })
+
+
 
     return (
         <Modal
@@ -64,9 +72,19 @@ const HallModal = ({
             <Box sx={bxs}>
                 <div className={style.modal_reserve}>
                     <h2>Reservation Form</h2>
-                    <TextField onChange={nameChange} label='name' type='text' />
+                    <TextField
+                        error={validation.name && name == ''}
+                        helperText={validation.name && name === '' ? 'Required field' : ''}
+                        onBlur={() => setValidation(prev => ({ ...prev, name: true }))}
+                        onFocus={() => setValidation(prev => ({ ...prev, name: false }))}
+                        onChange={nameChange} label='Name' type='text' />
                     <TextField onChange={timeChange} type='time' />
-                    <TextField onChange={personChange} label='persons' inputProps={{ min: 1, max: 10 }} type='number' />
+                    <TextField
+                        error={validation.persons && persons == '' || persons > 10}
+                        helperText={validation.persons && persons === '' ? 'Required field' : persons > 10 ? 'Persons need to be less than 10' : ''}
+                        onBlur={() => setValidation(prev => ({ ...prev, persons: true }))}
+                        onFocus={() => setValidation(prev => ({ ...prev, persons: false }))}
+                        onChange={personChange} label='Persons' inputProps={{ min: 1, max: 10 }} type='number' />
                     {card == 'Master' ?
                         <CreditCard
                             name={creditName}

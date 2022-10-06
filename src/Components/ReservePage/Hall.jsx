@@ -52,7 +52,7 @@ const Hall = () => {
 
     const canSave =
         Boolean(name) &&
-        Boolean(person) &&
+        Boolean(person <= 10) &&
         Boolean(time);
 
     const renderedHall = hall.map((item, idx) => {
@@ -96,8 +96,10 @@ const Hall = () => {
                 open={open}
                 close={handleClose}
                 bxs={boxStyle}
+                name={name}
                 nameChange={onNameChanged}
                 timeChange={onTimeChanged}
+                persons={person}
                 personChange={onPersonChanged}
                 creditName={creditCardName}
                 creditNumber={creditCardNumber}
