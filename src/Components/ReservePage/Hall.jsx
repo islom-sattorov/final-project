@@ -37,7 +37,7 @@ const Hall = () => {
     const onSaveBtnClicked = () => {
         if (name, person, time, idElem, reserve) {
             dispatch(reserveTable({ id: idElem, name, person, time, reserve }));
-            dispatch(addNotification({ type: true, message: `You reserve ${idElem} table on ${time} o'clock ` }))
+            dispatch(addNotification({ type: true, message: `You reserve table ${idElem} on ${time} o'clock ` }))
             handleClose();
             setName('');
             setPerson('');
