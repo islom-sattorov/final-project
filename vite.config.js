@@ -8,8 +8,9 @@ export default defineConfig({
         rollupOptions: {
             external: [
                 "@mui/material/Box",
-                '@mui/material',
-                '@mui/material/*'
+                "@mui/material/",
+                "@mui/material/*",
+                "@mui/material/MenuItem"
             ]
         }
     }
