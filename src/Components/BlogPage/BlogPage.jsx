@@ -39,6 +39,12 @@ const BlogPage = () => {
     const [pic, setPic] = useState('');
     const [category, setCategory] = useState('')
     const [open, setOpen] = useState(false)
+    const [validation, setValidation] = useState({
+        name: false,
+        content: false,
+        pic: false,
+        category: false,
+    })
 
 
     const handleOpen = () => setOpen(true)
@@ -54,22 +60,20 @@ const BlogPage = () => {
     const onSaveBlogClicked = () => {
         if (title && content && category && pic) {
             dispatch(
-                blogAdded(title, content, category, pic)
+                blogAdded(title, content, category ? category : '', pic)
             )
             dispatch(addNotification({ type: true, message: `Your blog added` }))
 
 
             setTitle('');
             setContent('');
+            setCategory('');
             setPic('');
             setOpen(false)
         }
     }
 
-    const canSave = Boolean(title) && Boolean(content) && Boolean(category);
-
-
-
+    const canSave = Boolean(title) && Boolean(content) && Boolean(category) && Boolean(pic);
 
     const renderedBlogs = blogs.map((item, idx) => {
         return (
@@ -107,6 +111,10 @@ const BlogPage = () => {
                     <form className={style.add_form}>
                         <label className={style.add_label} htmlFor='blogTitle'>Blog Title:</label>
                         <TextField
+                            error={validation.name && title === ""}
+                            helperText={validation.name && title === "" ? "field is required" : ""}
+                            onBlur={() => setValidation(prev => ({ ...prev, name: true }))}
+                            onFocus={() => setValidation(prev => ({ ...prev, name: false }))}
                             type='text'
                             value={title}
                             id="blogTitle"
@@ -114,6 +122,10 @@ const BlogPage = () => {
                             variant="outlined"
                             onChange={onTitleChanged} />
                         <TextField
+                            error={validation.content && content === ""}
+                            helperText={validation.content && content === "" ? "field is required" : ""}
+                            onBlur={() => setValidation(prev => ({ ...prev, content: true }))}
+                            onFocus={() => setValidation(prev => ({ ...prev, content: false }))}
                             type='text'
                             value={content}
                             id="blogContent"
@@ -121,6 +133,10 @@ const BlogPage = () => {
                             variant="outlined"
                             onChange={onContentChanged} />
                         <TextField
+                            error={validation.category && category === ""}
+                            helperText={validation.category && category === "" ? "field is required" : ""}
+                            onBlur={() => setValidation(prev => ({ ...prev, category: true }))}
+                            onFocus={() => setValidation(prev => ({ ...prev, category: false }))}
                             id="outlined-select-category"
                             select
                             label="Select"
@@ -134,6 +150,10 @@ const BlogPage = () => {
                             ))}
                         </TextField>
                         <TextField
+                            error={validation.pic && pic == ''}
+                            helperText={validation.pic && pic === '' ? 'Insert a link to the picture(URL)' : ''}
+                            onBlur={() => setValidation(prev => ({ ...prev, pic: true }))}
+                            onFocus={() => setValidation(prev => ({ ...prev, pic: false }))}
                             type='text'
                             value={pic}
                             id="blogPic"

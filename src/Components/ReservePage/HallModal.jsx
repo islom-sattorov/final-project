@@ -1,13 +1,13 @@
 import Box from "@mui/material/Box";
 import Modal from "@mui/material/Modal";
 import TextField from "@mui/material/TextField";
-import mcIcon from 'mc.png';
-import milliIcon from 'milli.png';
-import mirIcon from 'mir.png';
 import { useState } from "react";
 import { NumberFormatBase, PatternFormat, usePatternFormat } from "react-number-format";
 import CreditCard from './CreditCard';
+import mcIcon from './mc.png';
+import milliIcon from './milli.png';
 import MilliCard from "./MilliCard";
+import mirIcon from './mir.png';
 import MirCard from './MirCard';
 import style from './ReservePage.module.scss';
 
