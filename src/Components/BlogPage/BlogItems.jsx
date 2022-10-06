@@ -5,7 +5,7 @@ import ReactionButtons from '../../features/blog/ReactionButtons';
 import { addNotification } from '../../features/notification/notificationSlice';
 import style from './BlogPage.module.scss';
 
-const BlogItems = ({ pic, category, title, content, timestamp, item, id, authorId }) => {
+const BlogItems = ({ pic, category, title, content, timestamp, item, id }) => {
     const login = useSelector((state) => state.login.loginStatus);
     const dispatch = useDispatch();
 
@@ -17,11 +17,11 @@ const BlogItems = ({ pic, category, title, content, timestamp, item, id, authorI
         const timePeriod = formatDistanceToNow(date)
         timeAgo = `${timePeriod} ago`
     }
-
+    console.log(login)
 
     return (
         <article className={style.blog_page_item}>
-            {login ?
+            {login.status ?
                 <button
                     onClick={() => {
                         dispatch(removeItem(id),
