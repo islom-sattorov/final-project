@@ -7,7 +7,7 @@ export default defineConfig({
     build: {
         rollupOptions: {
             external: [
-                "@mui/material/Box"
+                "@mui/material/*"
             ]
         }
     }
