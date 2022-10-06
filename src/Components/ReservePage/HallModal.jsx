@@ -4,12 +4,12 @@ import TextField from "@mui/material/TextField";
 import { useState } from "react";
 import { NumberFormatBase, PatternFormat, usePatternFormat } from "react-number-format";
 import CreditCard from './CreditCard';
-import mcIcon from './mc.png';
-import milliIcon from './milli.png';
 import MilliCard from "./MilliCard";
-import mirIcon from './mir.png';
 import MirCard from './MirCard';
 import style from './ReservePage.module.scss';
+import mcIcon from '/mc.png';
+import milliIcon from '/milli.png';
+import mirIcon from '/mir.png';
 
 
 function CardExpiry(props) {
