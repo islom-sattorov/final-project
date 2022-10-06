@@ -1,6 +1,3 @@
-import { useEffect } from 'react';
-import { useDispatch } from 'react-redux';
-import { addNotification } from '../../features/notification/notificationSlice';
 import Blog from '../Blog/Blog';
 import Certs from '../Certs/Certs';
 import Form from '../Form/Form';
@@ -11,16 +8,6 @@ import Services from '../Services/Services';
 import Testimonial from '../Testimonial/Testimonial';
 
 const Home = () => {
-    const dispatch = useDispatch()
-
-    // setInterval(() => {
-    //     dispatch(addNotification({ type: true, message: 'Notification Work' }))
-    // }, 5000)
-
-    useEffect(() => {
-        dispatch(addNotification({ type: true, message: 'Notification Work' }))
-    },)
-
     return (
         <>
             <Main />
@@ -31,10 +18,6 @@ const Home = () => {
             <Services />
             <Blog />
             <Form />
-            {/* <Notification
-                children={<div></div>}
-            /> */}
-
         </>
     )
 }

@@ -17,7 +17,6 @@ const BlogItems = ({ pic, category, title, content, timestamp, item, id }) => {
         const timePeriod = formatDistanceToNow(date)
         timeAgo = `${timePeriod} ago`
     }
-    console.log(login)
 
     return (
         <article className={style.blog_page_item}>
