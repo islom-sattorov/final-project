@@ -4,6 +4,7 @@ import boxStyleReducer from "../features/boxStyle/boxStyleSlice";
 import hallReducer from '../features/hall/hallSlice';
 import loginReducer from '../features/login/loginSlice';
 import menuReducer from '../features/menu/menuSlice';
+import notificationReducer from "../features/notification/notificationSlice";
 import terraceReducer from "../features/terrace/terraceSlice";
 
 export const store = configureStore({
@@ -14,5 +15,6 @@ export const store = configureStore({
         menu: menuReducer,
         terrace: terraceReducer,
         boxStyle: boxStyleReducer,
+        notification: notificationReducer,
     }
 })
