@@ -13,7 +13,7 @@ export default defineConfig({
                 "@mui/material/MenuItem",
                 "@mui/material/Modal",
                 "@mui/material/TextField",
-                "@mui/material/TextField",
+                "@mui/material/LinearProgress",
             ]
         }
     }
