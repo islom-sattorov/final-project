@@ -24,14 +24,16 @@ const Form = () => {
             return item.reserve == false
         })
 
-        if (name, person, time, idElement, reserve) {
+        if (name && person <= 10 && time && idElement && reserve) {
             dispatch(reserveTable({ id: idElement.id, name, person, time, reserve }));
             dispatch(addNotification({ type: true, message: `Your reserved table is ${idElement.id}` }))
             setName('');
             setPerson('');
             setTime('');
+        } else if (person > 10) {
+            dispatch(addNotification({ type: false, message: `Error: Persons greater than 10` }))
         } else {
-            return
+            dispatch(addNotification({ type: false, message: `Error check your forms` }))
         }
     }
 
@@ -62,11 +64,6 @@ const Form = () => {
                                     min={1}
                                     max={10}
                                     value={person}
-                                    // onKeyPress={(e) => {
-                                    //     if (!/[0 - 9]/.test(e.key)) {
-                                    //         e.preventDefault();
-                                    //     }
-                                    // }}
                                     required
                                     onChange={onPersonChanged}
                                     placeholder='Persons' />
