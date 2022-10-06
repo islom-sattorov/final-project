@@ -5,6 +5,7 @@ import Footer from './Components/Footer/Footer'
 import Header from './Components/Header/Header'
 import Home from './Components/Home/Home'
 import MenuPage from './Components/MenuPage/MenuPage'
+import Notification from './Components/Notification/Notification'
 import Hall from './Components/ReservePage/Hall'
 import ReservePage from './Components/ReservePage/ReservePage'
 import Terrace from './Components/ReservePage/Terrace'
@@ -24,6 +25,9 @@ function App() {
           <Route path="reservation/terrace" element={<Terrace />} />
         </Route>
       </Routes>
+      <Notification
+        children={<div></div>}
+      />
       <Footer />
     </>
   )

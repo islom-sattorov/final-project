@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { selectAllBoxStyle } from "../../features/boxStyle/boxStyleSlice";
+import { addNotification } from "../../features/notification/notificationSlice";
 import { removeReserveTable, reserveTable, selectAllTerrace } from "../../features/terrace/terraceSlice";
 import HallModal from "./HallModal";
 import style from './ReservePage.module.scss';
@@ -39,6 +40,7 @@ const Terrace = () => {
     const onSaveBtnClicked = () => {
         if (name, person, time, creditCardName, creditCardNumber, idElem, res) {
             dispatch(reserveTable({ id: idElem, name, person, time, reserve: res }));
+            dispatch(addNotification({ type: true, message: `You reserve ${idElem} table on ${time} o'clock ` }))
             handleClose();
             setName('');
             setPerson('');
@@ -64,12 +66,14 @@ const Terrace = () => {
                                  Persons: ${item.persons}
                                  Time:  ${item.time}`
                             ) :
-                            alert('This table already reserved')
+                            dispatch(addNotification({ type: false, message: `This table already reserved` }))
+
                     }
                 }}
                 onDoubleClick={() => {
                     if (item.reserve && login) {
                         dispatch(removeReserveTable(idx + 1))
+                        dispatch(addNotification({ type: true, message: `You removed reserved table` }))
                     }
                 }}
                 className={item.reserve ? style.terrace_not_reserved : style.terrace_reserved}>{item.id}</button>

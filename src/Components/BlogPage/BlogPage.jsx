@@ -6,6 +6,7 @@ import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { blogAdded, selectAllBlogs } from '../../features/blog/blogSlice';
 import { selectAllBoxStyle } from '../../features/boxStyle/boxStyleSlice';
+import { addNotification } from '../../features/notification/notificationSlice';
 import BlogItems from './BlogItems';
 import style from './BlogPage.module.scss';
 
@@ -53,8 +54,10 @@ const BlogPage = () => {
     const onSaveBlogClicked = () => {
         if (title && content && category && pic) {
             dispatch(
-                blogAdded(title, content, category, pic, authorId)
+                blogAdded(title, content, category, pic)
             )
+            dispatch(addNotification({ type: true, message: `Your blog added` }))
+
 
             setTitle('');
             setContent('');

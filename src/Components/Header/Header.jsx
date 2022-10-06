@@ -1,10 +1,10 @@
-import Alert from '@mui/material/Alert'
 import { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
 import logo from '../../assets/logo.svg'
 import { selectAllBoxStyle } from '../../features/boxStyle/boxStyleSlice'
 import { statusFalse, statusToggle } from '../../features/login/loginSlice'
+import { addNotification } from '../../features/notification/notificationSlice'
 import style from './Header.module.scss'
 import HeaderModal from './HeaderModal'
 import HeaderNavBar from './HeaderNavBar'
@@ -38,17 +38,14 @@ const Header = () => {
         if (userName.trim() == login.username && password.trim() == login.password) {
             dispatch(statusToggle())
             handleClose();
-            const timeId = setTimeout(() => {
-                setShowAlert(false)
-            }, 3000)
-            return () => {
-                clearTimeout(timeId)
-            }
+            dispatch(addNotification({ type: true, message: `Welcome back ${login.username}` }))
         } else if (userName.trim() == localState.name
             && password.trim() == localState.password) {
             dispatch(statusToggle())
+            dispatch(addNotification({ type: true, message: 'Login Success' }))
             handleClose();
         } else {
+            dispatch(addNotification({ type: false, message: `This user doesn't exist` }))
             handleClose();
         }
     }
@@ -64,6 +61,7 @@ const Header = () => {
             password: newPassword
         })
         handleClose();
+        dispatch(addNotification({ type: true, message: 'Registration was successful' }))
         setNewUserName('');
         setNewPassword('');
     }
@@ -77,15 +75,8 @@ const Header = () => {
             className={style.header_phone}
             onClick={() => {
                 dispatch(statusFalse())
+                dispatch(addNotification({ type: false, message: 'You logout from your account' }))
             }}>Logout</button>;
-
-    const alertButtons = !login.status && showAlert ?
-        <></> : login.status && !showAlert ?
-            <></> : login.status && showAlert ?
-                <div className={style.alert_success}>
-                    <Alert severity='success'>Success</Alert>
-                </div> :
-                <></>;
 
 
     useEffect(() => {
@@ -95,7 +86,6 @@ const Header = () => {
 
     return (
         <>
-            {alertButtons}
             <header className={style.header}>
                 <div className="container">
                     <div className={style.header_flex}>

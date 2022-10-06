@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { reserveTable, selectAllHall } from "../../features/hall/hallSlice";
+import { addNotification } from '../../features/notification/notificationSlice';
 import style from './Form.module.scss';
 import pic from './pic.png';
 
@@ -25,7 +26,7 @@ const Form = () => {
 
         if (name, person, time, idElement, reserve) {
             dispatch(reserveTable({ id: idElement.id, name, person, time, reserve }));
-            alert(`Your reserved table is ${idElement.id}`)
+            dispatch(addNotification({ type: true, message: `Your reserved table is ${idElement.id}` }))
             setName('');
             setPerson('');
             setTime('');
