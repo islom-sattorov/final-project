@@ -44,6 +44,11 @@
             font-family: $secondary-font;
             border: none;
             width: 80%;
+
+            &:hover{
+                background: none;
+        color: white;
+            }
         }
 
         @include breakpoint(560px){
