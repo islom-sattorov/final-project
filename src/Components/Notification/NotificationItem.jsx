@@ -47,6 +47,7 @@ const NotificationItem = (props) => {
 
     return (
         <div
+            onClick={() => setExit(true)}
             onMouseEnter={handlePauseTimer}
             onMouseLeave={handleStartTimer}
             className={
@@ -54,7 +55,7 @@ const NotificationItem = (props) => {
             ${props.type === true ? style.success : style.error}
             ${exit ? style.exit : ""}`}>
             <p>{props.message}</p>
-            <button onClick={() => setExit(true)}>Exit</button>
+            {/* <button onClick={() => setExit(true)}>Exit</button> */}
             <div className={style.bar} style={{ width: `${width}%` }}></div>
         </div>
     )
