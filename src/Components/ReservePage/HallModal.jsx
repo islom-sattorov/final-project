@@ -1,8 +1,14 @@
 import Box from "@mui/material/Box";
 import Modal from "@mui/material/Modal";
 import TextField from "@mui/material/TextField";
+import { useState } from "react";
 import { NumberFormatBase, PatternFormat, usePatternFormat } from "react-number-format";
 import CreditCard from './CreditCard';
+import mcIcon from './mc.png';
+import milliIcon from './milli.png';
+import MilliCard from "./MilliCard";
+import mirIcon from './mir.png';
+import MirCard from './MirCard';
 import style from './ReservePage.module.scss';
 
 
@@ -30,11 +36,6 @@ function CardExpiry(props) {
     return <NumberFormatBase format={_format} {...rest} />;
 }
 
-
-
-
-
-
 const HallModal = ({
     open,
     close,
@@ -51,6 +52,7 @@ const HallModal = ({
     year,
     yearChange,
 }) => {
+    const [card, setCard] = useState('Master');
 
     return (
         <Modal
@@ -65,11 +67,26 @@ const HallModal = ({
                     <TextField onChange={nameChange} label='name' type='text' />
                     <TextField onChange={timeChange} type='time' />
                     <TextField onChange={personChange} label='persons' inputProps={{ min: 1, max: 10 }} type='number' />
-                    <CreditCard
-                        name={creditName}
-                        number={creditNumber}
-                        year={year}
-                    />
+                    {card == 'Master' ?
+                        <CreditCard
+                            name={creditName}
+                            number={creditNumber}
+                            year={year} /> : card == 'Mir' ?
+                            <MirCard
+                                name={creditName}
+                                number={creditNumber}
+                                year={year} /> : card == 'Milli' ?
+                                <MilliCard
+                                    name={creditName}
+                                    number={creditNumber}
+                                    year={year}
+                                /> : <></>
+                    }
+                    <div className={style.card_flex}>
+                        <button onClick={() => setCard('Mir')}><img className={style.icon} src={mirIcon} /></button>
+                        <button onClick={() => setCard('Master')}><img className={style.icon} src={mcIcon} /></button>
+                        <button onClick={() => setCard('Milli')}><img className={style.icon} src={milliIcon} /></button>
+                    </div>
                     <PatternFormat displayType="input" value={creditNumber} format='#### #### #### ####' onChange={creditNumberChange} />
                     <CardExpiry mask='_' allowEmptyFormatting displayType='input' value={year} format='##/##' onChange={yearChange} />
                     <TextField onChange={creditNameChange} label='Card owner' type='text' />

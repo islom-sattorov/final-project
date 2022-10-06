@@ -1,13 +1,13 @@
 import chip from './chip.png';
-import mc from './mc.png';
+import milli from './milli.png';
 import style from './ReservePage.module.scss';
 import wifi from './wifi.svg';
 
-const CreditCard = ({ number, name, year }) => {
+const MilliCard = ({ number, name, year }) => {
     return (
-        <section className={style.card}>
+        <section className={style.card_milli}>
             <div className='container'>
-                <h2 className={style.card_main_textl}>Credit Card</h2>
+                <h2 className={style.card_main_text_milli}>Корти Милли</h2>
                 <div className={style.card_top}>
                     <img className={style.wifi} src={wifi} alt='wifi' />
                 </div>
@@ -21,7 +21,7 @@ const CreditCard = ({ number, name, year }) => {
                         <div>{name}</div>
                     </div>
                     <div className={style.card_bottom_right}>
-                        <img style={{ width: '80px' }} src={mc} alt='masterCard' />
+                        <img style={{ width: '60px' }} src={milli} alt='masterCard' />
                     </div>
                 </div>
             </div>
@@ -29,4 +29,4 @@ const CreditCard = ({ number, name, year }) => {
     )
 }
 
-export default CreditCard
+export default MilliCard
