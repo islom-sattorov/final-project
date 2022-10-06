@@ -8,6 +8,14 @@
     right: 10px;
     width: 300px;
     color: white;
+    @include breakpoint(800px){
+        width: 84%;
+        right: 5%;
+    }
+
+    @include breakpoint(400px){
+        display: none;
+    }
 }
 
 
@@ -19,6 +27,11 @@
     animation: SlideLeft 0.4s;
     animation-fill-mode: forwards;
     width: 300px;
+    background: rgb(41, 40, 40);
+    @include breakpoint(800px){
+        width: 90%;
+    }
+  
 }
 
 @keyframes SlideLeft{
@@ -45,6 +58,10 @@
     animation: SlideRight 0.4s;
     animation-fill-mode: forwards;
     width: 300px;
+
+    @include breakpoint(800px){
+        width: 90%;
+    }
 }
 
 

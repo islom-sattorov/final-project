@@ -8,6 +8,13 @@ import Services from '../Services/Services';
 import Testimonial from '../Testimonial/Testimonial';
 
 const Home = () => {
+    // const dispatch = useDispatch()
+
+    // setInterval(() => {
+    //     dispatch(addNotification({ type: true, message: 'Notification Work' }))
+    // }, 5000)
+
+
     return (
         <>
             <Main />
