@@ -70,6 +70,11 @@ const BlogPage = () => {
             setCategory('');
             setPic('');
             setOpen(false)
+            // Validation default after submit
+            validation.name = false;
+            validation.content = false;
+            validation.pic = false;
+            validation.category = false;
         }
     }
 
