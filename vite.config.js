@@ -10,7 +10,10 @@ export default defineConfig({
                 "@mui/material/Box",
                 "@mui/material/",
                 "@mui/material/*",
-                "@mui/material/MenuItem"
+                "@mui/material/MenuItem",
+                "@mui/material/Modal",
+                "@mui/material/TextField",
+                "@mui/material/TextField",
             ]
         }
     }
