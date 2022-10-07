@@ -1,12 +1,4 @@
 @charset "UTF-8";
-/*!
- * Hamburgers
- * @description Tasty CSS-animated hamburgers
- * @author Jonathan Suh @jonsuh
- * @site https://jonsuh.com/hamburgers
- * @link https://github.com/jonsuh/hamburgers
- */
-
 // Settings
 // ==================================================
 $hamburger-padding-x           : 15px !default;
@@ -30,37 +22,8 @@ $hamburger-active-hover-filter: $hamburger-hover-filter !default;
 // Types (Remove or comment out what you don’t need)
 // ==================================================
 $hamburger-types: (
-  // 3dx,
-  // 3dx-r,
-  // 3dy,
-  // 3dy-r,
-  // 3dxy,
-  // 3dxy-r,
-  // arrow,
-  // arrow-r,
-  // arrowalt,
-  // arrowalt-r,
-  // arrowturn,
-  // arrowturn-r,
-  // boring,
-  // collapse,
-  // collapse-r,
-  // elastic,
-  // elastic-r,
-  // emphatic,
-  // emphatic-r,
-  // minus,
   slider,
   slider-r,
-  spin,
-  spin-r,
-  // spring,
-  // spring-r,
-  // stand,
-  // stand-r,
-  // squeeze,
-  // vortex,
-  // vortex-r
 ) !default;
 
 // Base Hamburger (We need this)
@@ -73,23 +36,3 @@ $hamburger-types: (
 @import "types/slider-r";
 
 
-
-
-
-
-
-// ==================================================
-// Cooking up additional types:
-//
-// The Sass for each hamburger type should be nested
-// inside an @if directive to check whether or not
-// it exists in $hamburger-types so only the CSS for
-// included types are generated.
-//
-// e.g. hamburgers/types/_new-type.scss
-//
-// @if index($hamburger-types, new-type) {
-//   .hamburger--new-type {
-//     ...
-//   }
-// }

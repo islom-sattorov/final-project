@@ -43,14 +43,16 @@ const Header = () => {
             dispatch(statusToggle())
             handleClose();
             dispatch(addNotification({ type: true, message: `Welcome back ${login.username}` }))
-        } else if (userName.trim() == localState.name
+        } else if (localState != null && userName.trim() == localState.name
             && password.trim() == localState.password) {
             dispatch(statusToggle())
             dispatch(addNotification({ type: true, message: 'Login Success' }))
             handleClose();
+            return
         } else {
             dispatch(addNotification({ type: false, message: `This user doesn't exist` }))
             handleClose();
+            return
         }
     }
 

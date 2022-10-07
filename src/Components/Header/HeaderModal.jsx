@@ -62,6 +62,8 @@ const HeaderModal = ({
         password: false,
     })
 
+
+
     const handleChange = (e, newValue) => {
         setValue(newValue)
     }
@@ -83,10 +85,8 @@ const HeaderModal = ({
                 <TabPanel value={value} index={0}>
                     <form onSubmit={() => { return false }} className={style.modal_form}>
                         <h2 className={style.modal_label}>Log In</h2>
-                        {/* <label htmlFor='username' className={style.modal_label}>UserName</label> */}
                         <TextField
                             type='text'
-                            // value={content}
                             id="username"
                             label="Username"
                             name='username'
@@ -94,10 +94,8 @@ const HeaderModal = ({
                             required
                             onChange={userChange}
                         />
-                        {/* <label className={style.modal_label} htmlFor='password'>Password</label> */}
                         <TextField
                             type='password'
-                            // value={content}
                             id="password"
                             name='password'
                             label="password"
@@ -105,7 +103,7 @@ const HeaderModal = ({
                             required
                             onChange={passwordChange}
                         />
-                        <button type='button' onClick={submit} className={style.modal_btn}>Send</button>
+                        <button type='button' onClick={submit} className={style.modal_btn}>Log in</button>
                     </form>
                 </TabPanel>
                 {/* Registration */}
@@ -113,8 +111,8 @@ const HeaderModal = ({
                     <form onSubmit={() => { return false }} className={style.modal_form}>
                         <h2 className={style.modal_label}>Registration</h2>
                         <TextField
-                            error={validation.username && newUser === "" && newUser.length < 4}
-                            helperText={validation.username && newUser === "" ? "field is required" : validation.username && newUser.length < 4 ? 'Username must contain more than 4 character' : ''}
+                            error={validation.username && newUser === ""}
+                            helperText={validation.username && newUser === "" ? "field is required" : validation.username && newUser.length < 4 ? 'Username recommend contain more than 4 character' : ''}
                             onBlur={() => setValidation(prev => ({ ...prev, username: true }))}
                             onFocus={() => setValidation(prev => ({ ...prev, username: false }))}
                             color={newUser !== '' && newUser.length >= 4 ? 'success' : ''}
@@ -128,8 +126,8 @@ const HeaderModal = ({
                             onChange={newUserChange}
                         />
                         <TextField
-                            error={validation.password && newPassword === "" && newPassword.length < 4}
-                            helperText={validation.password && newPassword === "" ? "field is required" : validation.password && newPassword.length < 4 ? 'Password must contain more than 4 character' : ''}
+                            error={validation.password && newPassword === ""}
+                            helperText={validation.password && newPassword === "" ? "field is required" : validation.password && newPassword.length < 4 ? 'Password recommend contain more than 4 character' : ''}
                             onBlur={() => setValidation(prev => ({ ...prev, password: true }))}
                             onFocus={() => setValidation(prev => ({ ...prev, password: false }))}
                             color={newPassword !== '' && newPassword.length >= 4 ? 'success' : ''}
