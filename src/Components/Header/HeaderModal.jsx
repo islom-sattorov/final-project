@@ -62,6 +62,8 @@ const HeaderModal = ({
         password: false,
     })
 
+
+
     const handleChange = (e, newValue) => {
         setValue(newValue)
     }
@@ -125,7 +127,7 @@ const HeaderModal = ({
                         />
                         <TextField
                             error={validation.password && newPassword === ""}
-                            helperText={validation.password && newPassword === "" ? "field is required" : validation.password && newPassword.length < 4 ? 'Password must contain more than 4 character' : ''}
+                            helperText={validation.password && newPassword === "" ? "field is required" : validation.password && newPassword.length < 4 ? 'Password recommend contain more than 4 character' : ''}
                             onBlur={() => setValidation(prev => ({ ...prev, password: true }))}
                             onFocus={() => setValidation(prev => ({ ...prev, password: false }))}
                             color={newPassword !== '' && newPassword.length >= 4 ? 'success' : ''}
