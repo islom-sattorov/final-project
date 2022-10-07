@@ -1,5 +1,5 @@
 import chip from './chip.png';
-import milli from './milli.png';
+import milli from './ml.png';
 import style from './ReservePage.module.scss';
 import wifi from './wifi.svg';
 
