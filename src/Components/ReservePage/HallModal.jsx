@@ -6,7 +6,8 @@ import { NumberFormatBase, PatternFormat, usePatternFormat } from "react-number-
 import CreditCard from './CreditCard';
 import mcIcon from './mc.png';
 import MilliCard from './MilliCard';
-import mirIcon from './mir.png';
+// import mirIcon from './mir.png';
+import mirIcon from 'https://free-png.ru/wp-content/uploads/2020/09/Mir-01.png';
 import MirCard from './MirCard';
 import milliIcon from "./ml.png";
 import style from './ReservePage.module.scss';
