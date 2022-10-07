@@ -16,7 +16,6 @@ const Header = () => {
 
     const [userName, setUserName] = useState('');
     const [password, setPassword] = useState('');
-    const [showAlert, setShowAlert] = useState(true);
 
     const [newUserName, setNewUserName] = useState('');
     const [newPassword, setNewPassword] = useState('');
@@ -30,6 +29,8 @@ const Header = () => {
         setNewPassword('');
         setOpen(false)
     }
+
+
 
     const onUserNameChanged = e => setUserName(e.target.value);
     const onPasswordChanged = e => setPassword(e.target.value);
@@ -59,6 +60,7 @@ const Header = () => {
     if (obj) {
         window.localStorage.setItem('obj', JSON.stringify(obj))
     }
+
 
 
     const onNewSubmitClicked = () => {
