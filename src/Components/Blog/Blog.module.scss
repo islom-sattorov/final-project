@@ -93,7 +93,7 @@
     border: 1px solid $primary;
 
     @include breakpoint(550px){
-        margin: 2rem 0;
+        margin: 2rem 1rem;
         height: 55rem;
     }
 

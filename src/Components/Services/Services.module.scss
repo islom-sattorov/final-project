@@ -93,11 +93,13 @@
         display: flex;
         justify-content: space-between;
 
-        @include breakpoint(450px){
+        @include breakpoint(600px){
             flex-direction: column;
             gap: 2rem;
         }
     }
+
+
 
     .section_icons_items{
         display: flex;
@@ -114,6 +116,10 @@
 
         @include breakpoint(750px){
             margin: 0 10px;
+        }
+
+        @include breakpoint(600px){
+            width: 100%;
         }
 
     }
