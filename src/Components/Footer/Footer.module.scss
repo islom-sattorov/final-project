@@ -21,12 +21,20 @@
 
     #{&}_pic{
         max-width: 100%;
-        max-height: 200px;
+        max-height: 200px; 
+
+        @include breakpoint(800px){
+            margin: 0 5px;
+        }
     }
 
     #{&}_icons{
         @include flex(center, center);
         gap: 2rem;
+
+        @include breakpoint(800px){
+            display: none
+        }
     }
 
     // FOOTER MAIN
@@ -36,7 +44,11 @@
         padding: 1rem 2rem;
 
         @include breakpoint(800px){
-            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 2rem 0;
+            margin: 0 auto;
+            gap: 2rem;
         }
     }
 
@@ -53,6 +65,11 @@
         transition: 0.2s;
         padding: 1rem 1rem;
         text-transform: uppercase;
+
+        @include breakpoint(800px){
+            margin: 0 auto;
+            
+        }
 
         &:hover{
             border-inline: 1px solid $primary;
@@ -84,6 +101,10 @@
         font-size: 2rem;
         line-height: 30px;
         letter-spacing: 0.2px;
+
+        @include breakpoint(800px){
+            display: none;
+        }
     }
 
     input{
@@ -91,6 +112,10 @@
         padding: 2rem 3rem;
         background: none;
         border: 1px solid #555;
+
+        @include breakpoint(800px){
+            display: none;
+        }
 
         &::placeholder{
             color: #fff;
@@ -120,6 +145,10 @@
 
     #{&}_bot_container{
         padding: 1rem 0 0 0;
+    
+        @include breakpoint(800px){
+            text-align: center;
+        }
     }
 
 }
