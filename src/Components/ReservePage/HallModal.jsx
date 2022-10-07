@@ -6,9 +6,9 @@ import { NumberFormatBase, PatternFormat, usePatternFormat } from "react-number-
 import CreditCard from './CreditCard';
 import mcIcon from './mc.png';
 import milliIcon from './milli.png';
-import MilliCard from "./MilliCard";
 import mirIcon from './mir.png';
 import MirCard from './MirCard';
+import MilliCard from "./ml.png";
 import style from './ReservePage.module.scss';
 
 
