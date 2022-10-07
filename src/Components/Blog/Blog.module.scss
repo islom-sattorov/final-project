@@ -62,7 +62,6 @@
         justify-content: center;
         align-items: center;
 
-
         @include breakpoint(1000px){
             flex-direction: column
         }
