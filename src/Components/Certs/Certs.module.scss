@@ -24,18 +24,18 @@
     }
 
     #{&}_pic{
-        max-width: 80rem;
-        max-height: 80rem;
+        max-width: 60rem;
+        height: 40rem;
         border: 1px solid $primary;
 
         @include breakpoint(1175px){
             max-width: 60rem;
-            min-height: 60rem;
+            height: 40rem;
         }
 
         @include breakpoint(800px){
             max-width: 60rem;
-            height: 60rem;
+            height: 50rem;
         }
 
         @include breakpoint(430px){
