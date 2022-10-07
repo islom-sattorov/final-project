@@ -12,6 +12,15 @@
         align-items: center;
         gap: 2rem;
         margin: 0 auto;
+
+        @include breakpoint(900px){
+            grid-template-columns: repeat(2, 1fr);
+            gap: 0;
+        }
+
+        @include breakpoint(650px){
+            grid-template-columns: 1fr;
+        }
     }
 
     #{&}_items{
@@ -20,6 +29,12 @@
         justify-content: center;
         align-items: flex-start;
         width: 300px;
+
+        @include breakpoint(650px){
+            width: 300px;
+            align-items: center;
+            margin: 10px auto;
+        }
     }
 
 
@@ -30,6 +45,10 @@
         padding: 0 0 5rem 0;
         font-weight: 400;
         color: $secondary;
+
+        @include breakpoint(800px){
+            text-align: center;
+        }
     }
 
     #{&}_name{

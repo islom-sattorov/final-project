@@ -58,12 +58,9 @@
 
     #{&}_blog{
         padding: 0 0 1rem 0;
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        gap: 2rem;
+        @include flex(center, center);
         justify-content: center;
         align-items: center;
-
 
         @include breakpoint(1000px){
             flex-direction: column
@@ -71,16 +68,16 @@
     }
 
     #{&}_btn{
-        background: none;
-        border: 2px solid $primary;
-        padding: 2rem 6rem;
-        color: $primary;
-        font-weight: 400;
-        text-align: center;
-        font-size: 2.2rem;
-        display: block;
-        width: 80rem;
-        margin: 2rem 0;
+    background: none;
+    border: 2px solid $primary;
+    padding: 2rem 6rem;
+    color: $primary;
+    font-weight: 400;
+    text-align: center;
+    font-size: 2.2rem;
+    display: block;
+    width: 95%;
+    margin: 2rem auto;
     }
 }
 
@@ -93,7 +90,12 @@
     height: 40rem;
     margin: 2rem 2rem;
     padding: 0 5rem;
-    border: 5px solid $primary;
+    border: 1px solid $primary;
+
+    @include breakpoint(550px){
+        margin: 2rem 1rem;
+        height: 55rem;
+    }
 
     #{&}_pic{
         width: 100px;
