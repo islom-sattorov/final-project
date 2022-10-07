@@ -35,12 +35,30 @@
 
 .hall{
     background: #e8ecf2;
-    padding: 0 0 5rem 0;
+    padding: 0 15px 5rem 15px;
+    border: 1px solid red;
 
     #{&}_item{
         display: grid;
         grid-template-columns: repeat(5,1fr);
         gap: 3rem;
+
+        @include breakpoint(1150px){
+            grid-template-columns: repeat(4, 1fr);
+        }
+
+        @include breakpoint(900px){
+            grid-template-columns: repeat(3,1fr);
+        }
+
+        @include breakpoint(680px){
+            grid-template-columns: repeat(2,1fr);
+        }
+
+        @include breakpoint(450px){
+            grid-template-columns: 1fr;
+            margin: 0 25%;
+        }
     }
 
     #{&}_reserved{
@@ -84,6 +102,22 @@
     display: grid;
     grid-template-columns: repeat(5, 1fr);
     gap: 3rem;
+    @include breakpoint(1150px){
+        grid-template-columns: repeat(4, 1fr);
+    }
+
+    @include breakpoint(900px){
+        grid-template-columns: repeat(3,1fr);
+    }
+
+    @include breakpoint(680px){
+        grid-template-columns: repeat(2,1fr);
+    }
+
+    @include breakpoint(450px){
+        grid-template-columns: 1fr;
+        margin: 0 25%;
+    }
 }
 
 
