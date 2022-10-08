@@ -104,9 +104,9 @@ const HallModal = ({
                         <button onClick={() => setCard('Master')}><img className={style.icon} src={mcIcon} /></button>
                         <button onClick={() => setCard('Milli')}><img className={style.icon} src={milliIcon} /></button>
                     </div>
-                    <PatternFormat displayType="input" value={creditNumber} format='#### #### #### ####' onChange={creditNumberChange} />
-                    <CardExpiry mask='_' allowEmptyFormatting displayType='input' value={year} format='##/##' onChange={yearChange} />
-                    <TextField onChange={creditNameChange} label='Card owner' type='text' />
+                    <PatternFormat className={style.mask_input} displayType="input" value={creditNumber} format='#### #### #### ####' onChange={creditNumberChange} placeholder="Card Number" />
+                    <CardExpiry className={style.mask_input} mask='_' allowEmptyFormatting displayType='input' value={year} format='##/##' onChange={yearChange} />
+                    <TextField className={style.mask_input} onChange={creditNameChange} label='Card owner' type='text' />
                     <button disabled={save} onClick={saveClicked} type='button'>Confirm</button>
                 </div>
             </Box>

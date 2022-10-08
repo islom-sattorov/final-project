@@ -1,5 +1,5 @@
 import chip from './chip.png';
-import milli from './ml.png';
+import milliIcon from './ml.png';
 import style from './ReservePage.module.scss';
 import wifi from './wifi.svg';
 
@@ -7,21 +7,24 @@ const MilliCard = ({ number, name, year }) => {
     return (
         <section className={style.card_milli}>
             <div className='container'>
-                <h2 className={style.card_main_text_milli}>Корти Милли</h2>
-                <div className={style.card_top}>
-                    <img className={style.wifi} src={wifi} alt='wifi' />
-                </div>
-                <div className={style.card_center}>
-                    <img className={style.card_chip} src={chip} alt='chip' />
-                </div>
-                <div className={style.card_bottom}>
-                    <div className={style.card_bottom_left}>
-                        <div className={style.card_number}>{number}</div>
-                        <div>{year}</div>
-                        <div>{name}</div>
+                <div className={style.card_flex}>
+                    <div className={style.card_flex_left}>
+                        <h2 className={style.card_main_text}>Credit Card</h2>
                     </div>
-                    <div className={style.card_bottom_right}>
-                        <img style={{ width: '60px' }} src={milli} alt='masterCard' />
+                    <div className={style.card_flex_right}>
+                        <img className={style.wifi_milli} src={wifi} alt='wifi' />
+                        <img className={style.chip} src={chip} alt='chip' />
+                    </div>
+                </div>
+                {/* Card bottom */}
+                <div className={style.card_flex_bottom}>
+                    <div className={style.card_info}>
+                        <p className={style.card_number}>{number}</p>
+                        <p className={style.card_number}>{year}</p>
+                        <p className={style.card_name}>{name}</p>
+                    </div>
+                    <div className={style.card_icon}>
+                        <img style={{ width: '50px' }} src={milliIcon} alt='masterCard' />
                     </div>
                 </div>
             </div>
