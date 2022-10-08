@@ -36,7 +36,7 @@
 .hall{
     background: #e8ecf2;
     padding: 0 15px 5rem 15px;
-    border: 1px solid red;
+    display: grid;
 
     #{&}_item{
         display: grid;
@@ -96,6 +96,7 @@
 .terrace{
     @extend .reserve;
     padding: 0 0 4rem 0;
+    display: grid;
 
 
 #{&}_grid{

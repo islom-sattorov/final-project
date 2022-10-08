@@ -99,6 +99,7 @@ const terraceSlice = createSlice({
                     item.persons = person
                     item.time = time
                     item.reserve = reserve
+                    return true
                 } else {
                     return item
                 }
@@ -107,12 +108,12 @@ const terraceSlice = createSlice({
         removeReserveTable: (state, action) => {
             const id = action.payload;
             state = state.map((item) => {
-                if (item.id == id) {
+                if (item.id === id) {
                     item.name = '';
                     item.persons = '';
                     item.time = '';
                     item.reserve = false;
-                    console.log(item)
+                    return true
                 } else {
                     return item
                 }
