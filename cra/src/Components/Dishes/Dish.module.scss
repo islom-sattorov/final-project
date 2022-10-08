@@ -1,0 +1,92 @@
+@import '../../styles/variables';
+@import '../../styles/base';
+@import '../../styles/breakpoints';
+
+.flex_container{
+    @include flex(center, center);
+    gap: 2rem;
+
+    @include breakpoint(800px){
+        flex-direction: column;
+    }
+}
+
+.dishes_container{
+    max-width: 33%;
+    max-height: 600px;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+
+    @include breakpoint(800px){
+        max-width: 100%;
+        border-bottom: 1px solid blue;
+        border-right: 1px solid blue;
+        border-left: 1px solid blue;
+        border-top: 1px solid transparent;
+    }
+
+    hr{
+        width: 50%;
+    }
+}
+
+.pic{
+    border: 1px solid $primary;
+    max-width: 30rem;
+    max-height: 30rem;
+    margin: 0 auto;
+
+    @include breakpoint(800px){
+        max-width: 60rem;
+        max-height: 60rem;
+    }
+}
+
+.title{
+    font-weight: 700;
+    font-size: 3rem;
+    line-height: 42px;
+    letter-spacing: 0.2px;
+    color: $secondary;
+    font-family: $primary-font;
+    padding: 1rem 0;
+}
+
+.subtitle{
+    padding: 1rem 0 6rem 0;
+    font-weight: 400;
+    font-size: 2rem;
+    line-height: 30px;
+    letter-spacing: 0.2px;
+    color: $secondary-text;
+    width: 340px;
+
+    @include breakpoint(1100px){
+        width: 260px;
+    }
+
+    @include breakpoint(800px){
+        padding: 1rem 0 2rem 0;
+        width: 200px;
+    }
+}
+
+.dishes_btn{
+    background: none;
+    border: 2px solid $primary;
+    padding: 2rem 6rem;
+    color: $primary;
+    font-weight: 400;
+    text-align: center;
+    font-size: 2.2rem;
+    display: block;
+    max-width: 90%;
+    margin: 2rem auto;
+
+    @include breakpoint(800px){
+        max-width: 46%;
+    }
+}

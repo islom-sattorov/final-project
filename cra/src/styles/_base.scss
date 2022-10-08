@@ -1,0 +1,40 @@
+@import '../styles/variables';
+@import '../styles/breakpoints';
+
+*,
+*::after,
+*::before{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    list-style-type: none;
+}
+
+html{
+    font-size: 10px;
+    font-family: 'Josefin Sans', sans-serif;
+
+    @include lg{
+        font-size: 8px;
+    }
+
+    @include md{
+        font-size: 7px;
+    }
+}
+
+.container{
+    max-width: 1440px;
+    margin: 0 auto;
+    @include lg{
+        max-width: 960px;
+    }
+
+    @include md{
+        max-width: 720px;
+    }
+}
+
+
+
