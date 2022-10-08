@@ -65,8 +65,12 @@ const Hall = () => {
                         setIdElem(idx + 1);
                     } else {
                         login && item.reserve ?
-                            alert(
-                                `Name: ${item.name}; Persons: ${item.persons}; Time: ${item.time};`)
+                            dispatch(addNotification({
+                                type: true, message: `
+                            Name: ${item.name}; 
+                            Persons: ${item.persons}; 
+                            Time: ${item.time};`
+                            }))
                             :
                             dispatch(addNotification({ type: false, message: `This table already reserved` }))
                     }
