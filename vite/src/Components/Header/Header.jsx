@@ -30,10 +30,6 @@ const Header = () => {
         setOpen(false)
     }
 
-    // Comments
-    let numbers = [1234567890, "1"];
-
-
 
     const onUserNameChanged = e => setUserName(e.target.value);
     const onPasswordChanged = e => setPassword(e.target.value);

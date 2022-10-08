@@ -65,11 +65,9 @@ const Hall = () => {
                         setIdElem(idx + 1);
                     } else {
                         login && item.reserve ?
-                            console.log(
-                                `Name: ${item.name}
-                                 Persons: ${item.persons}
-                                 Time:  ${item.time}`
-                            ) :
+                            alert(
+                                `Name: ${item.name}; Persons: ${item.persons}; Time: ${item.time};`)
+                            :
                             dispatch(addNotification({ type: false, message: `This table already reserved` }))
                     }
                 }}
