@@ -14,3 +14,21 @@
     border: none;
     font-size: 2rem;
 }
+
+.to_top_btn_main{
+    position: fixed;
+    top: 870px;
+    margin-left: 10px;
+    border: 3px solid $primary;
+    background: $secondary;
+    border-radius: 50%;
+    color: #fff;
+    padding: 0.2rem;
+    background: none;
+
+    #{&}_arrow{
+        background: none;
+        border-radius: 50%;
+        width: 40px;
+    }
+}

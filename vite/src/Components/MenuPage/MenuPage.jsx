@@ -8,7 +8,6 @@ const MenuPage = () => {
     const { menus, loading } = useSelector((state) => state.menu)
     const dispatch = useDispatch();
 
-
     const renderedItems = menus.map((item, idx) => {
         return (
             <div key={idx} className={style.menulist_items}>

@@ -12,7 +12,6 @@ const Home = () => {
     // setInterval(() => {
     //     dispatch(addNotification({ type: true, message: 'Notification Work' }))
     // }, 5000)
-
     return (
         <>
             <Main />
