@@ -1,0 +1,16 @@
+@import './styles/variables';
+@import './styles/breakpoints';
+
+.reaction-btn-container{
+    display: flex;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 2rem 0 0 0;
+}
+
+.reactionButton{
+    background: none;
+    border: none;
+    font-size: 2rem;
+}

@@ -1,0 +1,239 @@
+@import '../../styles/variables';
+@import '../../styles/breakpoints';
+
+.header{
+    background: $secondary;
+    padding: 1.4rem 0;
+    border-bottom: 1px solid $hr-color;
+    
+
+    #{&}_flex{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        @include breakpoint(800px){
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        @include breakpoint(400px){
+            margin: 0 0 0 200px;
+        }
+    }
+
+    #{&}_phone{
+        color: white;
+        font-size: 1.8rem;
+        font-weight: 400;
+        text-align: center;
+        padding: 2rem 2rem;
+        width: 20%;
+        border: 2px solid $primary;
+        margin: 0 1.5rem;
+        background: none;
+        text-align: center;
+        cursor: pointer;
+        transition: 0.2s all;
+
+        @include breakpoint(800px){
+            order: 2;
+            text-align: start;
+            background: $primary;
+            color: #000;
+            font-family: $secondary-font;
+            border: none;
+            width: 80%;
+
+            &:hover{
+                background: none;
+                color: white;
+            }
+        }
+
+        @include breakpoint(560px){
+            width: 170px;
+            font-size: 1.5rem;
+            padding: 1rem 2rem;
+        }
+
+        @include breakpoint(300px){
+            width: 100px;
+        }
+    }
+
+    #{&}_logo{
+        max-width: 100%;
+        max-height: 200px;
+        transition: 0.2s all;
+        @include lg{
+            max-width: 180px;
+        }
+
+        @include breakpoint(800px){
+            order: 1;
+            align-self: flex-start;
+            margin: 0 0 0 10rem;
+        }
+
+        @include breakpoint(560px){
+            margin: 0;
+            align-self: center;
+        }
+
+        @include md{
+            max-width: 100px
+        }
+    }
+
+    #{&}_btn{
+       @extend .header_phone;
+       color: $secondary;
+       background: $primary;
+       transition: 0.2s all;
+       font-family: $secondary-font;
+       margin: 0 1rem 0 0;
+
+       @include breakpoint(800px){
+        margin: 0;
+       }
+
+       @include breakpoint(560px){
+        width: 170px;
+        font-size: 1.5rem;
+        padding: 1rem 2rem;
+    }
+
+    @include breakpoint(300px){
+        width: 100px;
+    }
+
+       &:hover{
+        background: none;
+        color: white;
+       }
+    }
+}
+
+.navbar{
+    padding: 2.5rem 2rem;
+    background: $secondary;
+
+    @include breakpoint(550px){
+        padding: 0;
+    }
+
+    #{&}_flex{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+    }
+
+    #{&}_items{
+        display: flex;
+        gap: 6rem;
+        margin: 0 1rem;
+        cursor: pointer;
+
+        @include breakpoint(1000px){
+            gap:3rem;
+        }
+
+        @include breakpoint(800px){
+            display: none;
+        }
+
+        @include lg{
+            gap: 4rem;
+        }
+
+        @include md{
+            gap: 2rem;
+        }
+    }
+
+    #{&}_item{
+        font-size: 2rem;
+        font-weight: 400;
+        color: white;
+        transition: 0.2s all;
+
+        &:hover{
+            color: $primary;
+        }
+
+    }
+
+    #{&}_item_active{
+        @extend .navbar_item;
+        color: $primary;
+    }
+
+
+    #{&}_icons{
+        display: flex;
+        gap: 2rem;
+        @include breakpoint(800px){
+            display: none;
+        }
+
+        @include breakpoint(560px){
+            display: none;
+        }
+    }
+
+}
+
+.modal_form{
+    display: grid;
+    gap: 20px;
+    grid-template-columns: 1fr;
+    // border: 1px solid red;
+    width: 300px;
+}
+
+.modal_label{
+    font-size: 2rem;
+}
+
+.modal_btn{
+    border: 1px solid $primary;
+    background: none;
+    padding: 1rem 2rem;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 18px;
+}
+
+
+.alert_success{
+    position: absolute;
+    width: 100%;   
+}
+
+.alert_error{
+    @extend .alert_success;
+}
+
+
+.burger_flex{
+    width: 500px;
+    display: flex;
+    flex-direction: row;
+    gap: 2rem;
+    margin: 0 50px 0 60px;
+    padding: 5px 0 0px 0;
+    align-items: center;
+
+    @include breakpoint(550px){
+        flex-direction: column;
+        margin: 0 0 0 60px;
+        align-items: flex-start;
+        position: inherit;
+    }
+}
+
+.burger_hide{
+    display: none;
+}
