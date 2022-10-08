@@ -23,6 +23,8 @@ const Terrace = () => {
     const [creditCardName, setCreditCardName] = useState('');
     const [creditCardNumber, setCreditCardNumber] = useState('');
     const [idElem, setIdElem] = useState(0);
+    const [creditYear, setCreditYear] = useState('');
+    const onCreditYearChanged = e => setCreditYear(e.target.value)
     const [res, setRes] = useState(true);
 
 
@@ -34,7 +36,7 @@ const Terrace = () => {
 
     const canSave =
         Boolean(name) &&
-        Boolean(person) &&
+        Boolean(person <= 10) &&
         Boolean(time);
 
     const onSaveBtnClicked = () => {
@@ -90,11 +92,25 @@ const Terrace = () => {
                 </div>
             </section>
             <HallModal
+                // open={open}
+                // close={handleClose}
+                // bxs={boxStyle}
+                // nameChange={onNameChanged}
+                // timeChange={onTimeChanged}
+                // personChange={onPersonChanged}
+                // creditName={creditCardName}
+                // creditNumber={creditCardNumber}
+                // creditNameChange={onCreditCardNameChanged}
+                // creditNumberChange={onCreditCardNumberChanged}
+                // save={!canSave}
+                // saveClicked={onSaveBtnClicked}
                 open={open}
                 close={handleClose}
                 bxs={boxStyle}
+                name={name}
                 nameChange={onNameChanged}
                 timeChange={onTimeChanged}
+                persons={person}
                 personChange={onPersonChanged}
                 creditName={creditCardName}
                 creditNumber={creditCardNumber}
@@ -102,6 +118,8 @@ const Terrace = () => {
                 creditNumberChange={onCreditCardNumberChanged}
                 save={!canSave}
                 saveClicked={onSaveBtnClicked}
+                year={creditYear}
+                yearChange={onCreditYearChanged}
             />
         </>
     )

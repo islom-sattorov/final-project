@@ -30,6 +30,9 @@ const Header = () => {
         setOpen(false)
     }
 
+    // Comments
+    let numbers = [1234567890, "1"];
+
 
 
     const onUserNameChanged = e => setUserName(e.target.value);
@@ -37,7 +40,6 @@ const Header = () => {
 
     const onNewUserNameChanged = e => setNewUserName(e.target.value);
     const onNewPasswordChanged = e => setNewPassword(e.target.value);
-
 
     const onSubmitClicked = () => {
         if (userName.trim() == login.username && password.trim() == login.password) {
