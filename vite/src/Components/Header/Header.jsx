@@ -30,9 +30,6 @@ const Header = () => {
         setOpen(false)
     }
 
-
-
-
     const onUserNameChanged = e => setUserName(e.target.value);
     const onPasswordChanged = e => setPassword(e.target.value);
 
@@ -90,17 +87,18 @@ const Header = () => {
 
 
     useEffect(() => {
-        setLocalState(JSON.parse(localStorage.getItem('obj')))
-    }, [newUserName, newPassword])
-
-
-    useEffect(() => {
         if (JSON.parse(localStorage.getItem('login'))) {
             dispatch(statusToggle())
         } else {
             dispatch(statusFalse())
         }
     }, [])
+
+
+    useEffect(() => {
+        setLocalState(JSON.parse(localStorage.getItem('obj')))
+    }, [newUserName, newPassword])
+
 
     useEffect(() => {
         if (login.status == true) {
