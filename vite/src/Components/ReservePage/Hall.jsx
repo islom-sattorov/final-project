@@ -35,7 +35,7 @@ const Hall = () => {
 
 
     const onSaveBtnClicked = () => {
-        if (name, person, time, idElem, reserve) {
+        if (name && person && time && idElem && reserve) {
             dispatch(reserveTable({ id: idElem, name, person, time, reserve }));
             dispatch(addNotification({ type: true, message: `You reserve table ${idElem} on ${time} o'clock ` }))
             handleClose();
@@ -64,6 +64,7 @@ const Hall = () => {
                         handleOpen();
                         setIdElem(idx + 1);
                     } else {
+                        // handleOpen();
                         login && item.reserve ?
                             dispatch(addNotification({
                                 type: true, message: `
@@ -111,6 +112,8 @@ const Hall = () => {
                 saveClicked={onSaveBtnClicked}
                 year={creditYear}
                 yearChange={onCreditYearChanged}
+                login={login}
+                hallItems={hall}
             />
         </>
     )

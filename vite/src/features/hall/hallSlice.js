@@ -196,7 +196,6 @@ const hallSlice = createSlice({
                     item.persons = '';
                     item.time = '';
                     item.reserve = false;
-                    console.log(item)
                 } else {
                     return item
                 }

@@ -22,15 +22,16 @@ const Home = () => {
             top: 0,
             behavior: 'smooth',
         })
-
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 420) {
-                setShowBtn(true)
-            } else {
-                setShowBtn(false)
-            }
-        })
     }
+
+
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 420) {
+            setShowBtn(true)
+        } else {
+            setShowBtn(false)
+        }
+    })
 
 
     return (

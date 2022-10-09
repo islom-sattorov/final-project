@@ -52,6 +52,8 @@ const HallModal = ({
     saveClicked,
     year,
     yearChange,
+    login,
+    hallItems,
 }) => {
     const [card, setCard] = useState('Master');
     const [validation, setValidation] = useState({
@@ -68,6 +70,7 @@ const HallModal = ({
             aria-labelledby="modal-modal-title"
             aria-describedby="modal-modal-description"
         >
+
             <Box sx={bxs}>
                 <div className={style.modal_reserve}>
                     <h2>Reservation Form</h2>
@@ -112,6 +115,15 @@ const HallModal = ({
             </Box>
         </Modal>
     )
-}
 
+}
 export default HallModal
+
+// : login && hallItems.map((item) => item.reserve) ?
+//             <>
+//                 <h2> Name: ${item.name}</h2>
+//                 <h2>Persons: ${item.persons}</h2>
+//                 <h2>Time: ${item.time}</h2>
+//             </>
+//             : <h2>Test</h2>
+//             }
