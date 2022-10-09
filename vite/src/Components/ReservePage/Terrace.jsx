@@ -64,7 +64,7 @@ const Terrace = () => {
         return (
             <div className={style.tees} key={item.id}>
                 <button
-                    draggable
+                    draggable={login ? true : false}
                     key={item.id}
                     onClick={() => {
                         if (!item.reserve) {
@@ -75,9 +75,9 @@ const Terrace = () => {
                             login && item.reserve ?
                                 dispatch(addNotification({
                                     type: true, message: `
-                            Name: ${item.name}; 
-                            Persons: ${item.persons}; 
-                            Time: ${item.time};`
+                                Name: ${item.name}; 
+                                Persons: ${item.persons}; 
+                                Time: ${item.time};`
                                 }))
                                 :
                                 dispatch(addNotification({ type: false, message: `This table already reserved` }))
@@ -90,29 +90,38 @@ const Terrace = () => {
                     //     }
                     // }}
                     onDragEnter={() => {
-                        dragItem.current = idx + 1
+                        if (login) {
+                            dragItem.current = idx + 1
+                        } else {
+                            return
+                        }
                     }}
                     onDragEnd={() => {
-                        if (item.reserve === true) {
-                            handleSort(dragItem.current, true)
-                            dispatch(addNotification({ type: true, message: `Table ${dragItem.current} reserved` }))
+                        if (login) {
+                            if (item.reserve === true) {
+                                handleSort(dragItem.current, true)
+                                dispatch(addNotification({ type: true, message: `Table ${dragItem.current} reserved` }))
+                            } else {
+                                dispatch(addNotification({ type: false, message: `Please choose reserved table to speed reserve` }))
+                            }
                         } else {
-                            dispatch(addNotification({ type: false, message: `Please choose reserved table to speed reserve` }))
+                            return
                         }
                     }
                     }
                     onDragOver={(e) => e.preventDefault()}
                     className={item.reserve ? style.terrace_not_reserved : style.terrace_reserved}>
                     {item.id}</button>
-                <button
-                    className={style.remove_reserve_btn}
-                    onClick={() => {
-                        if (item.reserve && login) {
-                            dispatch(removeReserveTable(idx + 1))
-                            dispatch(addNotification({ type: true, message: `You removed reserved table` }))
-                        }
-                    }}
-                >Remove Reserve</button>
+                {login ?
+                    <button
+                        className={style.remove_reserve_btn}
+                        onClick={() => {
+                            if (item.reserve && login) {
+                                dispatch(removeReserveTable(idx + 1))
+                                dispatch(addNotification({ type: true, message: `You removed reserved table` }))
+                            }
+                        }}
+                    >Remove Reserve</button> : <></>}
             </div>
         )
     })
