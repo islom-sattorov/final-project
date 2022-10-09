@@ -64,7 +64,7 @@ const Hall = () => {
 
     const renderedHall = hall.map((item, idx) => {
         return (
-            <div key={item.id}>
+            <div className={style.tees} key={item.id}>
                 <button
                     draggable
                     key={item.id}
@@ -107,6 +107,7 @@ const Hall = () => {
                     className={item.reserve ? style.hall_not_reserved : style.hall_reserved}>
                     {item.id}</button>
                 <button
+                    className={style.remove_reserve_btn}
                     onClick={() => {
                         if (item.reserve && login) {
                             dispatch(removeReserveTable(idx + 1))
