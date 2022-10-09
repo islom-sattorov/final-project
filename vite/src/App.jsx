@@ -1,6 +1,5 @@
 import { Route, Routes } from 'react-router-dom'
 import './App.scss'
-import arrow from './assets/arrow.svg'
 import BlogPage from './Components/BlogPage/BlogPage'
 import Footer from './Components/Footer/Footer'
 import Header from './Components/Header/Header'
@@ -13,12 +12,6 @@ import Terrace from './Components/ReservePage/Terrace'
 
 
 function App() {
-  const handleClick = () => {
-    window.scrollTo({
-      top: 0,
-      behavior: 'smooth',
-    })
-  }
   return (
     <>
       <Header />
@@ -35,7 +28,6 @@ function App() {
         children={<div></div>}
       />
       <Footer />
-      <button className="to_top_btn_main" onClick={handleClick}><img className='to_top_btn_main_arrow' src={arrow} alt='to top arrow' /></button>
     </>
   )
 }
