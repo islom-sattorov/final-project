@@ -33,3 +33,16 @@
         width: 40px;
     }
 }
+
+.list-container{
+    border: 1px solid red;
+    margin: 0 auto;
+    width: 500px;
+    padding: 30px;
+}
+
+.list-item{
+    padding: 5px;
+    font-size: 2rem;
+    cursor: move;
+}

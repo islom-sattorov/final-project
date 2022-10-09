@@ -52,8 +52,6 @@ const HallModal = ({
     saveClicked,
     year,
     yearChange,
-    login,
-    hallItems,
 }) => {
     const [card, setCard] = useState('Master');
     const [validation, setValidation] = useState({
@@ -62,15 +60,12 @@ const HallModal = ({
     })
 
 
-
     return (
         <Modal
             open={open}
             onClose={close}
             aria-labelledby="modal-modal-title"
-            aria-describedby="modal-modal-description"
-        >
-
+            aria-describedby="modal-modal-description">
             <Box sx={bxs}>
                 <div className={style.modal_reserve}>
                     <h2>Reservation Form</h2>

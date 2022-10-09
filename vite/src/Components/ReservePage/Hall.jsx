@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { selectAllBoxStyle } from '../../features/boxStyle/boxStyleSlice';
 import { removeReserveTable, reserveTable, selectAllHall } from "../../features/hall/hallSlice";
@@ -55,36 +55,70 @@ const Hall = () => {
         Boolean(person <= 10) &&
         Boolean(time);
 
+
+    const dragItem = useRef(null)
+
+    const handleSort = (id, reserve) => {
+        dispatch(reserveTable({ id: id, name: 'Guest', person: '2', time: 'Today', reserve }));
+    }
+
     const renderedHall = hall.map((item, idx) => {
         return (
-            <button
-                key={item.id}
-                onClick={() => {
-                    if (!item.reserve) {
-                        handleOpen();
-                        setIdElem(idx + 1);
-                    } else {
-                        // handleOpen();
-                        login && item.reserve ?
-                            dispatch(addNotification({
-                                type: true, message: `
+            <div key={item.id}>
+                <button
+                    draggable
+                    key={item.id}
+                    onClick={() => {
+                        if (!item.reserve) {
+                            handleOpen();
+                            setIdElem(idx + 1);
+                        } else {
+                            // handleOpen();
+                            login && item.reserve ?
+                                dispatch(addNotification({
+                                    type: true, message: `
                             Name: ${item.name}; 
                             Persons: ${item.persons}; 
                             Time: ${item.time};`
-                            }))
-                            :
-                            dispatch(addNotification({ type: false, message: `This table already reserved` }))
+                                }))
+                                :
+                                dispatch(addNotification({ type: false, message: `This table already reserved` }))
+                        }
+                    }}
+                    // onDragEnd={() => {
+                    //     if (item.reserve && login) {
+                    // dispatch(removeReserveTable(idx + 1))
+                    // dispatch(addNotification({ type: true, message: `You removed reserved table` }))
+                    //     }
+                    // }}
+                    onDragEnter={() => {
+                        dragItem.current = idx + 1
+                    }}
+                    onDragEnd={() => {
+                        if (item.reserve === true) {
+                            handleSort(dragItem.current, true)
+
+                        } else {
+                            dispatch(addNotification({ type: false, message: `Please choose reserved table to speed reserve` }))
+                        }
                     }
-                }}
-                onDoubleClick={() => {
-                    if (item.reserve && login) {
-                        dispatch(removeReserveTable(idx + 1))
-                        dispatch(addNotification({ type: true, message: `You removed reserved table` }))
                     }
-                }}
-                className={item.reserve ? style.hall_not_reserved : style.hall_reserved}>{item.id}</button>
+                    onDragOver={(e) => e.preventDefault()}
+                    className={item.reserve ? style.hall_not_reserved : style.hall_reserved}>
+                    {item.id}</button>
+                <button
+                    onClick={() => {
+                        if (item.reserve && login) {
+                            dispatch(removeReserveTable(idx + 1))
+                            dispatch(addNotification({ type: true, message: `You removed reserved table` }))
+                        }
+                    }}
+                >Remove Reserve</button>
+            </div>
         )
     })
+
+
 
     return (
         <>
@@ -112,8 +146,6 @@ const Hall = () => {
                 saveClicked={onSaveBtnClicked}
                 year={creditYear}
                 yearChange={onCreditYearChanged}
-                login={login}
-                hallItems={hall}
             />
         </>
     )
