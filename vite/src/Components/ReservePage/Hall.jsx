@@ -42,6 +42,7 @@ const Hall = () => {
             setName('');
             setPerson('');
             setTime('');
+            setCreditYear('');
             setCreditCardName('');
             setCreditCardNumber('');
             setIdElem(0);
