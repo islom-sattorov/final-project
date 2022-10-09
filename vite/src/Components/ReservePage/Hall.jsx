@@ -97,7 +97,7 @@ const Hall = () => {
                     onDragEnd={() => {
                         if (item.reserve === true) {
                             handleSort(dragItem.current, true)
-
+                            dispatch(addNotification({ type: true, message: `Table ${dragItem.current} reserved` }))
                         } else {
                             dispatch(addNotification({ type: false, message: `Please choose reserved table to speed reserve` }))
                         }
