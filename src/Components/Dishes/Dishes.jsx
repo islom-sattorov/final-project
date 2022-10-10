@@ -24,11 +24,6 @@ const Dishes = () => {
                     title='Fresh Salmon'
                     subtitle='Beat the health blues with our Super Immune Blue Juice Recipe.'
                 />
-                {/* <Dish
-                    pic={pic4}
-                    title='Veg Burger'
-                    subtitle='Burgers may be made from ingredients like beans.'
-                /> */}
             </div>
             <Link className={style.dishes_btn} to='/menu'>See all dishes</Link>
         </>

@@ -1,36 +1,13 @@
 import LinearProgress from "@mui/material/LinearProgress";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import arrow from '../../assets/arrow.svg';
 import { getMenu } from "../../features/menu/menuSlice";
+import ToTopBtn from "../ToTopBtn/ToTopBtn";
 import style from './MenuPage.module.scss';
-
 
 const MenuPage = () => {
     const { menus, loading } = useSelector((state) => state.menu)
     const dispatch = useDispatch();
-
-    const [showBtn, setShowBtn] = useState(false);
-    const handleClick = () => {
-        window.scrollTo({
-            top: 0,
-            behavior: 'smooth',
-        })
-    }
-
-
-    window.addEventListener('scroll', () => {
-        if (window.scrollY > 420) {
-            setShowBtn(true)
-        } else {
-            setShowBtn(false)
-        }
-    })
-
-    const btnToTop = showBtn ? <button className="to_top_btn_main" onClick={handleClick}><img className='to_top_btn_main_arrow' src={arrow} alt='to top arrow' /></button> :
-        <></>
-
-
 
     const renderedItems = menus.map((item, idx) => {
         return (
@@ -43,7 +20,6 @@ const MenuPage = () => {
             </div>
         )
     })
-
 
     useEffect(() => {
         dispatch(getMenu())
@@ -63,7 +39,7 @@ const MenuPage = () => {
                     </div>
                 </div>
             </section>
-            {btnToTop}
+            <ToTopBtn />
         </>
     )
 }
