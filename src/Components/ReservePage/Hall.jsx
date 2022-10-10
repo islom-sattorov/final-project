@@ -1,4 +1,6 @@
-import { useRef, useState } from "react";
+import { pink } from '@mui/material/colors';
+import Radio from '@mui/material/Radio';
+import { useRef, useState } from 'react';
 import { useDispatch, useSelector } from "react-redux";
 import { selectAllBoxStyle } from '../../features/boxStyle/boxStyleSlice';
 import { removeReserveTable, reserveTable, selectAllHall } from "../../features/hall/hallSlice";
@@ -51,6 +53,21 @@ const Hall = () => {
         }
     };
 
+    // Radio BTN
+    const [selectedValue, setSelectedValue] = useState('a');
+
+    const handleChange = (event) => {
+        setSelectedValue(event.target.value);
+    };
+
+    const controlProps = (item) => ({
+        checked: selectedValue === item,
+        onChange: handleChange,
+        value: item,
+        name: 'color-radio-button-demo',
+        inputProps: { 'aria-label': item },
+    });
+
     const canSave =
         Boolean(name) &&
         Boolean(person <= 10) &&
@@ -86,12 +103,6 @@ const Hall = () => {
                                 dispatch(addNotification({ type: false, message: `This table already reserved` }))
                         }
                     }}
-                    // onDragEnd={() => {
-                    //     if (item.reserve && login) {
-                    // dispatch(removeReserveTable(idx + 1))
-                    // dispatch(addNotification({ type: true, message: `You removed reserved table` }))
-                    //     }
-                    // }}
                     onDragEnter={() => {
                         if (login) {
                             dragItem.current = idx + 1
@@ -139,6 +150,22 @@ const Hall = () => {
                         {renderedHall}
                     </div>
                 </div>
+                {login ?
+                    <aside className={style.aside_radio}>
+                        <Radio {...controlProps('a')} />
+                        <Radio {...controlProps('b')} color="secondary" />
+                        <Radio {...controlProps('c')} color="success" />
+                        <Radio {...controlProps('d')} color="default" />
+                        <Radio
+                            {...controlProps('e')}
+                            sx={{
+                                color: pink[800],
+                                '&.Mui-checked': {
+                                    color: pink[600],
+                                },
+                            }}
+                        />
+                    </aside> : <></>}
             </section>
             <HallModal
                 open={open}

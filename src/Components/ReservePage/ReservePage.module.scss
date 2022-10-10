@@ -37,6 +37,7 @@
     background: #e8ecf2;
     padding: 0 15px 5rem 15px;
     display: grid;
+    position: relative;
 
     .tees{
         display: flex;
@@ -93,10 +94,10 @@
 
     #{&}_not_reserved{
         @extend .hall_reserved;
-        color: rgb(184, 27, 27);
+        color: rgb(249, 4, 4);
 
         &:hover{
-            color: red;
+            color: rgb(149, 47, 47);
         }
     }
 }
@@ -321,4 +322,9 @@ justify-content: center;
         inset -2px -2px 5px rgba(255,255,255,1),
         inset 2px 2px 4px rgba(0,0,0,0.3);
     }
+}
+
+.aside_radio{
+    position: absolute;
+    top: 0;
 }
