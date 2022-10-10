@@ -25,9 +25,3 @@ const Home = () => {
 }
 
 export default Home
-
-
-    // Testing Notification
-    // setInterval(() => {
-    //     dispatch(addNotification({ type: true, message: 'Notification Work' }))
-    // }, 5000)
