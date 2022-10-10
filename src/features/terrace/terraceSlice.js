@@ -10,10 +10,10 @@ const initialState = [
     },
     {
         id: 2,
-        reserve: false,
-        name: '',
-        persons: '',
-        time: '',
+        reserve: true,
+        name: 'Islom',
+        persons: '4',
+        time: '18:00',
     },
     {
         id: 3,
@@ -24,10 +24,10 @@ const initialState = [
     },
     {
         id: 4,
-        reserve: true,
-        name: 'islom',
-        persons: '2',
-        time: '12:00',
+        reserve: false,
+        name: '',
+        persons: '',
+        time: '',
     },
     {
         id: 5,
@@ -59,10 +59,10 @@ const initialState = [
     },
     {
         id: 9,
-        reserve: false,
-        name: '',
-        persons: '',
-        time: '',
+        reserve: true,
+        name: 'Islom',
+        persons: '2',
+        time: '12:30',
     },
     {
         id: 10,

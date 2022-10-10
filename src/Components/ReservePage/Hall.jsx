@@ -115,7 +115,7 @@ const Hall = () => {
                     onDragOver={(e) => e.preventDefault()}
                     className={item.reserve ? style.hall_not_reserved : style.hall_reserved}>
                     {item.id}</button>
-                {login ?
+                {login && item.reserve === true ?
                     <button
                         className={style.remove_reserve_btn}
                         onClick={() => {

@@ -112,7 +112,7 @@ const Terrace = () => {
                     onDragOver={(e) => e.preventDefault()}
                     className={item.reserve ? style.terrace_not_reserved : style.terrace_reserved}>
                     {item.id}</button>
-                {login ?
+                {login && item.reserve === true ?
                     <button
                         className={style.remove_reserve_btn}
                         onClick={() => {
