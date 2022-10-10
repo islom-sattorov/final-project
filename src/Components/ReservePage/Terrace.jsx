@@ -83,12 +83,6 @@ const Terrace = () => {
                                 dispatch(addNotification({ type: false, message: `This table already reserved` }))
                         }
                     }}
-                    // onDragEnd={() => {
-                    //     if (item.reserve && login) {
-                    // dispatch(removeReserveTable(idx + 1))
-                    // dispatch(addNotification({ type: true, message: `You removed reserved table` }))
-                    //     }
-                    // }}
                     onDragEnter={() => {
                         if (login) {
                             dragItem.current = idx + 1
