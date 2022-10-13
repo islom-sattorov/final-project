@@ -6,6 +6,7 @@ import Header from './Components/Header/Header'
 import Home from './Components/Home/Home'
 import MenuPage from './Components/MenuPage/MenuPage'
 import Notification from './Components/Notification/Notification'
+import Ref from './Components/Ref/Ref'
 import Hall from './Components/ReservePage/Hall'
 import ReservePage from './Components/ReservePage/ReservePage'
 import Terrace from './Components/ReservePage/Terrace'
@@ -14,6 +15,7 @@ import Terrace from './Components/ReservePage/Terrace'
 function App() {
   return (
     <>
+      <Ref />
       <Header />
       <Routes>
         <Route path='/' element={<Home />} />

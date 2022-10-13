@@ -14,11 +14,16 @@ export const getMenu = createAsyncThunk('menu/getMenu', async () => {
         const requestJson = await request.json();
         const menuData = await requestJson.Result;
         return menuData
+
     }
     catch (e) {
         console.log(e)
     }
 })
+
+
+
+
 
 
 
@@ -41,3 +46,5 @@ const menuSlice = createSlice(({
 
 
 export default menuSlice.reducer;
+
+
