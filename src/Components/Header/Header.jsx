@@ -74,16 +74,32 @@ const Header = () => {
     }
 
 
-    const loginButtons = !login.status ?
-        <button
-            onClick={handleOpen}
-            className={style.header_phone}>Login</button> :
-        <button
-            className={style.header_phone}
-            onClick={() => {
-                dispatch(statusFalse())
-                dispatch(addNotification({ type: false, message: 'You logout from your account' }))
-            }}>Logout</button>;
+    // const loginButtons = !login.status ?
+    //     <button
+    //         onClick={handleOpen}
+    //         className={style.header_phone}>Login</button> :
+    //     <button
+    //         className={style.header_phone}
+    //         onClick={() => {
+    //             dispatch(statusFalse())
+    //             dispatch(addNotification({ type: false, message: 'You logout from your account' }))
+    //         }}>Logout</button>;
+
+    let loginButtons;
+    if (!login.status) {
+        loginButtons =
+            <button
+                onClick={handleOpen}
+                className={style.header_phone}>Login</button>
+    } else if (login.status) {
+        loginButtons =
+            <button
+                className={style.header_phone}
+                onClick={() => {
+                    dispatch(statusFalse())
+                    dispatch(addNotification({ type: false, message: 'You logout from your account' }))
+                }}>Logout</button>;
+    }
 
 
     useEffect(() => {

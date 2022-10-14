@@ -19,8 +19,7 @@ const ToTopBtn = () => {
         }
     })
 
-    const btnToTop = showBtn ? <button className="to_top_btn_main" onClick={handleClick}><img className='to_top_btn_main_arrow' src={arrow} alt='to top arrow' /></button> :
-        <></>
+    const btnToTop = showBtn && <button className="to_top_btn_main" onClick={handleClick}><img className='to_top_btn_main_arrow' src={arrow} alt='to top arrow' /></button>
 
     return (
         <div>{btnToTop}</div>
