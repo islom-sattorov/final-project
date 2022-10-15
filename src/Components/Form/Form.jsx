@@ -10,27 +10,39 @@ const Form = () => {
     const hall = useSelector(selectAllHall);
     const dispatch = useDispatch();
 
-    const [name, setName] = useState('');
-    const [person, setPerson] = useState('');
-    const [time, setTime] = useState('');
-    const [reserve, setReserve] = useState(true)
+    // Form data refactoring
+    const [formData, setFormData] = useState(
+        { name: '', persons: '', time: '', reserve: true }
+    )
 
-    const onNameChanged = e => setName(e.target.value);
-    const onPersonChanged = e => setPerson(e.target.value);
-    const onTimeChanged = e => setTime(e.target.value)
+
+    // Form data refactoring
+    const onReserveFormChanged = e => {
+        setFormData(prevFormData => {
+            return {
+                ...prevFormData,
+                [e.target.name]: e.target.value
+            }
+        })
+    }
+
 
     const onSaveBtnClicked = () => {
         const idElement = hall.find(item => {
             return item.reserve == false
         })
 
-        if (name && person <= 10 && time && idElement && reserve) {
-            dispatch(reserveTable({ id: idElement.id, name, person, time, reserve }));
+        if (formData.name && formData.persons <= 10 && formData.time && idElement && formData.reserve) {
+            dispatch(reserveTable({
+                id: idElement.id,
+                name: formData.name,
+                person: formData.persons,
+                time: formData.time,
+                reserve: formData.reserve
+            }));
             dispatch(addNotification({ type: true, message: `Your reserved table is ${idElement.id}` }))
-            setName('');
-            setPerson('');
-            setTime('');
-        } else if (person > 10) {
+            setFormData({ name: '', persons: '', time: '', })
+        } else if (formData.persons > 10) {
             dispatch(addNotification({ type: false, message: `Error: Persons greater than 10` }))
         } else {
             dispatch(addNotification({ type: false, message: `Error check your forms` }))
@@ -51,8 +63,8 @@ const Form = () => {
                                 <input
                                     type='text'
                                     name='name'
-                                    value={name}
-                                    onChange={onNameChanged}
+                                    value={formData.name}
+                                    onChange={onReserveFormChanged}
                                     placeholder='Name'
                                     required
                                 />
@@ -63,15 +75,15 @@ const Form = () => {
                                     name='persons'
                                     min={1}
                                     max={10}
-                                    value={person}
+                                    value={formData.persons}
                                     required
-                                    onChange={onPersonChanged}
+                                    onChange={onReserveFormChanged}
                                     placeholder='Persons' />
                                 <input
                                     type='time'
                                     name='time'
-                                    value={time}
-                                    onChange={onTimeChanged}
+                                    value={formData.time}
+                                    onChange={onReserveFormChanged}
                                     placeholder='Time'
                                     required
                                 />
