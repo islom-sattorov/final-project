@@ -16,37 +16,46 @@ const Terrace = () => {
     const [open, setOpen] = useState(false)
     const handleOpen = () => setOpen(true)
     const handleClose = () => setOpen(false)
-
-    const [name, setName] = useState('');
-    const [person, setPerson] = useState('');
-    const [time, setTime] = useState('');
-    const [creditCardName, setCreditCardName] = useState('');
-    const [creditCardNumber, setCreditCardNumber] = useState('');
+    const [formData, setFormData] = useState({
+        name: '',
+        person: '',
+        time: '',
+        creditCardName: '',
+        creditCardNumber: '',
+        creditYear: '',
+        reserve: true,
+    })
     const [idElem, setIdElem] = useState(0);
-    const [creditYear, setCreditYear] = useState('');
-    const onCreditYearChanged = e => setCreditYear(e.target.value)
-    const [res, setRes] = useState(true);
 
 
-    const onNameChanged = e => setName(e.target.value);
-    const onPersonChanged = e => setPerson(e.target.value);
-    const onTimeChanged = e => setTime(e.target.value);
-    const onCreditCardNameChanged = e => setCreditCardName(e.target.value);
-    const onCreditCardNumberChanged = e => setCreditCardNumber(e.target.value);
+    const onFormChanged = e => {
+        setFormData(prevFormData => {
+            return {
+                ...prevFormData,
+                [e.target.name]: e.target.value
+            }
+        })
+    }
 
     const canSave =
-        Boolean(name) &&
-        Boolean(person <= 10) &&
-        Boolean(time);
+        Boolean(formData.name) &&
+        Boolean(formData.person <= 10) &&
+        Boolean(formData.time);
 
     const onSaveBtnClicked = () => {
-        if (name, person, time, creditCardName, creditCardNumber, idElem, res) {
-            dispatch(reserveTable({ id: idElem, name, person, time, reserve: res }));
-            dispatch(addNotification({ type: true, message: `You reserve ${idElem} table on ${time} o'clock ` }))
+        if (formData.name && formData.name && formData.time && formData.creditCardName && formData.creditCardNumber && idElem && formData.reserve) {
+            dispatch(reserveTable({ id: idElem, name: formData.name, person: formData.person, time: formData.time, reserve: formData.reserve }));
+            dispatch(addNotification({ type: true, message: `You reserve ${idElem} table on ${formData.time} o'clock ` }))
             handleClose();
-            setName('');
-            setPerson('');
-            setTime('');
+            setFormData({
+                name: '',
+                person: '',
+                time: '',
+                creditCardName: '',
+                creditCardNumber: '',
+                creditYear: '',
+                reserve: true,
+            })
             setIdElem(0);
         } else {
             return
@@ -55,10 +64,9 @@ const Terrace = () => {
 
     const dragItem = useRef(null)
 
-    const handleSort = (id, reserve) => {
-        dispatch(reserveTable({ id: id, name: 'Guest', person: '2', time: 'Today', reserve }));
+    const handleSort = (id) => {
+        dispatch(reserveTable({ id: id, name: 'Guest', person: '2', time: 'Today', reserve: formData.reserve }));
     }
-
 
     const renderedTerrace = terrace.map((item, idx) => {
         return (
@@ -133,19 +141,19 @@ const Terrace = () => {
                 open={open}
                 close={handleClose}
                 bxs={boxStyle}
-                name={name}
-                nameChange={onNameChanged}
-                timeChange={onTimeChanged}
-                persons={person}
-                personChange={onPersonChanged}
-                creditName={creditCardName}
-                creditNumber={creditCardNumber}
-                creditNameChange={onCreditCardNameChanged}
-                creditNumberChange={onCreditCardNumberChanged}
+                name={formData.name}
+                creditName={formData.creditCardName}
+                creditNumber={formData.creditCardNumber}
+                persons={formData.person}
+                year={formData.creditYear}
+                nameChange={onFormChanged}
+                timeChange={onFormChanged}
+                personChange={onFormChanged}
+                creditNameChange={onFormChanged}
+                creditNumberChange={onFormChanged}
+                yearChange={onFormChanged}
                 save={!canSave}
                 saveClicked={onSaveBtnClicked}
-                year={creditYear}
-                yearChange={onCreditYearChanged}
             />
         </>
     )
