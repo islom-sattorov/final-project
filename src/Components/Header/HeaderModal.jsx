@@ -55,6 +55,8 @@ const HeaderModal = ({
     newPassword,
     newPasswordChange,
     newSubmit,
+    valueLoginUserName,
+    valueLoginPasswordName,
 }) => {
     const [value, setValue] = useState(0)
     const [validation, setValidation] = useState({
@@ -89,19 +91,21 @@ const HeaderModal = ({
                             type='text'
                             id="username"
                             label="Username"
-                            name='username'
+                            name='userName'
                             variant="outlined"
                             required
                             onChange={userChange}
+                            value={valueLoginUserName}
                         />
                         <TextField
                             type='password'
                             id="password"
-                            name='password'
+                            name='userPassword'
                             label="password"
                             variant="outlined"
                             required
                             onChange={passwordChange}
+                            value={valueLoginPasswordName}
                         />
                         <button type='button' onClick={submit} className={style.modal_btn}>Log in</button>
                     </form>
@@ -119,8 +123,8 @@ const HeaderModal = ({
                             type='text'
                             value={newUser}
                             id="newUser"
-                            name='newUser'
-                            label="New User"
+                            name='newUserName'
+                            label="newUserPassword"
                             variant="outlined"
                             required
                             onChange={newUserChange}
@@ -134,7 +138,7 @@ const HeaderModal = ({
                             type='password'
                             value={newPassword}
                             id="newPassword"
-                            name='newPassword'
+                            name='newUserPassword'
                             label="New Password"
                             variant="outlined"
                             required
