@@ -74,14 +74,18 @@ const HallModal = ({
                         helperText={validation.name && name === '' ? 'Required field' : ''}
                         onBlur={() => setValidation(prev => ({ ...prev, name: true }))}
                         onFocus={() => setValidation(prev => ({ ...prev, name: false }))}
-                        onChange={nameChange} label='Name' type='text' />
-                    <TextField onChange={timeChange} type='time' />
+                        onChange={nameChange}
+                        label='Name'
+                        type='text'
+                        name='name'
+                    />
+                    <TextField onChange={timeChange} type='time' name='time' />
                     <TextField
                         error={validation.persons && persons == '' || persons > 10}
                         helperText={validation.persons && persons === '' ? 'Required field' : persons > 10 ? 'Persons need to be less than 10' : ''}
                         onBlur={() => setValidation(prev => ({ ...prev, persons: true }))}
                         onFocus={() => setValidation(prev => ({ ...prev, persons: false }))}
-                        onChange={personChange} label='Persons' inputProps={{ min: 1, max: 10 }} type='number' />
+                        onChange={personChange} label='Persons' inputProps={{ min: 1, max: 10 }} type='number' name='person' />
                     {card == 'Master' ?
                         <CreditCard
                             name={creditName}
@@ -102,9 +106,9 @@ const HallModal = ({
                         <button onClick={() => setCard('Master')}><img className={style.icon} src={mcIcon} /></button>
                         <button onClick={() => setCard('Milli')}><img className={style.icon} src={milliIcon} /></button>
                     </div>
-                    <PatternFormat className={style.mask_input} displayType="input" value={creditNumber} format='#### #### #### ####' onChange={creditNumberChange} placeholder="Card Number" />
-                    <CardExpiry className={style.mask_input} mask='_' allowEmptyFormatting displayType='input' value={year} format='##/##' onChange={yearChange} />
-                    <TextField className={style.mask_input} onChange={creditNameChange} label='Card owner' type='text' />
+                    <PatternFormat className={style.mask_input} displayType="input" value={creditNumber} name='creditCardNumber' format='#### #### #### ####' onChange={creditNumberChange} placeholder="Card Number" />
+                    <CardExpiry className={style.mask_input} mask='_' allowEmptyFormatting displayType='input' name='creditYear' value={year} format='##/##' onChange={yearChange} />
+                    <TextField className={style.mask_input} onChange={creditNameChange} label='Card owner' name='creditCardName' type='text' />
                     <button disabled={save} onClick={saveClicked} type='button'>Confirm</button>
                 </div>
             </Box>
