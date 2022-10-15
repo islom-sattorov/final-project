@@ -33,11 +33,13 @@ const BlogPage = () => {
     const blogs = useSelector(selectAllBlogs);
     const dispatch = useDispatch();
 
-
-    const [title, setTitle] = useState('');
-    const [content, setContent] = useState('');
-    const [pic, setPic] = useState('');
-    const [category, setCategory] = useState('')
+    // Form Refactoring
+    const [formData, setFormData] = useState({
+        title: '',
+        content: '',
+        pic: '',
+        category: '',
+    })
     const [open, setOpen] = useState(false)
     const [validation, setValidation] = useState({
         name: false,
@@ -46,39 +48,43 @@ const BlogPage = () => {
         category: false,
     })
 
-
     const handleOpen = () => setOpen(true)
     const handleClose = () => setOpen(false)
 
-    const onTitleChanged = e => setTitle(e.target.value);
-    const onContentChanged = e => setContent(e.target.value);
-    const onCategoryChanged = e => setCategory(e.target.value);
-    const onPicChanged = e => setPic(e.target.value);
-
-
+    // Form refactoring
+    const onFormChanged = e => {
+        setFormData(prevFormData => {
+            return {
+                ...prevFormData,
+                [e.target.name]: e.target.value
+            }
+        })
+    }
 
     const onSaveBlogClicked = () => {
-        if (title && content && category && pic) {
+        if (formData.title && formData.content && formData.category && formData.pic) {
             dispatch(
-                blogAdded(title, content, category ? category : '', pic)
+                blogAdded(formData.title, formData.content, formData.category ? formData.category : '', formData.pic)
             )
             dispatch(addNotification({ type: true, message: `Your blog added` }))
-
-
-            setTitle('');
-            setContent('');
-            setCategory('');
-            setPic('');
+            setFormData({
+                title: '',
+                content: '',
+                pic: '',
+                category: '',
+            })
             setOpen(false)
             // Validation default after submit
-            validation.name = false;
-            validation.content = false;
-            validation.pic = false;
-            validation.category = false;
+            setValidation({
+                name: false,
+                content: false,
+                pic: false,
+                category: false,
+            })
         }
     }
 
-    const canSave = Boolean(title) && Boolean(content) && Boolean(category) && Boolean(pic);
+    const canSave = Boolean(formData.title) && Boolean(formData.content) && Boolean(formData.category) && Boolean(formData.pic);
 
     const renderedBlogs = blogs.map((item, idx) => {
         return (
@@ -116,37 +122,40 @@ const BlogPage = () => {
                     <form className={style.add_form}>
                         <label className={style.add_label} htmlFor='blogTitle'>Blog Title:</label>
                         <TextField
-                            error={validation.name && title === ""}
-                            helperText={validation.name && title === "" ? "field is required" : ""}
+                            error={validation.name && formData.title === ""}
+                            helperText={validation.name && formData.title === "" ? "field is required" : ""}
                             onBlur={() => setValidation(prev => ({ ...prev, name: true }))}
                             onFocus={() => setValidation(prev => ({ ...prev, name: false }))}
                             type='text'
-                            value={title}
+                            value={formData.title}
+                            name='title'
                             id="blogTitle"
                             label="Title"
                             variant="outlined"
-                            onChange={onTitleChanged} />
+                            onChange={onFormChanged} />
                         <TextField
-                            error={validation.content && content === ""}
-                            helperText={validation.content && content === "" ? "field is required" : ""}
+                            error={validation.content && formData.content === ""}
+                            helperText={validation.content && formData.content === "" ? "field is required" : ""}
                             onBlur={() => setValidation(prev => ({ ...prev, content: true }))}
                             onFocus={() => setValidation(prev => ({ ...prev, content: false }))}
                             type='text'
-                            value={content}
+                            name='content'
+                            value={formData.content}
                             id="blogContent"
                             label="Content"
                             variant="outlined"
-                            onChange={onContentChanged} />
+                            onChange={onFormChanged} />
                         <TextField
-                            error={validation.category && category === ""}
-                            helperText={validation.category && category === "" ? "field is required" : ""}
+                            error={validation.category && formData.category === ""}
+                            helperText={validation.category && formData.category === "" ? "field is required" : ""}
                             onBlur={() => setValidation(prev => ({ ...prev, category: true }))}
                             onFocus={() => setValidation(prev => ({ ...prev, category: false }))}
                             id="outlined-select-category"
                             select
                             label="Select"
-                            value={category}
-                            onChange={onCategoryChanged}
+                            value={formData.category}
+                            name='category'
+                            onChange={onFormChanged}
                         >
                             {categories.map((option) => (
                                 <MenuItem key={option.value} value={option.value}>
@@ -155,16 +164,17 @@ const BlogPage = () => {
                             ))}
                         </TextField>
                         <TextField
-                            error={validation.pic && pic == ''}
-                            helperText={validation.pic && pic === '' ? 'Insert a link to the picture(URL)' : ''}
+                            error={validation.pic && formData.pic == ''}
+                            helperText={validation.pic && formData.pic === '' ? 'Insert a link to the picture(URL)' : ''}
                             onBlur={() => setValidation(prev => ({ ...prev, pic: true }))}
                             onFocus={() => setValidation(prev => ({ ...prev, pic: false }))}
                             type='text'
-                            value={pic}
+                            value={formData.pic}
+                            name='pic'
                             id="blogPic"
                             label="Picture"
                             variant="outlined"
-                            onChange={onPicChanged} />
+                            onChange={onFormChanged} />
                         <button disabled={!canSave} className={style.add_btn} type='button' onClick={onSaveBlogClicked}>Save Blog</button>
                     </form>
                 </Box>
