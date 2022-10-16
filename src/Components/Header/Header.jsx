@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useCallback, useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
 import logo from '../../assets/logo.svg'
@@ -24,34 +24,37 @@ const Header = () => {
     const [obj, setObj] = useState('');
     const [localState, setLocalState] = useState('');
     const [open, setOpen] = useState(false)
-    const handleOpen = () => setOpen(true)
-    const handleClose = () => {
+
+    const handleOpen = useCallback(() => setOpen(true))
+    const handleClose = useCallback(() => {
         setRegistrationForm({ newUserName: '', newUserPassword: '', })
         setOpen(false)
-    }
+    })
 
-    const loginChange = e => {
+    const loginChange = useCallback(e => {
         setLoginForm(prevLoginForm => {
             return {
                 ...prevLoginForm,
                 [e.target.name]: e.target.value
             }
         })
-    }
-    const registrationChange = e => {
+    })
+
+    const registrationChange = useCallback(e => {
         setRegistrationForm(prevRegistrationForm => {
             return {
                 ...prevRegistrationForm,
                 [e.target.name]: e.target.value
             }
         })
-    }
+    })
 
 
-    const onSubmitClicked = () => {
+    const onSubmitClicked = useCallback(() => {
         if (loginForm.userName.trim() == login.username && loginForm.userPassword.trim() == login.password) {
             dispatch(statusToggle())
             handleClose();
+            setLoginForm({ userName: '', userPassword: '', })
             dispatch(addNotification({ type: true, message: `Welcome back ${login.username}` }))
         } else if (localState != null && loginForm.userName.trim() == localState.name
             && loginForm.userPassword.trim() == localState.password) {
@@ -62,9 +65,10 @@ const Header = () => {
         } else {
             dispatch(addNotification({ type: false, message: `This user doesn't exist` }))
             handleClose();
+            setLoginForm({ userName: '', userPassword: '', })
             return
         }
-    }
+    })
 
     if (obj) {
         window.localStorage.setItem('obj', JSON.stringify(obj))
@@ -72,7 +76,7 @@ const Header = () => {
 
 
 
-    const onRegistrationSubmitClicked = () => {
+    const onRegistrationSubmitClicked = useCallback(() => {
         if (registrationForm.newUserName &&
             registrationForm.newUserPassword &&
             registrationForm.newUserName.length >= 4 &&
@@ -85,7 +89,7 @@ const Header = () => {
             dispatch(addNotification({ type: true, message: 'Registration was successful' }))
             setRegistrationForm({ newUserName: '', newUserPassword: '', })
         }
-    }
+    })
 
 
     const loginButtons = !login.status ?

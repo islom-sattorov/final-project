@@ -9,8 +9,6 @@ const MenuPage = () => {
     const { menus, loading } = useSelector((state) => state.menu)
     const dispatch = useDispatch();
 
-    console.log(menus)
-
     const renderedItems = menus.map((item, idx) => {
         return (
             <div key={idx} className={style.menulist_items}>
