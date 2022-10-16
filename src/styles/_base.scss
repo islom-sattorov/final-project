@@ -14,6 +14,7 @@
 html{
     font-size: 10px;
     font-family: 'Josefin Sans', sans-serif;
+    scroll-behavior: smooth;
 
     @include lg{
         font-size: 8px;
@@ -22,6 +23,15 @@ html{
     @include md{
         font-size: 7px;
     }
+}
+
+body{
+    min-height: 100vh;
+    text-rendering: optimizeSpeed;
+}
+
+a:not([class]){
+    text-decoration-skip-ink: auto;
 }
 
 .container{
