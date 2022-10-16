@@ -32,25 +32,28 @@ const Header = () => {
     })
 
     const loginChange = useCallback(e => {
+        const { name, value } = e.target;
         setLoginForm(prevLoginForm => {
             return {
                 ...prevLoginForm,
-                [e.target.name]: e.target.value
+                [name]: value
             }
         })
     })
 
     const registrationChange = useCallback(e => {
+        const { name, value } = e.target;
         setRegistrationForm(prevRegistrationForm => {
             return {
                 ...prevRegistrationForm,
-                [e.target.name]: e.target.value
+                [name]: value
             }
         })
     })
 
 
-    const onSubmitClicked = useCallback(() => {
+    const onSubmitClicked = useCallback((e) => {
+        e.preventDefault();
         if (loginForm.userName.trim() == login.username && loginForm.userPassword.trim() == login.password) {
             dispatch(statusToggle())
             handleClose();
@@ -74,9 +77,8 @@ const Header = () => {
         window.localStorage.setItem('obj', JSON.stringify(obj))
     }
 
-
-
-    const onRegistrationSubmitClicked = useCallback(() => {
+    const onRegistrationSubmitClicked = useCallback(e => {
+        e.preventDefault();
         if (registrationForm.newUserName &&
             registrationForm.newUserPassword &&
             registrationForm.newUserName.length >= 4 &&
@@ -125,9 +127,6 @@ const Header = () => {
             window.localStorage.setItem('login', JSON.stringify(false))
         }
     }, [login.status])
-
-
-
 
     return (
         <>

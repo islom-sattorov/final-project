@@ -64,8 +64,6 @@ const HeaderModal = ({
         password: false,
     })
 
-
-
     const handleChange = (e, newValue) => {
         setValue(newValue)
     }
@@ -107,7 +105,7 @@ const HeaderModal = ({
                             onChange={passwordChange}
                             value={valueLoginPasswordName}
                         />
-                        <button type='button' onClick={submit} className={style.modal_btn}>Log in</button>
+                        <button onClick={submit} className={style.modal_btn}>Log in</button>
                     </form>
                 </TabPanel>
                 {/* Registration */}
@@ -144,7 +142,7 @@ const HeaderModal = ({
                             required
                             onChange={newPasswordChange}
                         />
-                        <button type='button' onClick={newSubmit} className={style.modal_btn}>Submit</button>
+                        <button onClick={newSubmit} className={style.modal_btn}>Submit</button>
                     </form>
                 </TabPanel>
             </Box>
