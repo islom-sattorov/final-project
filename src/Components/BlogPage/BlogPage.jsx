@@ -28,30 +28,25 @@ const categories = [
 const BlogPage = () => {
     const login = useSelector((state) => state.login.loginStatus);
     const boxStyle = useSelector(selectAllBoxStyle);
-
-
     const blogs = useSelector(selectAllBlogs);
     const dispatch = useDispatch();
 
-    // Form Refactoring
     const [formData, setFormData] = useState({
         title: '',
         content: '',
         pic: '',
         category: '',
     })
-    const [open, setOpen] = useState(false)
     const [validation, setValidation] = useState({
         name: false,
         content: false,
         pic: false,
         category: false,
     })
+    const [open, setOpen] = useState(false)
 
     const handleOpen = () => setOpen(true)
     const handleClose = () => setOpen(false)
-
-    // Form refactoring
     const onFormChanged = e => {
         setFormData(prevFormData => {
             return {
