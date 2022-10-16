@@ -29,10 +29,11 @@ const Terrace = () => {
 
 
     const onFormChanged = e => {
+        const { name, value } = e.target;
         setFormData(prevFormData => {
             return {
                 ...prevFormData,
-                [e.target.name]: e.target.value
+                [name]: value,
             }
         })
     }
@@ -42,7 +43,8 @@ const Terrace = () => {
         Boolean(formData.person <= 10) &&
         Boolean(formData.time);
 
-    const onSaveBtnClicked = () => {
+    const onSaveBtnClicked = (e) => {
+        e.preventDefault();
         if (formData.name && formData.name && formData.time && formData.creditCardName && formData.creditCardNumber && idElem && formData.reserve) {
             dispatch(reserveTable({ id: idElem, name: formData.name, person: formData.person, time: formData.time, reserve: formData.reserve }));
             dispatch(addNotification({ type: true, message: `You reserve ${idElem} table on ${formData.time} o'clock ` }))
@@ -79,7 +81,6 @@ const Terrace = () => {
                             handleOpen();
                             setIdElem(idx + 1);
                         } else {
-                            // handleOpen();
                             login && item.reserve ?
                                 dispatch(addNotification({
                                     type: true, message: `

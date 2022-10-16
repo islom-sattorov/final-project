@@ -109,7 +109,7 @@ const HallModal = ({
                     <PatternFormat className={style.mask_input} displayType="input" value={creditNumber} name='creditCardNumber' format='#### #### #### ####' onChange={creditNumberChange} placeholder="Card Number" />
                     <CardExpiry className={style.mask_input} mask='_' allowEmptyFormatting displayType='input' name='creditYear' value={year} format='##/##' onChange={yearChange} />
                     <TextField className={style.mask_input} onChange={creditNameChange} label='Card owner' name='creditCardName' type='text' />
-                    <button disabled={save} onClick={saveClicked} type='button'>Confirm</button>
+                    <button disabled={save} onClick={saveClicked} >Confirm</button>
                 </div>
             </Box>
         </Modal>
@@ -117,12 +117,3 @@ const HallModal = ({
 
 }
 export default HallModal
-
-// : login && hallItems.map((item) => item.reserve) ?
-//             <>
-//                 <h2> Name: ${item.name}</h2>
-//                 <h2>Persons: ${item.persons}</h2>
-//                 <h2>Time: ${item.time}</h2>
-//             </>
-//             : <h2>Test</h2>
-//             }

@@ -10,18 +10,17 @@ const Form = () => {
     const hall = useSelector(selectAllHall);
     const dispatch = useDispatch();
 
-    // Form data refactoring
     const [formData, setFormData] = useState(
         { name: '', persons: '', time: '', reserve: true }
     )
 
 
-    // Form data refactoring
     const onReserveFormChanged = e => {
+        const { name, value } = e.target;
         setFormData(prevFormData => {
             return {
                 ...prevFormData,
-                [e.target.name]: e.target.value
+                [name]: value
             }
         })
     }
