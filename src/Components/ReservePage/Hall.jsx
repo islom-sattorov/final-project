@@ -13,9 +13,9 @@ const Hall = () => {
     const dispatch = useDispatch();
     const login = useSelector((state) => state.login.loginStatus.status);
 
-    const [open, setOpen] = useState(false);
-    const handleOpen = () => setOpen(true);
-    const handleClose = () => setOpen(false);
+    const [open, setOpen] = useState(() => false);
+    const handleOpen = () => setOpen(() => true);
+    const handleClose = () => setOpen(() => false);
 
     const [formData, setFormData] = useState(
         {
@@ -29,7 +29,7 @@ const Hall = () => {
         }
     )
 
-    const [idElem, setIdElem] = useState(0);
+    const [idElem, setIdElem] = useState(() => 0);
 
 
     // Refactoring Form
@@ -60,7 +60,7 @@ const Hall = () => {
                     reserve: true,
                 }
             )
-            setIdElem(0);
+            setIdElem(() => 0);
         } else {
             return
         }

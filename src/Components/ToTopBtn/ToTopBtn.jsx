@@ -2,7 +2,7 @@ import { useState } from "react";
 import arrow from '../../assets/arrow.svg';
 
 const ToTopBtn = () => {
-    const [showBtn, setShowBtn] = useState(false);
+    const [showBtn, setShowBtn] = useState(() => false);
     const handleClick = () => {
         window.scrollTo({
             top: 0,
@@ -13,9 +13,9 @@ const ToTopBtn = () => {
 
     window.addEventListener('scroll', () => {
         if (window.scrollY > 420) {
-            setShowBtn(true)
+            setShowBtn(() => true)
         } else {
-            setShowBtn(false)
+            setShowBtn(() => false)
         }
     })
 

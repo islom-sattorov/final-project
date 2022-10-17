@@ -4,7 +4,7 @@ import { Link } from "react-scroll";
 import style from './Header.module.scss';
 
 const BurgerNav = () => {
-    const [isActive, setIsActive] = useState(false);
+    const [isActive, setIsActive] = useState(() => false);
     const location = useLocation();
 
     return (

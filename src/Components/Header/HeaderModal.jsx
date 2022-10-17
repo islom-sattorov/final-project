@@ -58,7 +58,7 @@ const HeaderModal = ({
     valueLoginUserName,
     valueLoginPasswordName,
 }) => {
-    const [value, setValue] = useState(0)
+    const [value, setValue] = useState(() => 0)
     const [validation, setValidation] = useState({
         username: false,
         password: false,

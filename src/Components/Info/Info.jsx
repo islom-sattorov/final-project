@@ -2,7 +2,6 @@ import style from './Info.module.scss';
 
 const Info = (props) => {
     return (
-
         <div className="container">
             <div className={style.section_flex}>
                 <img className={style.section_icons} src={props.img} alt='icons' />

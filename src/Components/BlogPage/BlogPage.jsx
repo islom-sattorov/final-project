@@ -43,7 +43,7 @@ const BlogPage = () => {
         pic: false,
         category: false,
     })
-    const [open, setOpen] = useState(false)
+    const [open, setOpen] = useState(() => false)
 
     const handleOpen = () => setOpen(true)
     const handleClose = () => setOpen(false)
@@ -68,7 +68,7 @@ const BlogPage = () => {
                 pic: '',
                 category: '',
             })
-            setOpen(false)
+            setOpen(() => false)
             // Validation default after submit
             setValidation({
                 name: false,

@@ -20,15 +20,15 @@ const Header = () => {
     });
     const [registrationForm, setRegistrationForm] = useState({
         newUserName: '', newUserPassword: '',
-    })
-    const [obj, setObj] = useState('');
-    const [localState, setLocalState] = useState('');
-    const [open, setOpen] = useState(false)
+    });
+    const [obj, setObj] = useState(() => { });
+    const [localState, setLocalState] = useState(() => '');
+    const [open, setOpen] = useState(() => false)
 
     const handleOpen = useCallback(() => setOpen(true))
     const handleClose = useCallback(() => {
         setRegistrationForm({ newUserName: '', newUserPassword: '', })
-        setOpen(false)
+        setOpen(() => false)
     })
 
     const loginChange = useCallback(e => {

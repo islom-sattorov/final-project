@@ -53,7 +53,7 @@ const HallModal = ({
     year,
     yearChange,
 }) => {
-    const [card, setCard] = useState('Master');
+    const [card, setCard] = useState(() => 'Master');
     const [validation, setValidation] = useState({
         name: false,
         persons: false,

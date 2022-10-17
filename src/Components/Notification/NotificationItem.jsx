@@ -3,9 +3,9 @@ import { removeNotification } from '../../features/notification/notificationSlic
 import style from './Notification.module.scss';
 
 const NotificationItem = (props) => {
-    const [exit, setExit] = useState(false);
-    const [width, setWidth] = useState(0);
-    const [intervalId, setIntervalId] = useState(null);
+    const [exit, setExit] = useState(() => false);
+    const [width, setWidth] = useState(() => 0);
+    const [intervalId, setIntervalId] = useState(() => null);
 
     const handleStartTimer = () => {
         const id = setInterval(() => {
@@ -47,7 +47,7 @@ const NotificationItem = (props) => {
 
     return (
         <div
-            onClick={() => setExit(true)}
+            onClick={() => setExit(() => true)}
             onMouseEnter={handlePauseTimer}
             onMouseLeave={handleStartTimer}
             className={

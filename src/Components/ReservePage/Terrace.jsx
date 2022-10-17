@@ -13,9 +13,9 @@ const Terrace = () => {
     const dispatch = useDispatch();
     const login = useSelector((state) => state.login.loginStatus.status);
 
-    const [open, setOpen] = useState(false)
-    const handleOpen = () => setOpen(true)
-    const handleClose = () => setOpen(false)
+    const [open, setOpen] = useState(() => false)
+    const handleOpen = () => setOpen(() => true)
+    const handleClose = () => setOpen(() => false)
     const [formData, setFormData] = useState({
         name: '',
         person: '',
@@ -25,7 +25,7 @@ const Terrace = () => {
         creditYear: '',
         reserve: true,
     })
-    const [idElem, setIdElem] = useState(0);
+    const [idElem, setIdElem] = useState(() => 0);
 
 
     const onFormChanged = e => {
