@@ -1,3 +1,4 @@
+import { useCallback, useState } from 'react'
 import { Route, Routes } from 'react-router-dom'
 import './App.scss'
 import BlogPage from './Components/BlogPage/BlogPage'
@@ -33,3 +34,19 @@ function App() {
 }
 
 export default App
+
+
+// Hook
+// Parameter is the boolean with default "false" value
+export const useToggle = (initialState = false) => {
+  // Init State
+  const [state, setState] = useState(initialState);
+
+  // Define and memorize toggler function in case we pass down the component  
+  // This function change the boolean value to it's opposite value
+  const toggle = useCallback(() => setState(prevValue => !prevValue))
+
+  return [state, toggle]
+}
+
+

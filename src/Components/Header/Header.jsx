@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
+import { useToggle } from '../../App'
 import logo from '../../assets/logo.svg'
 import { selectAllBoxStyle } from '../../features/boxStyle/boxStyleSlice'
 import { statusFalse, statusToggle } from '../../features/login/loginSlice'
@@ -23,12 +24,12 @@ const Header = () => {
     });
     const [obj, setObj] = useState(() => { });
     const [localState, setLocalState] = useState(() => '');
-    const [open, setOpen] = useState(() => false)
+    const [open, setOpen] = useToggle();
 
     const handleOpen = useCallback(() => setOpen(true))
     const handleClose = useCallback(() => {
         setRegistrationForm({ newUserName: '', newUserPassword: '', })
-        setOpen(() => false)
+        setOpen()
     })
 
     const loginChange = useCallback(e => {
@@ -160,3 +161,4 @@ const Header = () => {
 }
 
 export default Header
+
