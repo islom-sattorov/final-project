@@ -2,12 +2,13 @@ import Box from "@mui/material/Box";
 import MenuItem from '@mui/material/MenuItem';
 import Modal from '@mui/material/Modal';
 import TextField from '@mui/material/TextField';
-import { useState } from 'react';
+import { formatDistanceToNow, parseISO } from 'date-fns';
+import { useCallback, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { blogAdded, selectAllBlogs } from '../../features/blog/blogSlice';
+import { blogAdded, removeItem, selectAllBlogs } from '../../features/blog/blogSlice';
+import ReactionButtons from '../../features/blog/ReactionButtons';
 import { selectAllBoxStyle } from '../../features/boxStyle/boxStyleSlice';
 import { addNotification } from '../../features/notification/notificationSlice';
-import BlogItems from './BlogItems';
 import style from './BlogPage.module.scss';
 
 const categories = [
@@ -45,8 +46,8 @@ const BlogPage = () => {
     })
     const [open, setOpen] = useState(() => false)
 
-    const handleOpen = () => setOpen(true)
-    const handleClose = () => setOpen(false)
+    const handleOpen = useCallback(() => setOpen(true))
+    const handleClose = () => useCallback(setOpen(false))
     const onFormChanged = e => {
         setFormData(prevFormData => {
             return {
@@ -56,7 +57,7 @@ const BlogPage = () => {
         })
     }
 
-    const onSaveBlogClicked = () => {
+    const onSaveBlogClicked = useCallback(() => {
         if (formData.title && formData.content && formData.category && formData.pic) {
             dispatch(
                 blogAdded(formData.title, formData.content, formData.category ? formData.category : '', formData.pic)
@@ -77,7 +78,7 @@ const BlogPage = () => {
                 category: false,
             })
         }
-    }
+    })
 
     const canSave = Boolean(formData.title) && Boolean(formData.content) && Boolean(formData.category) && Boolean(formData.pic);
 
@@ -179,3 +180,39 @@ const BlogPage = () => {
     )
 }
 export default BlogPage
+
+const BlogItems = ({ pic, category, title, content, timestamp, item, id }) => {
+    const login = useSelector((state) => state.login.loginStatus);
+    const dispatch = useDispatch();
+
+
+
+    let timeAgo = '';
+    if (timestamp) {
+        const date = parseISO(timestamp);
+        const timePeriod = formatDistanceToNow(date)
+        timeAgo = `${timePeriod} ago`
+    }
+
+    return (
+        <article className={style.blog_page_item}>
+            {login.status ?
+                <button
+                    onClick={() => {
+                        dispatch(removeItem(id),
+                            dispatch(addNotification({ type: true, message: "Blog removed" }))
+                        )
+                    }}
+                    className={style.blog_page_delete}>X</button> :
+                <></>
+            }
+            <img className={style.blog_page_pic} src={pic} />
+            <span className={style.blog_page_category}>{category}</span>
+            <h3 className={style.blog_page_title}>{title}</h3>
+            <p className={style.blog_page_content}>{content}</p>
+            <span className={style.blog_page_category} title={timestamp}>
+                &nbsp; <i>{timeAgo}</i></span>
+            <ReactionButtons blog={item} />
+        </article>
+    )
+}

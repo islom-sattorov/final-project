@@ -1,9 +1,8 @@
 import { Link } from "react-router-dom"
-import Dish from "./Dish"
+import pic1 from '../../assets/dish1.png'
+import pic2 from '../../assets/dish2.png'
+import pic3 from '../../assets/dish3.png'
 import style from './Dish.module.scss'
-import pic1 from './pic1.png'
-import pic2 from './pic2.png'
-import pic3 from './pic3.png'
 
 const Dishes = () => {
     return (
@@ -31,3 +30,15 @@ const Dishes = () => {
 }
 
 export default Dishes
+
+
+const Dish = (props) => {
+    return (
+        <div className={style.dishes_container}>
+            <img className={style.pic} src={props.pic} alt='dish' />
+            <h3 className={style.title}>{props.title} $15</h3>
+            <hr />
+            <p className={style.subtitle}>{props.subtitle}</p>
+        </div>
+    )
+}

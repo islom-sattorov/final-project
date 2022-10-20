@@ -1,9 +1,9 @@
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import pic from '../../assets/form_pic.png';
 import { reserveTable, selectAllHall } from "../../features/hall/hallSlice";
 import { addNotification } from '../../features/notification/notificationSlice';
 import style from './Form.module.scss';
-import pic from './pic.png';
 
 
 const Form = () => {

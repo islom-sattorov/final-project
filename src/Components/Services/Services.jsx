@@ -1,7 +1,7 @@
+import icon1 from '../../assets/Vector.svg';
+import icon2 from '../../assets/Vector2.svg';
+import icon3 from '../../assets/Vector3.svg';
 import style from './Services.module.scss';
-import icon1 from './Vector.svg';
-import icon2 from './Vector2.svg';
-import icon3 from './Vector3.svg';
 
 const Services = () => {
     return (

@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
+import pic from '../../assets/main_pic.jpg'
 import style from './Main.module.scss'
-import pic from './pic.jpg'
 
 const Main = () => {
     return (

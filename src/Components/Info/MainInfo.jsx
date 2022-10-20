@@ -1,8 +1,7 @@
-import hoursPic from './hours.svg';
-import Info from './Info';
+import hoursPic from '../../assets/hours.svg';
+import locationPic from '../../assets/location.svg';
+import reserve from '../../assets/reserve.svg';
 import style from './Info.module.scss';
-import locationPic from './location.svg';
-import reserve from './reserve.svg';
 
 const MainInfo = () => {
     return (
@@ -31,3 +30,17 @@ const MainInfo = () => {
 }
 
 export default MainInfo
+
+const Info = (props) => {
+    return (
+        <div className="container">
+            <div className={style.section_flex}>
+                <img className={style.section_icons} src={props.img} alt='icons' />
+                <div className={style.section_text}>
+                    <h2 className={style.section_title}>{props.title}</h2>
+                    <p className={style.section_subtitle}>{props.subtitle}</p>
+                </div>
+            </div>
+        </div>
+    )
+}

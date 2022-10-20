@@ -2,7 +2,7 @@ import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { selectAllBlogs } from '../../features/blog/blogSlice';
 import style from './Blog.module.scss';
-import BlogPreview from './BlogPreview';
+
 
 const Blog = () => {
     const blogs = useSelector(selectAllBlogs);
@@ -47,3 +47,14 @@ const Blog = () => {
 }
 
 export default Blog
+
+const BlogPreview = ({ pic, category, title, cont }) => {
+    return (
+        <div className={style.preview}>
+            <img src={pic} className={style.preview_pic} />
+            <span className={style.preview_category}>{category}</span>
+            <h3 className={style.preview_title}>{title}</h3>
+            <p className={style.preview_content}>{cont}</p>
+        </div>
+    )
+}
