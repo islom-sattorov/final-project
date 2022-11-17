@@ -13,6 +13,7 @@ export const getMenu = createAsyncThunk('menu/getMenu', async () => {
         const request = await fetch(url)
         const requestJson = await request.json();
         const menuData = await requestJson.Result;
+        console.log(menuData)
         return menuData
 
     }
@@ -31,14 +32,14 @@ const menuSlice = createSlice(({
     name: 'menus',
     initialState,
     extraReducers: {
-        [getMenu.pending]: (state, action) => {
+        [getMenu.pending]: (state) => {
             state.loading = true
         },
         [getMenu.fulfilled]: (state, action) => {
             state.loading = false
             state.menus = action.payload
         },
-        [getMenu.rejected]: (state, action) => {
+        [getMenu.rejected]: (state) => {
             state.loading = false
         },
     },

@@ -9,12 +9,12 @@ const MenuPage = () => {
     const { menus, loading } = useSelector((state) => state.menu)
     const dispatch = useDispatch();
 
-    const renderedItems = menus.map((item, idx) => {
+    const renderedItems = menus && menus.map((item, idx) => {
         return (
             <div key={idx} className={style.menulist_items}>
                 <h2 className={style.menulist_name} >{item.menuname}</h2>
-                <img className={style.menulist_pic} src={String(idx).includes('0') ?
-                    item.images[2] : idx % 2 != 0 ? item.images[1] : idx % 2 == 0 ? item.images[0] : 'not found'} />
+                <img alt="test" className={style.menulist_pic} src={String(idx).includes('0') ?
+                    item.images[2] : idx % 2 !== 0 ? item.images[1] : idx % 2 === 0 ? item.images[0] : 'not found'} />
                 <hr />
                 <p className={style.menulist_content}>{item.description}</p>
             </div>

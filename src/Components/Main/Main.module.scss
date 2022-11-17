@@ -3,7 +3,7 @@
 
 .main{
     border: 1px dotted $hr-color;
-    padding: 7rem 0 0rem 0;
+    padding: 7rem 0 0 0;
     background: $secondary;
 
     @include breakpoint(760px){

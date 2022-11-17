@@ -51,7 +51,7 @@ export default Blog
 const BlogPreview = ({ pic, category, title, cont }) => {
     return (
         <div className={style.preview}>
-            <img src={pic} className={style.preview_pic} />
+            <img alt="test" src={pic} className={style.preview_pic} />
             <span className={style.preview_category}>{category}</span>
             <h3 className={style.preview_title}>{title}</h3>
             <p className={style.preview_content}>{cont}</p>

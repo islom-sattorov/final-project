@@ -55,22 +55,20 @@ const Header = () => {
 
     const onSubmitClicked = useCallback((e) => {
         e.preventDefault();
-        if (loginForm.userName.trim() == login.username && loginForm.userPassword.trim() == login.password) {
+        if (loginForm.userName.trim() === login.username && loginForm.userPassword.trim() === login.password) {
             dispatch(statusToggle())
             handleClose();
             setLoginForm({ userName: '', userPassword: '', })
             dispatch(addNotification({ type: true, message: `Welcome back ${login.username}` }))
-        } else if (localState != null && loginForm.userName.trim() == localState.name
-            && loginForm.userPassword.trim() == localState.password) {
+        } else if (localState != null && loginForm.userName.trim() === localState.name
+            && loginForm.userPassword.trim() === localState.password) {
             dispatch(statusToggle())
             dispatch(addNotification({ type: true, message: 'Login Success' }))
             handleClose();
-            return
         } else {
             dispatch(addNotification({ type: false, message: `This user doesn't exist` }))
             handleClose();
             setLoginForm({ userName: '', userPassword: '', })
-            return
         }
     })
 
@@ -122,9 +120,9 @@ const Header = () => {
 
 
     useEffect(() => {
-        if (login.status == true) {
+        if (login.status === true) {
             window.localStorage.setItem('login', JSON.stringify(true))
-        } else if (login.status == false) {
+        } else if (login.status === false) {
             window.localStorage.setItem('login', JSON.stringify(false))
         }
     }, [login.status])

@@ -32,7 +32,6 @@
         border: 2px solid $primary;
         margin: 0 1.5rem;
         background: none;
-        text-align: center;
         cursor: pointer;
         transition: 0.2s all;
 
@@ -223,7 +222,7 @@
     flex-direction: row;
     gap: 2rem;
     margin: 0 50px 0 60px;
-    padding: 5px 0 0px 0;
+    padding: 5px 0 0 0;
     align-items: center;
 
     @include breakpoint(550px){

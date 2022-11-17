@@ -28,7 +28,7 @@ const Form = () => {
 
     const onSaveBtnClicked = () => {
         const idElement = hall.find(item => {
-            return item.reserve == false
+            return item.reserve === false
         })
 
         if (formData.name && formData.persons <= 10 && formData.time && idElement && formData.reserve) {

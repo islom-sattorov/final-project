@@ -160,7 +160,7 @@ const BlogPage = () => {
                             ))}
                         </TextField>
                         <TextField
-                            error={validation.pic && formData.pic == ''}
+                            error={validation.pic && formData.pic === ''}
                             helperText={validation.pic && formData.pic === '' ? 'Insert a link to the picture(URL)' : ''}
                             onBlur={() => setValidation(prev => ({ ...prev, pic: true }))}
                             onFocus={() => setValidation(prev => ({ ...prev, pic: false }))}
@@ -206,7 +206,7 @@ const BlogItems = ({ pic, category, title, content, timestamp, item, id }) => {
                     className={style.blog_page_delete}>X</button> :
                 <></>
             }
-            <img className={style.blog_page_pic} src={pic} />
+            <img alt="test" className={style.blog_page_pic} src={pic} />
             <span className={style.blog_page_category}>{category}</span>
             <h3 className={style.blog_page_title}>{title}</h3>
             <p className={style.blog_page_content}>{content}</p>
