@@ -9,7 +9,8 @@ const initialState = {
 
 export const getMenu = createAsyncThunk('menu/getMenu', async () => {
     try {
-        const url = 'https://foodbukka.herokuapp.com/api/v1/menu';
+        // const url = 'https://foodbukka.herokuapp.com/api/v1/menu';
+        const url = "https://pizza-and-desserts.p.rapidapi.com/pizzas/"
         const request = await fetch(url)
         const requestJson = await request.json();
         const menuData = await requestJson.Result;
