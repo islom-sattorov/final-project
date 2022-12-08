@@ -1,48 +1,56 @@
-import React from "react";
+import { useEffect } from "react";
 
-const HOC = (WrappedComponent, entity) => {
-    return class extends React.Component {
-        state = {
+export const HOC = (WrappedComponent) => (entity) => {
+    try {
+        const state = {
             data: [],
             term: "",
-        };
-        componentDidMount() {
-            const fetchData = async () => {
-                const res = await fetch(
-                    `https://jsonplaceholder.typicode.com/${entity}`
-                );
-                const json = await res.json();
-                this.setState({ ...this.state, data: json });
-            };
-            fetchData();
         }
-        render() {
-            let { term, data } = this.state;
-            let filteredData = data.slice(0, 10).filter((d) => {
-                if (entity === "users") {
-                    const { name } = d;
-                    return name.indexOf(term) >= 0;
-                }
-                if (entity === "todos") {
-                    const { title } = d;
-                    return title.indexOf(term) >= 0;
-                }
-            });
-            return (
-                <div>
-                    <h2>{entity}</h2>
-                    <input
-                        type="text"
-                        value={term}
-                        onChange={(e) =>
-                            this.setState({ ...this.state, term: e.target.value })
-                        }
-                    />
-                    <WrappedComponent data={filteredData}></WrappedComponent>
-                </div>
-            );
-        }
-    };
-};
 
-export default HOC;
+        let { data, term } = state;
+
+        let filteredData = data.slice(0, 10).filter((d) => {
+            switch (entity) {
+                case "user":
+                    const { name } = d;
+                    name.indexOf(term) >= 0
+                    break;
+                case "todos":
+                    const { title } = d;
+                    title.indexOf(term) >= 0;
+            }
+        })
+
+        useEffect(() => {
+            const fetchData = async () => {
+                try {
+                    const res = await fetch(
+                        `https://jsonplaceholder.typicode.com/${entity}`
+                    )
+                    const json = await res.json();
+                    set`${state.data}`({ ...state, data: json })
+
+                } catch (err) {
+                    console.log(err)
+                }
+            }
+            fetchData()
+        }, [])
+    } catch (err) {
+        console.log(err)
+    }
+
+    return (
+        <div>
+            <h2>{entity}</h2>
+            <input
+                type="text"
+                value={term}
+                onChange={(e) => set`${state.term}`({ ...state, term: e.target.value })}
+            />
+            <WrappedComponent data={filteredData}></WrappedComponent>
+        </div>
+    )
+}
+
+export default HOC

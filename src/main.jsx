@@ -6,10 +6,14 @@ import App from './App';
 import { store } from './app/store';
 import './index.scss';
 
-ReactDOM.createRoot(document.getElementById('root')).render(
-  <Provider store={store}>
-    <BrowserRouter>
-      <App />
-    </BrowserRouter>
-  </Provider>
-)
+try {
+  ReactDOM.createRoot(document.getElementById('root')).render(
+    <Provider store={store}>
+      <BrowserRouter>
+        <App />
+      </BrowserRouter>
+    </Provider>
+  )
+} catch (err) {
+  console.log("React error", err)
+}

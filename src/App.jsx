@@ -10,25 +10,33 @@ import Notification from './Components/Notification/Notification'
 import Hall from './Components/ReservePage/Hall'
 import ReservePage from './Components/ReservePage/ReservePage'
 import Terrace from './Components/ReservePage/Terrace'
+import ErrorBoundary from './ErrorBoundary'
 import Test from './HOC/Test'
+import TestSecond from './HOCS/TestSecond'
 
 function App() {
   return (
     <>
       <Header />
-      <Routes>
-        <Route path='/' element={<Home />} />
-        <Route path='/blog' element={<BlogPage />} />
-        <Route path='/menu' element={<MenuPage />} />
-        <Route path='/reservation/*' element={<ReservePage />}>
-          <Route path="reservation/hall" element={<Hall />} />
-          <Route path="reservation/terrace" element={<Terrace />} />
-        </Route>
-        <Route path='/test' element={<Test />} />
-      </Routes>
-      <Notification
-        children={<div></div>}
-      />
+      <ErrorBoundary fallback={<p>Something went wrong</p>}>
+        <Routes>
+          <Route path='/' element={<Home />} />
+          <Route path='/blog' element={<BlogPage />} />
+          <Route path='/menu' element={<MenuPage />} />
+
+          <Route path='/reservation/*' element={<ReservePage />}>
+            <Route path="reservation/hall" element={<Hall />} />
+            <Route path="reservation/terrace" element={<Terrace />} />
+          </Route>
+
+          <Route path='/test' element={<Test />} />
+          <Route path="/testsecond" element={<TestSecond />} />
+
+        </Routes>
+        <Notification
+          children={<div></div>}
+        />
+      </ErrorBoundary>
       <Footer />
     </>
   )
