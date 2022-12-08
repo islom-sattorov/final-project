@@ -10,7 +10,7 @@ import Notification from './Components/Notification/Notification'
 import Hall from './Components/ReservePage/Hall'
 import ReservePage from './Components/ReservePage/ReservePage'
 import Terrace from './Components/ReservePage/Terrace'
-
+import Test from './HOC/Test'
 
 function App() {
   return (
@@ -24,6 +24,7 @@ function App() {
           <Route path="reservation/hall" element={<Hall />} />
           <Route path="reservation/terrace" element={<Terrace />} />
         </Route>
+        <Route path='/test' element={<Test />} />
       </Routes>
       <Notification
         children={<div></div>}
